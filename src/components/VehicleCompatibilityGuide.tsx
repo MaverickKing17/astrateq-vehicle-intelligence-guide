@@ -255,10 +255,14 @@ export default function VehicleCompatibilityGuide() {
       <header id="guide-header" className="sticky top-0 bg-brand-midnight/80 backdrop-blur-lg border-b border-white/5 py-4 z-40 transition-colors">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-lg bg-gradient-to-tr from-brand-space to-brand-midnight border border-brand-cyan/20 flex items-center justify-center shadow-lg shadow-brand-cyan/5">
-              <span className="text-white font-display font-bold text-lg tracking-wider">A</span>
-            </div>
-            <div>
+            <img 
+              id="astrateq-brand-logo-img"
+              src="https://i.imgur.com/jBfhJCL.png" 
+              alt="Astrateq Gadgets Logo" 
+              className="h-9 w-auto object-contain select-none transition-transform hover:scale-105 duration-200"
+              referrerPolicy="no-referrer"
+            />
+            <div className="flex flex-col">
               <span className="text-white font-display font-medium text-base tracking-wide flex items-center gap-1">
                 Astrateq <span className="text-brand-cyan font-semibold">Gadgets</span>
               </span>
