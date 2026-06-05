@@ -65,10 +65,174 @@ const VEHICLE_DATABASE: VehicleBrandMetrics[] = [
 
 // OBD-II Interactive Sensor Simulation Data
 const OBD_SENSORS: OBDSensor[] = [
-  { id: 'rpm', name: 'Engine Speed', parameterCode: '01 0C', unit: 'RPM', normalRange: '700 - 3,500', currentValue: 1850, signalHex: '41 0C 1C E8', educationalInfo: 'Mode 01 PID 0C returns engine rotation. Astrateq uses local speed cycles to dynamically evaluate engine load state.' },
+  { id: 'rpm', name: 'Engine Speed', parameterCode: '01 0C', unit: 'RPM', normalRange: '700 - 3,500', currentValue: 1850, signalHex: '41 0C 1C E8', educationalInfo: 'Mode 01 PID 0C returns engine rotation. Astrateq Gadgets uses local speed cycles to dynamically evaluate engine load state.' },
   { id: 'speed', name: 'Vehicle Velocity', parameterCode: '01 0D', unit: 'km/h', normalRange: '0 - 120', currentValue: 92, signalHex: '41 0D 5C', educationalInfo: 'Mode 01 PID 0D. Pure vehicle speed data sourced directly from wheel rotation sensors, free from GPS multipath loss in tall Canadian forests.' },
   { id: 'coolant', name: 'Engine Temp', parameterCode: '01 05', unit: '°C', normalRange: '80 - 105', currentValue: 88, signalHex: '41 05 80', educationalInfo: 'Mode 01 PID 05. Crucial for thermal health. Used by edge computing systems to predict winter battery optimization cycles.' },
   { id: 'throttle', name: 'Throttle Input', parameterCode: '01 11', unit: '%', normalRange: '0 - 100', currentValue: 42, signalHex: '41 11 6B', educationalInfo: 'Mode 01 PID 11 returns the throttle pedal position index. Sourced to map driver intent against passive outward camera feedback.' }
+];
+
+// Rich Premium Takeaways List matching Section 1
+const KEY_TAKEAWAYS = [
+  {
+    title: "On-Board Diagnostics Health",
+    desc: "Most modern vehicles include diagnostic systems that help owners understand vehicle health.",
+    icon: Gauge,
+    color: "from-cyan-500/20 to-blue-500/10",
+  },
+  {
+    title: "Standardized OBD-II Port",
+    desc: "OBD-II is the standardized access point many vehicles use for diagnostics.",
+    icon: Layers,
+    color: "from-blue-500/20 to-indigo-500/10",
+  },
+  {
+    title: "Vehicle Signal Ecosystem",
+    desc: "Vehicle data can include diagnostic, performance, and usage-related signals.",
+    icon: Network,
+    color: "from-purple-500/20 to-cyan-500/10",
+  },
+  {
+    title: "Decentralized Edge Processing",
+    desc: "Local processing can reduce dependency on cloud connectivity.",
+    icon: Cpu,
+    color: "from-cyan-500/20 to-purple-500/10",
+  },
+  {
+    title: "Informed Technology Integration",
+    desc: "Drivers should understand privacy, ownership, and subscription tradeoffs before adopting connected vehicle technology.",
+    icon: Lock,
+    color: "from-indigo-500/20 to-blue-500/10",
+  }
+];
+
+// Rich Premium Audiences List matching Section 2 Requirements
+const AUDIENCES = [
+  {
+    id: "audience-suv",
+    title: "Family SUV Owners",
+    desc: "Ensure complete cabin safety, child locks, climate status, and engine speed indicators remain privately processed during domestic commutes in Canadian suburbs.",
+    icon: Car,
+  },
+  {
+    id: "audience-truck",
+    title: "Pickup Truck Owners",
+    desc: "Evaluate 12V voltage stability and high-current electrical load draws to secure passive auxiliary units without draining battery reserves in freezing workloads.",
+    icon: Server,
+  },
+  {
+    id: "audience-commuter",
+    title: "Daily Commuters",
+    desc: "Access localized metrics of engine health and real-time fuel temperature patterns quietly during long, high-traffic city gridlock drives across Canadian centers.",
+    icon: Gauge,
+  },
+  {
+    id: "audience-longdistance",
+    title: "Long-Distance Drivers",
+    desc: "Guarantee continuous operations entirely offline across expansive secondary provincial highways and national parks without needing expensive regional carrier coverage.",
+    icon: Wifi,
+  },
+  {
+    id: "audience-privacy",
+    title: "Privacy-Conscious Drivers",
+    desc: "Keep spatial tracking sequences, speed patterns, driving diaries, and trip statistics contained to local hardware under secure personal control.",
+    icon: Shield,
+  },
+  {
+    id: "audience-enthusiast",
+    title: "Technology Enthusiasts",
+    desc: "Direct access to passive, read-only engine CAN bus frames and parameters to explore automotive network layouts without code-signing or central vendor authorizations.",
+    icon: Cpu,
+  },
+  {
+    id: "audience-exploring",
+    title: "Drivers Exploring Vehicle Intelligence",
+    desc: "Learn how non-invasive diagnostics feed auxiliary dashboards to streamline safety awareness and passenger control.",
+    icon: Sparkles,
+  }
+];
+
+// Detailed compliance-correct FAQs matching Section 5
+const FAQS = [
+  {
+    q: "What is OBD-II?",
+    a: "OBD-II stands for On-Board Diagnostics, second generation. It is a standardized physical port and communication protocol that allows external accessories to read operational parameters from your vehicle’s internal computer networks."
+  },
+  {
+    q: "Does every vehicle have an OBD-II port?",
+    a: "Almost all gasoline, diesel, and hybrid passenger vehicles manufactured for North America since 1996 are legally mandated to feature a standardized OBD-II port. Electric vehicles also feature a diagnostic connection, though structural signaling may vary."
+  },
+  {
+    q: "What is vehicle telemetry?",
+    a: "Vehicle telemetry refers to the automated, real-time sensing, recording, and transmission of operational data from various onboard systems, such as velocity, throttle percentage, braking force, or diagnostic trouble signals."
+  },
+  {
+    q: "Can vehicle diagnostics reveal personal information?",
+    a: "Raw system parameters such as RPM or coolant heat do not contain personal identifiers. However, if combined with continuous global positioning coordinates or cabin voice recordings and transmitted to the cloud, they can map detailed habits."
+  },
+  {
+    q: "Why do some vehicle products use cloud processing?",
+    a: "Many products rely on cloud servers because of limited processing power on the device itself or because the vendor acts as an intermediary, collecting user diagnostics to commercialize driver profile databases."
+  },
+  {
+    q: "What is local edge processing?",
+    a: "Local edge processing represents a computing architecture where complex algorithms and data analyses are executed entirely on hardware located inside the cabin, with no necessity to transfer raw logs to remote external servers."
+  },
+  {
+    q: "Can vehicle intelligence tools work without subscriptions?",
+    a: "Yes. Tools designed with an offline, local-first computing environment operate independently. By excluding centralized cloud servers, they eliminate the maintenance overhead that forces vendors to install subscription paywalls."
+  },
+  {
+    q: "Why does compatibility vary by vehicle?",
+    a: "While OBD-II is standardized, different auto brands deploy distinct electronic architectures, baud-rates, physical dashboard clearance angles, or custom security gateways that impact connection."
+  },
+  {
+    q: "Is this guide a guarantee that my vehicle will work with Astrateq?",
+    a: "No. This guide is educational and does not guarantee product compatibility. Specific electrical architectures, regional cold-weather configurations, or aftermarket modifications can affect final installation success."
+  },
+  {
+    q: "How do I check my vehicle compatibility?",
+    a: "Review your year, make, and model parameters against our interactive checklist, verify your physical OBD-II port location, and consult technical vehicle manuals for security gateway barriers."
+  }
+];
+
+// Art direction concepts matching Section 8 section requirements
+const IMAGES_ART_DIRECTION = [
+  {
+    title: "Canadian Winter Highway at Dusk",
+    desc: "Perspective look from driver viewport showing a snow-dusted, tree-lined northern road winding into twilight, framed under clear eye-safe dashboard accents with soft, low-contrast illumination.",
+    focusLength: "35mm Cine-Prime",
+    aspect: "Cold Ambient Palette"
+  },
+  {
+    title: "Premium Family SUV Interior",
+    desc: "Clean perspective from the center console towards the passenger instrument pane, focusing on high-end wood trim details, clean fabric seats, and spacious cabin ergonomics illuminated by eye-safe twilight.",
+    focusLength: "50mm Portrait-Prime",
+    aspect: "High-Contrast Wood/Onyx"
+  },
+  {
+    title: "OBD-II Port Close-Up",
+    desc: "Detailed close-quarters shot under a lower steering column shroud showing the native 16-pin interface socket, cleanly lit to showcase solid brass pins and stable grounding wires.",
+    focusLength: "90mm Macro-Lens",
+    aspect: "Engineering Detail"
+  },
+  {
+    title: "Dashcam Mounted Cleanly Behind Rearview Mirror",
+    desc: "S symmetric layout from interior looking upwards towards the windshield, showing a non-bulky, discrete diagnostic housing fitted cleanly flush against glass and tucked behind a high-end mirror system.",
+    focusLength: "28mm Wide-Prime",
+    aspect: "Ergonomic Flush Mount"
+  },
+  {
+    title: "Driver Reviewing Vehicle Information on Tablet",
+    desc: "Close-up over-the-shoulder view of a driver's hand holding a high-resolution dark slate digital readout, containing clean, tabular telemetry diagnostics, offline status flags, and local vehicle health guides.",
+    focusLength: "40mm Editorial-Prime",
+    aspect: "User Sovereignty Focus"
+  },
+  {
+    title: "Luxury Vehicle Dashboard with Subtle Blue Interface",
+    desc: "Minimalist perspective focusing on high-prestige driver displays showing a calm, non-flashy, dark slate interface displaying engine speed and warning logs in modern layout styling.",
+    focusLength: "35mm Anamorphic",
+    aspect: "Subdued Eye-safe Luminescence"
+  }
 ];
 
 export default function VehicleCompatibilityGuide() {
@@ -109,6 +273,12 @@ export default function VehicleCompatibilityGuide() {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [submitSuccessMsg, setSubmitSuccessMsg] = useState<string>('');
 
+  // Frequently Asked Questions index state
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  // Active art direction card concept selection
+  const [selectedArtDirectionIndex, setSelectedArtDirectionIndex] = useState<number>(0);
+
   // Floating notifications/toasts
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -116,8 +286,15 @@ export default function VehicleCompatibilityGuide() {
   const checklistRef = useRef<HTMLDivElement>(null);
   const leadSectionRef = useRef<HTMLDivElement>(null);
 
-  // Update dynamic progress bar
+  // Conversion event logger placeholder
+  const logAnalyticsEvent = (eventName: string, params?: Record<string, any>) => {
+    console.log(`[ASTRATEQ ANALYTICS] Event: ${eventName}`, params || {});
+  };
+
+  // Update dynamic progress bar and log initial load tracking event
   useEffect(() => {
+    logAnalyticsEvent('guide_page_view', { path: '/guides/vehicle-compatibility' });
+
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
@@ -165,17 +342,20 @@ export default function VehicleCompatibilityGuide() {
   // Utility Actions
   const handleCopyLink = () => {
     const canonicalURL = 'https://reports.astrateqgadgets.com/guides/vehicle-compatibility';
+    logAnalyticsEvent('share_clicked', { method: 'copy_link' });
     navigator.clipboard.writeText(canonicalURL)
       .then(() => showToast('Canonical link copied to clipboard!'))
       .catch(() => showToast('Failed to copy link automatically.'));
   };
 
   const handlePrint = () => {
-    window.print();
+    logAnalyticsEvent('pdf_download_clicked', { trigger: 'print_menu' });
+    showToast('PDF version coming soon. Join the email list to receive it when available.');
   };
 
   const handleShare = () => {
     const canonicalURL = 'https://reports.astrateqgadgets.com/guides/vehicle-compatibility';
+    logAnalyticsEvent('share_clicked', { method: 'native_share' });
     if (navigator.share) {
       navigator.share({
         title: 'Digital Vehicle Compatibility & Safety Guide',
@@ -192,6 +372,7 @@ export default function VehicleCompatibilityGuide() {
     if (!leadName || !leadEmail) return;
 
     setIsSubmitting(true);
+    logAnalyticsEvent('toolkit_email_submit', { email: leadEmail, first_name: leadName });
 
     // Dynamic professional messaging for Canadian driver
     setTimeout(() => {
@@ -209,6 +390,14 @@ export default function VehicleCompatibilityGuide() {
     vehicle.notes.toLowerCase().includes(searchQuery.toLowerCase()) || 
     vehicle.protocol.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const handleFaqToggle = (index: number) => {
+    const isOpening = openFaqIndex !== index;
+    setOpenFaqIndex(isOpening ? index : null);
+    if (isOpening) {
+      logAnalyticsEvent('faq_opened', { index, question: FAQS[index].q });
+    }
+  };
 
   const scrollToSection = (elementRef: React.RefObject<HTMLDivElement | null>) => {
     if (elementRef.current) {
@@ -387,7 +576,7 @@ export default function VehicleCompatibilityGuide() {
               
               <div className="p-4 space-y-2 mt-2">
                 <div className="flex items-center justify-between text-xs text-brand-cyan font-mono">
-                  <span>ASTRATEQ IN-CABIN HUD MOCKUP</span>
+                  <span>ASTRATEQ GADGETS IN-CABIN HUD MOCKUP</span>
                   <span className="animate-pulse">● ACTIVE TELEMETRY FEED</span>
                 </div>
                 <p className="text-xs text-gray-400 leading-relaxed">
@@ -398,12 +587,96 @@ export default function VehicleCompatibilityGuide() {
           </div>
         </section>
 
+        {/* KEY TAKEAWAYS (EXECUTIVE SUMMARY) */}
+        <section id="executive-summary" className="mb-24">
+          <div className="border border-white/5 bg-brand-space/20 rounded-3xl p-8 md:p-12 relative overflow-hidden backdrop-blur-md">
+            <div className="absolute top-0 right-0 h-40 w-40 bg-brand-cyan/5 rounded-full blur-3xl" />
+            <div className="relative space-y-8">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider uppercase">
+                  <Info className="h-3 w-3" />
+                  <span>PREMIUM SUMMARY</span>
+                </div>
+                <h2 className="text-3xl font-display font-medium text-white tracking-tight">
+                  Key Takeaways
+                </h2>
+                <p className="text-sm text-gray-400 max-w-2xl leading-relaxed">
+                  A high-level physical summary of diagnostics, signals, processing constraints, and driver autonomy.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                {KEY_TAKEAWAYS.map((takeaway, i) => {
+                  const IconComponent = takeaway.icon;
+                  return (
+                    <div 
+                      key={i} 
+                      className="group p-6 rounded-2xl bg-brand-space/40 border border-white/5 hover:border-brand-cyan/20 transition-all duration-300 flex flex-col justify-between space-y-4"
+                    >
+                      <div className="space-y-3">
+                        <div className={`p-3 rounded-xl bg-gradient-to-br ${takeaway.color} w-fit group-hover:scale-105 transition-transform duration-300`}>
+                          <IconComponent className="h-5 w-5 text-brand-cyan" />
+                        </div>
+                        <h3 className="text-sm font-medium text-white group-hover:text-brand-cyan transition-colors">
+                          {takeaway.title}
+                        </h3>
+                      </div>
+                      <p className="text-xs text-gray-400 leading-relaxed pt-2">
+                        {takeaway.desc}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WHO THIS GUIDE IS FOR SECTION */}
+        <section id="section-who-it-is-for" className="mb-24">
+          <div className="space-y-8">
+            <div className="text-center max-w-3xl mx-auto space-y-4">
+              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 1.5 // AUDIENCE CONFIGURATIONS</div>
+              <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
+                Who This Guide Is For
+              </h2>
+              <p className="text-sm text-gray-400 leading-relaxed max-w-xl mx-auto">
+                Discover how modern diagnostic telemetry targets your specific driver profile, vehicle class, and personal data rules.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
+              {AUDIENCES.map((audience) => {
+                const IconComp = audience.icon;
+                return (
+                  <div 
+                    key={audience.id}
+                    className="p-5 rounded-2xl bg-brand-space/30 border border-white/5 hover:border-brand-cyan/10 transition-all duration-300 flex flex-col justify-between space-y-4 lg:col-span-1"
+                  >
+                    <div className="space-y-3">
+                      <div className="p-2.5 rounded-lg bg-brand-midnight border border-white/10 w-fit">
+                        <IconComp className="h-4 w-4 text-brand-cyan" />
+                      </div>
+                      <h3 className="text-sm font-medium text-white tracking-tight">
+                        {audience.title}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-gray-400 leading-relaxed pt-1">
+                      {audience.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* FOUNDER PHILOSOPHY SECTION */}
         <section id="section-founder-philosophy" className="mb-24 border-t border-b border-white/5 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-4 flex justify-center">
-              {/* Clean elegant portrait placeholder card for future founder imagery */}
+               {/* Clean elegant portrait placeholder card for future founder imagery */}
               <div className="w-full max-w-[280px] aspect-[3/4] rounded-2xl bg-brand-space/30 border border-white/10 flex flex-col items-center justify-center p-6 relative overflow-hidden group hover:border-brand-cyan/20 transition-all">
                 <div className="absolute inset-0 bg-gradient-to-b from-brand-cyan/5 to-transparent pointer-events-none" />
                 <div className="h-16 w-16 rounded-full bg-brand-midnight border border-white/10 flex items-center justify-center mb-4 transition-transform group-hover:scale-105 duration-300">
@@ -411,7 +684,7 @@ export default function VehicleCompatibilityGuide() {
                 </div>
                 <div className="text-center space-y-2">
                   <h4 className="text-white font-display font-medium text-sm">Founder Portrait</h4>
-                  <p className="text-[11px] text-gray-400 font-mono tracking-wide uppercase leading-normal">Astrateq Engineering Core</p>
+                  <p className="text-[11px] text-gray-400 font-mono tracking-wide uppercase leading-normal">Astrateq Gadgets Engineering Core</p>
                   <p className="text-[10px] text-gray-400 italic px-2 leading-relaxed pt-2">"Pre-launch design and firmware coordination standards."</p>
                 </div>
               </div>
@@ -420,7 +693,7 @@ export default function VehicleCompatibilityGuide() {
             <div className="lg:col-span-8 space-y-6 text-left">
               <span className="text-[11px] font-mono text-brand-cyan tracking-widest uppercase block">FOUNDER PHILOSOPHY</span>
               <h2 className="text-3xl font-display font-medium text-white tracking-tight">
-                Why Astrateq Exists
+                Why Astrateq Gadgets Exists
               </h2>
               
               <div className="space-y-4 text-sm text-gray-300 leading-relaxed font-sans max-w-2xl">
@@ -434,12 +707,12 @@ export default function VehicleCompatibilityGuide() {
                   "Drivers should understand their vehicle technology and make informed decisions about privacy, safety, and connectivity."
                 </div>
                 <p>
-                  Astrateq was created around this simple belief. This guide is part of that mission, written in a clear, objective manner to provide real transparency into automotive network diagnostics.
+                  Astrateq Gadgets was created around this simple belief. This guide is part of that mission, written in a clear, objective manner to provide real transparency into automotive network diagnostics.
                 </p>
               </div>
 
               <div className="pt-2 text-xs font-mono text-gray-500">
-                ASTRATEQ ENGINEERING MANIFESTO • SEPTEMBER 2026
+                ASTRATEQ GADGETS ENGINEERING MANIFESTO • SEPTEMBER 2026
               </div>
             </div>
 
@@ -722,7 +995,7 @@ export default function VehicleCompatibilityGuide() {
 
                       <div className="text-[11px] space-y-1">
                         <div>
-                          <span className="text-gray-500 font-mono">Response Prefix:</span> <strong className="text-gray-300 font-mono">41 {activeSensor.parameterCode.split(' ')[1]}</strong> <span className="text-gray-500 font-sans">(Verification Output)</span>
+                          <span className="text-gray-500 font-mono">Response Prefix:</span> <strong className="text-gray-300 font-mono">41 {activeSensor.parameterCode.split(' ')[1]}</strong> <span className="text-gray-500 font-sans">(Diagnostic Frame Output)</span>
                         </div>
                         <div>
                           <span className="text-gray-500 font-mono">Data Byte:</span> 
@@ -767,6 +1040,104 @@ export default function VehicleCompatibilityGuide() {
                   )}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION: UNDERSTANDING VEHICLE DATA education */}
+        <section id="section-understanding-vehicle-data" className="mb-24 scroll-mt-24">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 03 // EDUCATION & TELEMETRY</div>
+            <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
+              Understanding Vehicle Data
+            </h2>
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+              An educational mapping of physical engine sensor telemetry, local area network transmission, and safety analytics. Discover how raw bits are translated to keep you informed.
+            </p>
+          </div>
+
+          {/* Visual Flow Diagram */}
+          <div className="bg-brand-space/20 border border-white/5 rounded-2xl p-6 md:p-8 mb-12 relative overflow-hidden backdrop-blur-md">
+            <h3 className="text-sm font-mono uppercase tracking-wider text-gray-400 mb-8 text-center md:text-left">
+              Data Processing Pipeline
+            </h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center relative">
+              {/* Flow step 1 */}
+              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-white/5 space-y-3 relative z-10">
+                <div className="absolute top-3 right-3 text-[10px] font-mono text-gray-500">01</div>
+                <div className="h-9 w-9 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+                  <Car className="h-5 w-5" />
+                </div>
+                <h4 className="text-white font-medium text-sm font-display">Vehicle Sensors</h4>
+                <p className="text-[11px] text-gray-400 leading-relaxed">
+                  Analog systems like wheel speed, engine load, and brake pressure registries continuously measuring mechanical states.
+                </p>
+              </div>
+
+              {/* Flow step 2 */}
+              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-white/5 space-y-3 relative z-10">
+                <div className="absolute top-3 right-3 text-[10px] font-mono text-gray-500">02</div>
+                <div className="h-9 w-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                  <Network className="h-5 w-5" />
+                </div>
+                <h4 className="text-white font-medium text-sm font-display">Vehicle Network</h4>
+                <p className="text-[11px] text-gray-400 leading-relaxed">
+                  High-speed CAN Bus channels transferring micro-second telemetry packets safely across internal ECU frameworks.
+                </p>
+              </div>
+
+              {/* Flow step 3 */}
+              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-white/5 space-y-3 relative z-10">
+                <div className="absolute top-3 right-3 text-[10px] font-mono text-gray-500">03</div>
+                <div className="h-9 w-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                  <Cpu className="h-5 w-5" />
+                </div>
+                <h4 className="text-white font-medium text-sm font-display">Diagnostic Systems</h4>
+                <p className="text-[11px] text-gray-400 leading-relaxed">
+                  The standard OBD-II gatekeeper querying real-time system PID states offline safely via non-destructive modes.
+                </p>
+              </div>
+
+              {/* Flow step 4 */}
+              <div className="p-5 rounded-xl bg-brand-space/55 border border-brand-cyan/20 space-y-3 relative z-10 shadow-lg shadow-brand-cyan/5">
+                <div className="absolute top-3 right-3 text-[10px] font-mono text-brand-cyan">04</div>
+                <div className="h-9 w-9 rounded-lg bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
+                  <Sparkles className="h-5 w-5 animate-pulse" />
+                </div>
+                <h4 className="text-white font-medium text-sm font-display">Driver Insights</h4>
+                <p className="text-[11px] text-brand-cyan leading-relaxed">
+                  Local, privacy-first edge intelligence translating raw bus signals into immediate safety assistance feedback.
+                </p>
+              </div>
+            </div>
+
+            {/* Connecting arrows designed for large screen layouts of the flow */}
+            <div className="hidden lg:block absolute left-[22%] top-[45%] w-[6%] h-0.5 border-t-2 border-dashed border-white/10 z-0" />
+            <div className="hidden lg:block absolute left-[47%] top-[45%] w-[6%] h-0.5 border-t-2 border-dashed border-white/10 z-0" />
+            <div className="hidden lg:block absolute left-[72%] top-[45%] w-[6%] h-0.5 border-t-2 border-dashed border-brand-cyan/20 z-0" />
+          </div>
+
+          {/* Deep Educational Content Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div className="p-6 rounded-xl bg-brand-space/10 border border-white/5 space-y-4">
+              <h4 className="text-white font-medium font-display text-base">What is OBD-II &amp; Telemetry?</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                The <strong>On-Board Diagnostics (OBD-II)</strong> port is a physical 16-pin interface standardized during the mid-1990s. Its core purpose is to report standardized trouble codes and real-world system logs such as engine heat, velocity, and sensor state.
+              </p>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                <strong>Vehicle Telemetry</strong> represents the automated transmission and processing of these logs. In Astrateq Gadgets' worldview, telemetry is designed to be acquired locally and used strictly for driver awareness rather than centralized analysis.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-xl bg-brand-space/10 border border-white/5 space-y-4">
+              <h4 className="text-white font-medium font-display text-base">Diagnostics vs. Personal Data</h4>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                It is vital to distinguish between functional diagnostics and sensitive personal parameters. Operational readings like wheel RPM or brake cylinder pressure contain no identifying profiles, yet serve as high-utility markers for ice-detection or deceleration assists.
+              </p>
+              <p className="text-xs text-brand-cyan leading-relaxed font-sans">
+                Our educational standpoint keeps these two streams isolated. By securing physical parameters offline, the driver enjoys premium assistance overlays without exporting their trip paths, coordinates, voice files, or private identification details to the cloud.
+              </p>
             </div>
           </div>
         </section>
@@ -853,7 +1224,7 @@ export default function VehicleCompatibilityGuide() {
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">3. Healthy Electrical Loop</span>
+                      <span className="text-xs font-semibold font-display text-white">3. Healthy Electrical System</span>
                       <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.electrical ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
@@ -861,7 +1232,7 @@ export default function VehicleCompatibilityGuide() {
                       </div>
                     </div>
                     <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
-                      A stable electrical loop prevents low-voltage computer dips during starting, providing a robust power foundation for passive computing overlays.
+                      A stable electrical environment prevents low-voltage computer dips during starting, providing a robust power foundation for passive computing overlays.
                     </p>
                   </button>
 
@@ -876,7 +1247,7 @@ export default function VehicleCompatibilityGuide() {
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">4. Windshield Space</span>
+                      <span className="text-xs font-semibold font-display text-white">4. Modern Safety Systems</span>
                       <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.safety ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
@@ -884,7 +1255,7 @@ export default function VehicleCompatibilityGuide() {
                       </div>
                     </div>
                     <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
-                      Standard passive warning elements provide physical space and camera clear-space for overlaying passive feedback and analytics safely.
+                      Active sensor layers provide safety integration options for passive real-time vision analytics without altering stock safety operations.
                     </p>
                   </button>
 
@@ -899,7 +1270,7 @@ export default function VehicleCompatibilityGuide() {
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">5. Stable Battery Standby</span>
+                      <span className="text-xs font-semibold font-display text-white">5. Stable Battery Performance</span>
                       <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.battery ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
@@ -922,7 +1293,7 @@ export default function VehicleCompatibilityGuide() {
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">6. Clean Diagnostic History</span>
+                      <span className="text-xs font-semibold font-display text-white">6. Regular Maintenance History</span>
                       <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.history ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
@@ -930,7 +1301,7 @@ export default function VehicleCompatibilityGuide() {
                       </div>
                     </div>
                     <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
-                      Reduces error noise and guarantees that existing electronic control registers are free of historic active fault codes and lingering debug cycles.
+                      Ensures that the vehicle ECU registers and diagnostic lines are free of historical faults or pending power blockages.
                     </p>
                   </button>
                 </div>
@@ -992,7 +1363,7 @@ export default function VehicleCompatibilityGuide() {
                 </div>
 
                 <div className="text-[10px] text-gray-500 leading-normal font-mono uppercase bg-brand-midnight/40 p-4 border border-white/5 rounded-xl">
-                  ⚠️ NOTICE: These parameters are provided for educational assessment and compatibility research. Final vehicle integration depends on physical configurations, and Astrateq does not provide compatibility guarantees, certifications, or regulatory validations.
+                  ⚠️ NOTICE: These parameters are provided for educational assessment and compatibility research. Final vehicle integration depends on physical configurations, and Astrateq Gadgets does not provide compatibility guarantees, pre-approvals, or regulatory credentials.
                 </div>
               </div>
 
@@ -1038,7 +1409,7 @@ export default function VehicleCompatibilityGuide() {
                 {
                   icon: <CloudRain className="h-6 w-6 text-blue-400" />,
                   title: "Precision Vision Under Heavy Precipitation",
-                  desc: "Wet snow, black ice, salt spray, and blinding sleet cripple legacy optical sensors that rely on clear weather templates. Astrateq's local vision processing is specifically calibrated to cross-reference real OBD wiper cycles against live visual cues.",
+                  desc: "Wet snow, black ice, salt spray, and blinding sleet cripple legacy optical sensors that rely on clear weather templates. Astrateq Gadgets' local vision processing is specifically calibrated to cross-reference real OBD wiper cycles against live visual cues.",
                   metric: "Canadian Road Calibration"
                 },
                 {
@@ -1077,17 +1448,17 @@ export default function VehicleCompatibilityGuide() {
               <div className="border border-white/10 rounded-2xl bg-brand-space/30 p-6 md:p-8 space-y-6 relative overflow-hidden backdrop-blur-md">
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-red-500/5 rounded-full blur-2xl" />
                 
-                <h4 className="text-xs font-mono text-brand-cyan uppercase tracking-widest">REALITY VERIFICATION BRIEF</h4>
+                <h4 className="text-xs font-mono text-brand-cyan uppercase tracking-widest">TELEMETRY COMPARISON BRIEF</h4>
                 
                 <div className="space-y-4 text-xs font-mono">
                   <div className="p-3 bg-white/5 rounded border-l-2 border-amber-400">
                     <span className="text-amber-400 font-bold block mb-1">DATA DISCLOSURE INSIGHT</span>
-                    <span>Recent regulatory audits discover prominent vehicle manufacturers transmit private cabin audio, continuous GPS sequences, and acceleration profiles to broker entities secretively.</span>
+                    <span>Recent research indicates multiple vehicle manufacturers transmit driving records, coordinates, and general speed indicators to external agencies under various circumstances.</span>
                   </div>
                   
                   <div className="p-3 bg-white/5 rounded border-l-2 border-brand-cyan">
-                    <span className="text-brand-cyan font-bold block mb-1">ASTRATEQ INVIOLABLE PROTOCOL</span>
-                    <span>Astrateq Gadgets' entire code stack compiles natively on localized hardware. We cannot read your logs because they never touch our servers. Security. Confirmed.</span>
+                    <span className="text-brand-cyan font-bold block mb-1">ASTRATEQ GADGETS DESIGN APPROACH</span>
+                    <span>Astrateq Gadgets' software components compile and process diagnostics locally inside the vehicle. This approach is intended to support total driver isolation.</span>
                   </div>
                 </div>
               </div>
@@ -1106,7 +1477,7 @@ export default function VehicleCompatibilityGuide() {
               </p>
 
               <p className="text-gray-400 text-xs leading-relaxed">
-                Our approach remains strictly educational and objective. Your vehicle is an extension of your private domain. Astrateq believes that safety mapping shouldn't demand continuous corporate telemetry surveillance. Sourcing CAN bus cycles exclusively for local, private assistance models represents the only clean, forward-thinking solution.
+                Our approach remains strictly educational and objective. Your vehicle is an extension of your private domain. Astrateq Gadgets believes that safety mapping shouldn't demand continuous corporate telemetry surveillance. Sourcing CAN bus cycles exclusively for local, private assistance models represents the only clean, forward-thinking solution.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
@@ -1124,15 +1495,75 @@ export default function VehicleCompatibilityGuide() {
           </div>
         </section>
 
-        {/* SECTION 7: LOCAL PROCESSING VS CLOUD PROCESSING COMPARISON */}
+        {/* SECTION 6: QUESTIONS EVERY DRIVER SHOULD ASK BEFORE BUYING */}
+        <section id="section-driver-questions" className="mb-24 scroll-mt-24">
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 06 // BUYER AWARENESS</div>
+            <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
+              Questions Every Driver Should Ask
+            </h2>
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+              Before installing any connected hardware in your vehicle cabin, demand complete clarity about your digital civil liberties and telemetry security.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                q: "Where is my data stored?",
+                a: "Connected products often beam logs to centralized databases. Consider solutions designed around local physical storage inside your cabin to keep custody of your logs."
+              },
+              {
+                q: "Can I use the product without a subscription?",
+                a: "Avoid hardware traps that lock core safety, speed, or warning systems behind continuous subscription billing gates."
+              },
+              {
+                q: "What happens if the company shuts down?",
+                a: "If the product depends on a remote cloud backend, it will brick when corporate servers go dark. Offline systems run forever."
+              },
+              {
+                q: "Who owns my driving data?",
+                a: "Many brands sell your speed, coordinate histories, and acceleration habits to insurance aggregates. You should hold the sole master key."
+              },
+              {
+                q: "Can features work without cloud connectivity?",
+                a: "In vast regions of northern highways and rural parks, cell service drops. Safety features must compile locally to remain reliable."
+              },
+              {
+                q: "Can I export or delete my information?",
+                a: "Driver sovereignty means absolute control. Look for configurations where you can physically purge or download diagnostic logs directly under your own authority."
+              }
+            ].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="p-6 rounded-2xl bg-gradient-to-b from-brand-space/40 to-brand-midnight border border-white/5 shadow-xl hover:border-brand-cyan/20 transition-all text-left flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="h-2 w-10 bg-brand-cyan/30 rounded" />
+                  <h4 className="text-white font-display font-semibold text-base leading-snug tracking-tight">
+                    {item.q}
+                  </h4>
+                  <p className="text-gray-400 text-xs leading-relaxed font-sans">
+                    {item.a}
+                  </p>
+                </div>
+                <div className="text-[9px] font-mono text-gray-500 uppercase tracking-widest mt-6">
+                  QUESTION CODE: {101 + idx} // EDU
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION 7: COMPARISON TABLE */}
         <section id="section-cloud-vs-edge" className="mb-24">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 07 // DETAILED COMPARISON</div>
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 07 // SYSTEMS COMPARISON</div>
             <h2 className="text-3xl font-display font-medium text-white tracking-tight">
-              Local Processing vs. Cloud Processing
+              Questions Every Driver Should Consider
             </h2>
             <p className="text-gray-300 text-sm">
-              Discover why privacy-first edge intelligence hardware represents the next stage of automotive technology compared to traditional cloud setups.
+              An educational, objective breakdown detailing product architecture considerations. Make an informed choice for your cockpit.
             </p>
           </div>
 
@@ -1140,58 +1571,36 @@ export default function VehicleCompatibilityGuide() {
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
                 <tr className="border-b border-white/15 bg-brand-space/35">
-                  <th className="p-5 font-mono text-xs uppercase tracking-wider text-gray-300">Operational Metric</th>
-                  <th className="p-5 font-mono text-xs uppercase tracking-wider text-gray-400">Traditional Cloud Systems</th>
-                  <th className="p-5 font-mono text-xs uppercase tracking-wider text-brand-cyan bg-brand-cyan/5">
-                    <span className="flex items-center gap-1.5 font-semibold">
-                      <Sparkles className="h-3 w-3 text-brand-cyan animate-pulse" />
-                      Astrateq Philosophy (Local Edge)
-                    </span>
-                  </th>
+                  <th className="p-5 font-mono text-xs uppercase tracking-wider text-gray-300">Topic</th>
+                  <th className="p-5 font-mono text-xs uppercase tracking-wider text-gray-400">What To Consider</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5 font-sans text-xs">
                 {[
                   {
-                    metric: "Data Ownership",
-                    cloud: "Shared. Telematics are commercialized and purchased by third party agencies.",
-                    edge: "100% Private. Outward vision and CAN logs stay isolated to local SSD arrays."
+                    topic: "Data Storage",
+                    desc: "Local vs Cloud. Local processing supports physical storage drives remaining in your possession; Cloud models risk broker leakages and centralized data breach cycles."
                   },
                   {
-                    metric: "Network Dependency",
-                    cloud: "Heavy. System fails in mountain coordinates or deep Canadian forest loops.",
-                    edge: "Self-Contained. Compute structures process fully offline inside the vehicle cabin."
+                    topic: "Monthly Costs",
+                    desc: "Subscription vs One-Time Purchase. Hardware purchase architectures should function permanently without forced monthly paywalls, premium feature lockdowns, or active key check-ins."
                   },
                   {
-                    metric: "Signal Latency",
-                    cloud: "High (200ms – 1.5s). Data must query cell stacks, remote servers, and database APIs.",
-                    edge: "Instantaneous (1ms – 5ms). Signal processing operates at the physical cable connector."
+                    topic: "Internet Dependency",
+                    desc: "Online vs Offline Functionality. Locally compiled edge engines compute diagnostics reliably over remote wilderness roads. Cloud dependent frameworks fail instantly when remote cell towers drop."
                   },
                   {
-                    metric: "Standby Battery Drain",
-                    cloud: "Micro-drains. Continuously wakes up modern ECUs to push telemetry heartbeats.",
-                    edge: "Intelligent. Power limits cycle down to standby states when ignition ceases."
+                    topic: "Privacy",
+                    desc: "Data Collection Practices. Querying local physical PID streams protects identification and keeps trip routes private. Centralized telemetry trackers register complete spatial routes and cellular locations."
                   },
                   {
-                    metric: "Secure Compliance",
-                    cloud: "Corporate Risk. Vulnerable to server breaches, data broker laws, and telemetry subpoenas.",
-                    edge: "Absolute Firewall. Data can never be leaked because it is never gathered centrally."
-                  },
-                  {
-                    metric: "Software Longevity",
-                    cloud: "Limited. Ceases functioning if manufacturer drops APIs or updates server pricing.",
-                    edge: "Permanent. Code stack loops independently of remote authorization keys."
+                    topic: "Ownership",
+                    desc: "Driver Control. Drivers should own the hardware and keep physical master keys. Software terms that utilize remote cloud servers permit companies to dynamically alter licensing or revoke features."
                   }
                 ].map((row, idx) => (
                   <tr key={idx} className="hover:bg-white/5 transition-colors">
-                    <td className="p-5 font-medium text-white font-display text-sm">{row.metric}</td>
-                    <td className="p-5 text-gray-400 leading-relaxed max-w-sm">{row.cloud}</td>
-                    <td className="p-5 text-gray-200 bg-brand-cyan/5 leading-relaxed max-w-sm font-medium border-l border-brand-cyan/25">
-                      <div className="flex gap-2 items-start">
-                        <Check className="h-4 w-4 text-brand-cyan shrink-0 mt-0.5" />
-                        <span>{row.edge}</span>
-                      </div>
-                    </td>
+                    <td className="p-5 font-medium text-white font-display text-sm whitespace-nowrap">{row.topic}</td>
+                    <td className="p-5 text-gray-300 leading-relaxed max-w-xl font-sans">{row.desc}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1199,12 +1608,12 @@ export default function VehicleCompatibilityGuide() {
           </div>
         </section>
 
-        {/* SECTION 8: WHAT MAKES A VEHICLE ASTRATEQ READY & BRAND EXPLORER */}
+        {/* SECTION 8: WHAT MAKES A VEHICLE ASTRATEQ GADGETS READY & BRAND EXPLORER */}
         <section id="section-astrateq-ready" className="mb-24">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 08 // TECHNICAL METRICS</div>
             <h2 className="text-3xl font-display font-medium text-white tracking-tight">
-              What Makes a Vehicle Astrateq Ready?
+              What Makes a Vehicle Astrateq Gadgets Ready?
             </h2>
             <p className="text-gray-300 text-sm">
               An transparent architectural overview of hardware expectations. No marketing fluff—just direct engineering guidelines.
@@ -1266,10 +1675,10 @@ export default function VehicleCompatibilityGuide() {
           <div className="mb-16 space-y-6">
             <div className="border-l-2 border-brand-cyan pl-4">
               <h3 className="text-xl font-display font-medium text-white tracking-tight">
-                Real-World Vehicle Examples
+                Common Vehicle Categories
               </h3>
               <p className="text-xs text-gray-400">
-                These examples are provided to help drivers understand common vehicle categories. Final compatibility may vary by model year and configuration.
+                These examples are provided for educational context only. Final compatibility may vary by model year, trim, electrical architecture, and installation configuration.
               </p>
             </div>
             
@@ -1426,7 +1835,85 @@ export default function VehicleCompatibilityGuide() {
           </div>
         </section>
 
-        {/* SECTION 10: LEAD CAPTURE SECTION */}
+        {/* WHERE ASTRATEQ GADGETS FITS SECTION */}
+        <section id="where-astrateq-fits" className="mb-24">
+          <div className="border border-brand-cyan/20 bg-brand-space/35 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute -top-12 -right-12 h-44 w-44 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="space-y-8 relative">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider uppercase">
+                  <Layers className="h-3.5 w-3.5" />
+                  <span>ARCHITECTURE REALITY CHECK</span>
+                </div>
+                <h2 className="text-3xl font-display font-medium text-white tracking-tight">
+                  Where Astrateq Fits
+                </h2>
+                <p className="text-gray-300 text-sm leading-relaxed max-w-3xl">
+                  Modern vehicles already contain advanced diagnostic and safety systems. Astrateq Gadgets is being designed around three core principles: privacy-first intelligence, local processing, and driver ownership.
+                </p>
+                <p className="text-gray-500 text-xs italic">
+                  We maintain total transparency: our parameters are non-invasive and read-only. We do not modify physical engine configurations or bypass factory safety grids.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                {[
+                  {
+                    title: "Privacy First",
+                    desc: "Sourcing high-fidelity sensor signals exclusively for your dashboard HUD, with zero commercial tracking profiles.",
+                    icon: Shield
+                  },
+                  {
+                    title: "Local Intelligence",
+                    desc: "Running computer vision models completely on onboard chipset circuits, isolated from external network outages.",
+                    icon: Cpu
+                  },
+                  {
+                    title: "Driver Ownership",
+                    desc: "You retain direct custody of raw telemetry records. We cannot access your files because they reside in your cabin.",
+                    icon: FileText
+                  },
+                  {
+                    title: "No Mandatory Cloud Dependency",
+                    desc: "Engine and cabin telemetry functions compile entirely offline. Perfect for expansive, remote high-latitude drives.",
+                    icon: Server
+                  }
+                ].map((principle, index) => {
+                  const IconComponent = principle.icon;
+                  return (
+                    <div key={index} className="p-6 rounded-2xl bg-brand-midnight/60 border border-white/5 space-y-4">
+                      <div className="p-3 bg-brand-cyan/5 rounded-xl border border-brand-cyan/20 w-fit">
+                        <IconComponent className="h-5 w-5 text-brand-cyan" />
+                      </div>
+                      <h3 className="text-base font-display font-medium text-white">{principle.title}</h3>
+                      <p className="text-xs text-slate-400 leading-relaxed">{principle.desc}</p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
+                <a
+                  id="btn-where-astrateq-cta"
+                  href="https://astrateqgadgets.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => logAnalyticsEvent('reserve_spot_clicked', { origin: 'where_astrateq_fits' })}
+                  className="px-6 py-3.5 rounded-xl bg-white hover:bg-brand-cyan text-brand-midnight font-medium flex items-center gap-2.5 transition-all shadow-xl active:scale-95 cursor-pointer text-sm"
+                >
+                  <span>Explore Astrateq Priority Access</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <span className="text-xs text-gray-400 font-mono">
+                  Designed for Canadian driving sovereignty and PIPEDA privacy alignment.
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 8: LEAD CAPTURE SECTION */}
         <section id="lead-capture-section" className="mb-12 scroll-mt-24" ref={leadSectionRef}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
@@ -1434,13 +1921,29 @@ export default function VehicleCompatibilityGuide() {
             <div className="lg:col-span-7 bg-brand-space border border-white/10 rounded-2xl p-8 shadow-2xl relative flex flex-col justify-between">
               <div className="space-y-6">
                 <div>
-                  <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase mb-2">EDUCATIONAL LEAD GATEWAY</div>
+                  <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase mb-2">LIMITED PRE-LAUNCH PROGRAM</div>
                   <h3 className="text-2xl font-display font-medium text-white tracking-tight">
-                    Get the Comprehensive Guide
+                    Download the Complete Canadian Vehicle Intelligence Toolkit
                   </h3>
-                  <p className="text-gray-300 text-xs leading-relaxed mt-1">
-                    Receive a high-resolution, bookmarkable PDF edition of the Complete Vehicle Compatibility &amp; Safety Guide. You will also register for future hardware releases, firmware revisions, and Canadian beta access updates safely.
+                  <p className="text-gray-300 text-xs leading-relaxed mt-2 font-sans">
+                    Get the complete guide, privacy checklist, vehicle readiness worksheet, and future Astrateq compatibility updates.
                   </p>
+                </div>
+
+                {/* PDF REQUIRED BENEFITS LIST */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 border-t border-b border-white/5 py-4 my-2">
+                  {[
+                    "Digital Vehicle Compatibility & Safety Guide",
+                    "Vehicle Privacy Checklist",
+                    "Vehicle Readiness Worksheet",
+                    "Future Compatibility Updates",
+                    "Early Access Notifications"
+                  ].map((benefit, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-xs text-white font-sans">
+                      <Check className="h-4 w-4 text-brand-cyan shrink-0 font-bold" />
+                      <span>{benefit}</span>
+                    </div>
+                  ))}
                 </div>
 
                 {!isSubmitted ? (
@@ -1459,7 +1962,7 @@ export default function VehicleCompatibilityGuide() {
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-[10.5px] font-mono uppercase tracking-wider text-gray-400">Email Address Address</label>
+                        <label className="text-[10.5px] font-mono uppercase tracking-wider text-gray-400">Email Address</label>
                         <input
                           id="lead-email"
                           type="email"
@@ -1477,7 +1980,7 @@ export default function VehicleCompatibilityGuide() {
                         id="btn-submit-lead"
                         type="submit"
                         disabled={isSubmitting}
-                        className={`w-full py-3.5 rounded-xl bg-brand-cyan text-brand-midnight font-medium text-sm hover:bg-white hover:shadow-cyan-glow transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2 ${
+                        className={`w-full py-4 rounded-xl bg-brand-cyan text-brand-midnight font-bold text-sm tracking-wider hover:bg-white hover:shadow-cyan-glow transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2 ${
                           isSubmitting ? 'opacity-80 cursor-wait' : ''
                         }`}
                       >
@@ -1489,14 +1992,14 @@ export default function VehicleCompatibilityGuide() {
                         ) : (
                           <>
                             <Mail className="h-4.5 w-4.5 text-brand-midnight" />
-                            <span>Send Me The Complete Report</span>
+                            <span>Send Me The Toolkit</span>
                           </>
                         )}
                       </button>
                     </div>
 
                     <div className="text-[10px] text-gray-500 font-mono leading-relaxed pt-2">
-                      🔒 PRIVACY DECLARATION: Astrateq Gadgets operates on strict GDPR &amp; PIPEDA data compliance policies. Your communications are fully isolated. No broker disclosures ever.
+                      🔒 PRIVACY REASSURANCE: No spam. No resale of your information. You can unsubscribe anytime. Astrateq Gadgets operates on strict GDPR &amp; PIPEDA data compliance security protocols.
                     </div>
                   </form>
                 ) : (
@@ -1511,7 +2014,7 @@ export default function VehicleCompatibilityGuide() {
                         <Check className="h-5 w-5" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold text-sm font-display">Database Validation Confirmed</h4>
+                        <h4 className="text-white font-semibold text-sm font-display">Database Integration Confirmed</h4>
                         <span className="text-[10px] font-mono text-gray-500">MEMBER ID ENROLLED // AST-902-88</span>
                       </div>
                     </div>
@@ -1523,7 +2026,7 @@ export default function VehicleCompatibilityGuide() {
                     <div className="bg-brand-midnight/80 p-3 rounded border border-white/5 font-mono text-[9.5px] text-gray-400 space-y-1.5 leading-normal">
                       <span className="text-brand-cyan font-bold block">RECIPIENT DEV LOG GATEWAY:</span>
                       <span>// Initialized dispatch protocol: SMTP wrapper...</span> <br />
-                      <span>// Payload identifier: Astrateq-Compatibility-Safety-Guide.pdf</span> <br />
+                      <span>// Payload identifier: Astrateq-Gadgets-Compatibility-Safety-Guide.pdf</span> <br />
                       <span>// SMTP Response status: 250 Queue ID AST-902-88 OK</span>
                     </div>
 
@@ -1603,6 +2106,132 @@ export default function VehicleCompatibilityGuide() {
           </div>
         </section>
 
+        {/* AST-CONCEPT ART DIRECTION DECK */}
+        <section id="section-art-direction" className="mb-24 border-t border-white/5 pt-16">
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider uppercase">
+                <Sparkles className="h-3 w-3" />
+                <span>EDITORIAL IMAGE SYSTEM</span>
+              </div>
+              <h2 className="text-3xl font-display font-medium text-white tracking-tight">
+                Imagery Concepts &amp; Art Direction Deck
+              </h2>
+              <p className="text-sm text-gray-400 max-w-3xl leading-relaxed font-sans">
+                We believe that premium products deserve premium guidelines. Under this design system, mockups explicitly avoid low-fidelity AI gradients or generic cyberpunk effects. Clicking below previews the exact camera alignment, lenses, and color palettes designed for our upcoming marketing guides.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Concept list */}
+              <div className="lg:col-span-5 space-y-3">
+                {IMAGES_ART_DIRECTION.map((concept, index) => {
+                  const isSelected = selectedArtDirectionIndex === index;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setSelectedArtDirectionIndex(index);
+                        logAnalyticsEvent('art_direction_concept_selected', { concept: concept.title });
+                      }}
+                      className={`w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center justify-between text-xs font-sans focus:outline-none cursor-pointer ${
+                        isSelected 
+                          ? 'bg-brand-space/40 border-brand-cyan text-white shadow-lg shadow-brand-cyan/5' 
+                          : 'bg-brand-midnight/40 border-white/5 text-gray-400 hover:border-white/10 hover:text-white'
+                      }`}
+                    >
+                      <span>{concept.title}</span>
+                      <ChevronRight className={`h-4 w-4 text-gray-500 transition-transform ${isSelected ? 'translate-x-1 text-brand-cyan' : ''}`} />
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Specification layout output */}
+              <div className="lg:col-span-7 p-6 rounded-2xl bg-brand-space border border-white/10 space-y-4 relative min-h-[280px] flex flex-col justify-between">
+                <div className="space-y-4 text-left">
+                  <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                    <span className="text-[10px] font-mono text-brand-cyan uppercase tracking-widest">ART DIRECTOR BRIEF // CONCEPT 0{selectedArtDirectionIndex + 1}</span>
+                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-500/10 uppercase">Verified Spec</span>
+                  </div>
+                  
+                  <h3 className="text-lg font-display font-medium text-white">
+                    {IMAGES_ART_DIRECTION[selectedArtDirectionIndex].title}
+                  </h3>
+                  
+                  <p className="text-xs text-gray-300 leading-relaxed font-sans">
+                    {IMAGES_ART_DIRECTION[selectedArtDirectionIndex].desc}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/5 text-xs font-mono text-left">
+                  <div className="p-3 bg-brand-midnight/40 rounded border border-white/5">
+                    <span className="text-gray-500 block text-[9px] uppercase">Camera Lens Rig Cap:</span>
+                    <span className="text-white font-medium">{IMAGES_ART_DIRECTION[selectedArtDirectionIndex].focusLength}</span>
+                  </div>
+                  <div className="p-3 bg-brand-midnight/40 rounded border border-white/5">
+                    <span className="text-gray-500 block text-[9px] uppercase">Color Temperature:</span>
+                    <span className="text-brand-cyan font-medium">{IMAGES_ART_DIRECTION[selectedArtDirectionIndex].aspect}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FREQUENTLY ASKED QUESTIONS SECTION */}
+        <section id="section-faq" className="mb-24 scroll-mt-24">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="text-center space-y-4">
+              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 09 // COMMON DRIVER INQUIRIES</div>
+              <h2 className="text-3xl font-display font-medium text-white tracking-tight">
+                Frequently Asked Questions
+              </h2>
+              
+              {/* Premium Warning Callout banner */}
+              <div className="p-4 rounded-xl bg-brand-space/30 border border-brand-cyan/20 text-xs text-brand-cyan font-sans max-w-2xl mx-auto flex items-center gap-3">
+                <Info className="h-5 w-5 shrink-0 text-brand-cyan" />
+                <span className="text-left">
+                  <strong>Notice:</strong> This compatibility guide is provided exclusively for educational research. It does not provide product guarantees or certifiable physical pre-approvals.
+                </span>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {FAQS.map((faq, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <div 
+                    key={index} 
+                    className="rounded-2xl border border-white/5 bg-brand-space/20 hover:border-brand-cyan/10 transition-all overflow-hidden"
+                  >
+                    <button
+                      id={`faq-btn-${index}`}
+                      onClick={() => handleFaqToggle(index)}
+                      className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-1 focus:ring-brand-cyan/30 cursor-pointer"
+                    >
+                      <span className="text-sm font-medium text-white hover:text-brand-cyan transition-colors">
+                        {faq.q}
+                      </span>
+                      <ChevronDown 
+                        className={`h-4.5 w-4.5 text-gray-500 transition-transform duration-300 ${
+                          isOpen ? 'rotate-180 text-brand-cyan' : ''
+                        }`} 
+                      />
+                    </button>
+                    
+                    {isOpen && (
+                      <div className="px-6 pb-6 pt-2 border-t border-white/5 bg-brand-midnight/40 text-xs text-gray-350 leading-relaxed font-sans text-left">
+                        <p>{faq.a}</p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
       </main>
 
       {/* DETAILED PREMIUM TECHNICAL FOOTER */}
@@ -1630,34 +2259,31 @@ export default function VehicleCompatibilityGuide() {
             <h5 className="text-xs uppercase font-mono text-gray-300 tracking-wider">Educational Guides</h5>
             <ul className="text-xs space-y-2 text-gray-500 font-sans">
               <li>
-                <a href="#section-understanding-obd" className="hover:text-brand-cyan transition-colors">OBD-II Sniffer Science</a>
+                <a href="#compatibility-calculator" className="hover:text-brand-cyan transition-colors">Digital Vehicle Compatibility Guide</a>
               </li>
               <li>
-                <a href="#section-vehicles-evolved" className="hover:text-brand-cyan transition-colors">CAN Bus Architecture</a>
+                <a href="#compatibility-calculator" className="hover:text-brand-cyan transition-colors">Diagnostic Compatibility Report</a>
               </li>
               <li>
-                <a href="#section-canadiandriving" className="hover:text-brand-cyan transition-colors">Arctic Mechanical Gaskets</a>
+                <a href="#section-driver-questions" className="hover:text-brand-cyan transition-colors">Founding Member Guide</a>
               </li>
               <li>
-                <a href="#section-data-privacy" className="hover:text-brand-cyan transition-colors">PIPED Telemetry Standards</a>
+                <a href="#section-data-privacy" className="hover:text-brand-cyan transition-colors">Zero-Cloud Privacy Manifesto</a>
               </li>
             </ul>
           </div>
 
           <div className="space-y-3">
-            <h5 className="text-xs uppercase font-mono text-gray-300 tracking-wider">Astrateq Architecture</h5>
+            <h5 className="text-xs uppercase font-mono text-gray-300 tracking-wider">Astrateq ecosystem</h5>
             <ul className="text-xs space-y-2 text-gray-500 font-sans">
               <li>
-                <a href="/" className="hover:text-brand-cyan transition-colors">Future Platform Homepage</a>
+                <a href="#lead-capture-section" className="hover:text-brand-cyan transition-colors">Astrateq Gadgets Pre-Launch Program</a>
               </li>
               <li>
-                <a href="/diagnostics" className="hover:text-brand-cyan transition-colors">Self Diagnostics API</a>
+                <a href="/privacy" className="hover:text-brand-cyan transition-colors">Privacy Policy</a>
               </li>
               <li>
-                <a href="/founding" className="hover:text-brand-cyan transition-colors">Founding Engineers Brief</a>
-              </li>
-              <li>
-                <a href="/privacy" className="hover:text-brand-cyan transition-colors">Security Firewalls Charter</a>
+                <a href="#lead-capture-section" className="hover:text-brand-cyan transition-colors">Contact</a>
               </li>
             </ul>
           </div>

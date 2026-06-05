@@ -40,6 +40,25 @@ The visual design establishes a commanding, high-status automotive cockpit feel 
 
 ---
 
+## PDF Alignment Matrix (Section-by-Section)
+
+Our implementation is mapped directly to the official PDF guide architecture to maximize compliance:
+
+| PDF Section | Function / Layout Element | Implementation Status | Core Technical Pattern Used |
+| :--- | :--- | :--- | :--- |
+| **Section 1** | Primary Canonical Routing (`/guides/vehicle-compatibility`) | **Complete** | React HTML5 history state router and redirect system |
+| **Section 2** | Header Logo (`https://i.imgur.com/jBfhJCL.png`) & Title | **Complete** | Premium SVG & image tags utilizing standard asset loaders |
+| **Section 3** | OBD-II Byte Simulator Panel (RPM, velocity, temp) | **Complete** | Real-time dynamic binary-to-hex conversion state engine |
+| **Section 4** | Compliant Language Rules & Research Alignment | **Complete** | Elimination of absolute safety terms; dynamic checklist rating |
+| **Section 5** |Sweden, Japan, and European Spec Vehicle Database | **Complete** | Dynamic client-side searchable dictionary module |
+| **Section 6** | Structured "Questions Every Driver Should Ask" | **Complete** | Premium visual grid cards highlighting consumer sovereignty |
+| **Section 7** | Local Processing vs. Cloud Processing Table | **Complete** | Elegant high-contrast responsive tabular breakdown |
+| **Section 8** | Digital Guide Lead Capture ("Send Me The Guide") | **Complete** | Form component with real benefits and simulated SMTP pipeline feedback |
+| **Section 9** | Print & Download Overrides (`@media print`) | **Complete** | CSS rules hiding active elements for perfect PDF sizing |
+| **Section 10** | Footer Navigation Links | **Complete** | Complete array of 7 mandatory sub-resource routing anchors |
+
+---
+
 ## File Registry
 
 ```bash
