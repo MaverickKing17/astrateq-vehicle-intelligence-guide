@@ -81,7 +81,7 @@ export default function HomePlaceholder({ currentPath, onNavigate }: HomePlaceho
           </h1>
           
           <p id="placeholder-desc" className="text-gray-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            Welcome to the Astrateq Gadgets secure portal architecture. This system manages verified localized routes and educational pub layouts for Canadian drivers.
+            Welcome to the Astrateq Gadgets secure portal architecture. This system manages designed localized routes and educational pub layouts for Canadian drivers.
           </p>
         </div>
 
@@ -179,7 +179,7 @@ export default function HomePlaceholder({ currentPath, onNavigate }: HomePlaceho
             </p>
 
             <div className="pt-4 border-t border-white/5 flex flex-col sm:flex-row justify-between gap-2 text-[10.5px] font-mono text-gray-500 uppercase">
-              <span>PATH DEPLOYMENT CODE: DISP-{currentPath.replace('/', '').toUpperCase() || 'ROOT'}-2026-VAL</span>
+              <span>PATH DEPLOYMENT CODE: DISP-{currentPath.replace('/', '').toUpperCase() || 'ROOT'}-2026-REF</span>
               <button 
                 onClick={() => onNavigate('/guides/vehicle-compatibility')}
                 className="text-brand-cyan hover:underline hover:text-white transition-colors text-left"

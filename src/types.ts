@@ -40,7 +40,7 @@ export interface VehicleBrandMetrics {
   protocol: string;
   obdLocation: string;
   voltageStability: 'Robust' | 'Variable' | 'Ultra-Stable';
-  readinessScore: number; // 0 to 100
+  compatibilityStatus: string; // e.g. 'Highly Aligned', 'Evaluation Recommended'
   notes: string;
 }
 

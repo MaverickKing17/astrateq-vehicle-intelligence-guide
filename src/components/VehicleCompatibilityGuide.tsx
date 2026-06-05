@@ -44,16 +44,23 @@ import {
 
 // Pre-defined Canadian-vibe vehicle datasets for the database explorer
 const VEHICLE_DATABASE: VehicleBrandMetrics[] = [
-  { name: 'Tesla Model Y / 3', country: 'USA (Built for Cold)', protocol: 'CAN ISO-15765 (Unified)', obdLocation: 'Under-dash console or rear console harness', voltageStability: 'Ultra-Stable', readinessScore: 98, notes: 'Direct high-speed CAN connectivity. Outstanding electrical regulation via high-voltage DC converter.' },
-  { name: 'Volvo XC90 / XC60', country: 'Sweden (Arctic Ready)', protocol: 'CAN ISO-15765 (Dual Loop)', obdLocation: 'Driver side knee panel, well exposed', voltageStability: 'Robust', readinessScore: 95, notes: 'Highly standardized OBD-II architecture. Perfect compatibility with standard ADAS system integration.' },
-  { name: 'Toyota RAV4 / Highlander', country: 'Japan (Canadian Spec)', protocol: 'CAN ISO-15765 (Symmetric)', obdLocation: 'Lower dashboard, left of steering column', voltageStability: 'Robust', readinessScore: 94, notes: 'Extremely reliable electrical signaling. Excellent physical clearance for compact hardware interfaces.' },
-  { name: 'Subaru Outback / Forester', country: 'Japan (All-Weather)', protocol: 'CAN ISO-15765 (Standard)', obdLocation: 'Directly beneath steering column', voltageStability: 'Robust', readinessScore: 92, notes: 'Compatible with standard Eyesight camera layout. Requires offset placement for secondary lenses.' },
-  { name: 'Ford F-150 Lightning / Super Duty', country: 'USA (Heavy Duty)', protocol: 'CAN J1939 / ISO-15765', obdLocation: 'Under dash, right of parking brake', voltageStability: 'Ultra-Stable', readinessScore: 96, notes: 'Heavy duty electrical loops. Supports continuous 2.4A standby draw without triggering power protection.' },
-  { name: 'Hyundai Ioniq 5 / Tucson', country: 'South Korea (Cold-Tuned)', protocol: 'CAN ISO-15765 (Standard)', obdLocation: 'Lower dash, left side fuse cover', voltageStability: 'Robust', readinessScore: 93, notes: 'Standard high-speed CAN bus topology. Seamless connection for passive sensor telemetry.' },
-  { name: 'BMW X5 / 3 Series', country: 'Germany (Autobahn Spec)', protocol: 'CAN ISO-15765 (Secure Gateway)', obdLocation: 'Driver kick panel near hood release', voltageStability: 'Ultra-Stable', readinessScore: 90, notes: 'Features secure automotive gateway. Read-only OBD passive telemetry is fully compatible.' },
-  { name: 'Jeep Grand Cherokee / Wrangler', country: 'USA (All-Terrain)', protocol: 'CAN ISO-15765 (Mixed)', obdLocation: 'Under-dash, left steering column', voltageStability: 'Variable', readinessScore: 88, notes: 'Great clearance. Requires high-vibration isolation mounting due to extreme-terrain capability.' },
-  { name: 'Honda CR-V / Civic', country: 'Japan (All-Weather)', protocol: 'CAN ISO-15765 (Standard)', obdLocation: 'Lower panel, driver side knee center', voltageStability: 'Robust', readinessScore: 91, notes: 'Ideal OBD layout. Traditional stable 12V charging system holds standard power requirements.' },
-  { name: 'Audi Q7 / Q5', country: 'Germany (Quattro Spec)', protocol: 'CAN ISO-15765 (Dual Loop)', obdLocation: 'Beneath left instrumental cluster cowl', voltageStability: 'Ultra-Stable', readinessScore: 92, notes: 'German high-precision networks. Perfect passive read performance for thermal and telemetry layers.' }
+  // Family SUVs
+  { name: 'Toyota RAV4', country: 'Japan (Canadian Spec)', protocol: 'CAN ISO-15765', obdLocation: 'Lower dashboard, left of steering column', voltageStability: 'Robust', compatibilityStatus: 'Highly Aligned', notes: 'Extremely reliable electrical signaling. Standardized dashboard geometries.' },
+  { name: 'Honda CR-V', country: 'Japan (Canadian Spec)', protocol: 'CAN ISO-15765', obdLocation: 'Lower panel, driver side knee center', voltageStability: 'Robust', compatibilityStatus: 'Highly Aligned', notes: 'Ideal OBD layout. Traditional stable 12V charging loops.' },
+  { name: 'Mazda CX-5', country: 'Japan (Cold-Calibrated)', protocol: 'CAN ISO-15765', obdLocation: 'Under dashboard, near hood release', voltageStability: 'Robust', compatibilityStatus: 'Highly Aligned', notes: 'Excellent cabin architecture matching passenger ergonomics.' },
+  { name: 'Ford Escape', country: 'USA (All-Weather)', protocol: 'CAN ISO-15765', obdLocation: 'Beneath left steering column cowl', voltageStability: 'Robust', compatibilityStatus: 'Evaluation Recommended', notes: 'Standard CAN bus topology. Seamless connection for passive sensor data.' },
+  
+  // Pickup Trucks
+  { name: 'Ford F-150', country: 'USA (Heavy Duty)', protocol: 'CAN ISO-15765', obdLocation: 'Under dash, right of parking brake', voltageStability: 'Ultra-Stable', compatibilityStatus: 'Highly Aligned', notes: 'Heavy duty electrical loops. Supports continuous passive draws safely.' },
+  { name: 'Ram 1500', country: 'USA (All-Weather)', protocol: 'CAN ISO-15765', obdLocation: 'Directly beneath steering column', voltageStability: 'Robust', compatibilityStatus: 'Evaluation Recommended', notes: 'Spacious lower console allows robust device spacing.' },
+  { name: 'Chevrolet Silverado', country: 'USA (Cold-Calibrated)', protocol: 'CAN ISO-15765', obdLocation: 'Lower dash, left side fuse cover', voltageStability: 'Robust', compatibilityStatus: 'Highly Aligned', notes: 'Clean signal profile under extensive electrical heating loads.' },
+  { name: 'Toyota Tacoma', country: 'Japan (Adventure Spec)', protocol: 'CAN ISO-15765', obdLocation: 'Under dash panel, left of steering column', voltageStability: 'Robust', compatibilityStatus: 'Highly Aligned', notes: 'Outstanding mechanical sealing environments.' },
+  
+  // Sedans
+  { name: 'Honda Accord', country: 'Japan (Canadian Spec)', protocol: 'CAN ISO-15765', obdLocation: 'Under steering column, easily accessible', voltageStability: 'Robust', compatibilityStatus: 'Highly Aligned', notes: 'Standardized OBD-II protocol. Perfect passive read performance.' },
+  { name: 'Toyota Camry', country: 'Japan (All-Weather)', protocol: 'CAN ISO-15765', obdLocation: 'Driver knee panel block', voltageStability: 'Robust', compatibilityStatus: 'Highly Aligned', notes: 'Symmetric communication bus. Minimal signal delays.' },
+  { name: 'Hyundai Elantra', country: 'South Korea (Cold-Tuned)', protocol: 'CAN ISO-15765', obdLocation: 'Lower instrument panel left corner', voltageStability: 'Robust', compatibilityStatus: 'Evaluation Recommended', notes: 'Robust high-speed CAN networks present.' },
+  { name: 'Mazda3', country: 'Japan (All-Weather)', protocol: 'CAN ISO-15765', obdLocation: 'Beneath steering column', voltageStability: 'Robust', compatibilityStatus: 'Highly Aligned', notes: 'Clean high-status cockpit environment layout.' }
 ];
 
 // OBD-II Interactive Sensor Simulation Data
@@ -72,12 +79,22 @@ export default function VehicleCompatibilityGuide() {
   const [activeSensor, setActiveSensor] = useState<OBDSensor>(OBD_SENSORS[0]);
   const [customRpm, setCustomRpm] = useState<number>(1850);
   
-  // Compatibility Scoring Engine States
-  const [selectedYear, setSelectedYear] = useState<string>('2019');
-  const [selectedBrand, setSelectedBrand] = useState<string>('symmetric');
-  const [selectedWindshield, setSelectedWindshield] = useState<string>('steep');
-  const [selectedVoltage, setSelectedVoltage] = useState<string>('clean-12v');
-  const [compatibilityScore, setCompatibilityScore] = useState<number>(95);
+  // Interactive Educational Requirements Checklist States
+  const [checkedRequirements, setCheckedRequirements] = useState<{
+    obd: boolean;
+    year: boolean;
+    electrical: boolean;
+    safety: boolean;
+    battery: boolean;
+    history: boolean;
+  }>({
+    obd: true,
+    year: true,
+    electrical: true,
+    safety: true,
+    battery: false,
+    history: false
+  });
   
   // Interactive network map state
   const [activeNetworkNode, setActiveNetworkNode] = useState<string>('gateway');
@@ -113,29 +130,7 @@ export default function VehicleCompatibilityGuide() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Recalculate compatibility score dynamically when inputs change
-  useEffect(() => {
-    let baseScore = 100;
-    
-    // Year factor
-    if (selectedYear === 'pre-1996') baseScore -= 70; // Pre-OBDII
-    else if (selectedYear === '1996-2007') baseScore -= 10; // Old OBDII
-    else if (selectedYear === '2008-2018') baseScore -= 2;  // Standard CAN
-    
-    // Brand design factor
-    if (selectedBrand === 'variable-old') baseScore -= 12;
-    else if (selectedBrand === 'complex-ev') baseScore -= 5;
-    
-    // Windshield slope
-    if (selectedWindshield === 'sleek-sports') baseScore -= 15;
-    else if (selectedWindshield === 'sensor-pod') baseScore -= 8;
-    
-    // Voltage
-    if (selectedVoltage === 'manual-var') baseScore -= 18;
-    else if (selectedVoltage === 'switched-eco') baseScore -= 5;
 
-    setCompatibilityScore(Math.max(15, baseScore));
-  }, [selectedYear, selectedBrand, selectedWindshield, selectedVoltage]);
 
   // Handle live RPM sensor sliding adjustments
   const handleRpmChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -400,6 +395,54 @@ export default function VehicleCompatibilityGuide() {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* FOUNDER PHILOSOPHY SECTION */}
+        <section id="section-founder-philosophy" className="mb-24 border-t border-b border-white/5 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-4 flex justify-center">
+              {/* Clean elegant portrait placeholder card for future founder imagery */}
+              <div className="w-full max-w-[280px] aspect-[3/4] rounded-2xl bg-brand-space/30 border border-white/10 flex flex-col items-center justify-center p-6 relative overflow-hidden group hover:border-brand-cyan/20 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-cyan/5 to-transparent pointer-events-none" />
+                <div className="h-16 w-16 rounded-full bg-brand-midnight border border-white/10 flex items-center justify-center mb-4 transition-transform group-hover:scale-105 duration-300">
+                  <span className="text-brand-cyan font-mono text-xl">AQ</span>
+                </div>
+                <div className="text-center space-y-2">
+                  <h4 className="text-white font-display font-medium text-sm">Founder Portrait</h4>
+                  <p className="text-[11px] text-gray-400 font-mono tracking-wide uppercase leading-normal">Astrateq Engineering Core</p>
+                  <p className="text-[10px] text-gray-400 italic px-2 leading-relaxed pt-2">"Pre-launch design and firmware coordination standards."</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 space-y-6 text-left">
+              <span className="text-[11px] font-mono text-brand-cyan tracking-widest uppercase block">FOUNDER PHILOSOPHY</span>
+              <h2 className="text-3xl font-display font-medium text-white tracking-tight">
+                Why Astrateq Exists
+              </h2>
+              
+              <div className="space-y-4 text-sm text-gray-300 leading-relaxed font-sans max-w-2xl">
+                <p>
+                  Modern vehicles generate more information than ever before.
+                </p>
+                <p>
+                  Many drivers have little visibility into how vehicle data is collected, processed, stored, or shared.
+                </p>
+                <div className="p-5 bg-brand-space/20 border-l border-brand-cyan rounded-r-xl my-4 text-white font-medium italic">
+                  "Drivers should understand their vehicle technology and make informed decisions about privacy, safety, and connectivity."
+                </div>
+                <p>
+                  Astrateq was created around this simple belief. This guide is part of that mission, written in a clear, objective manner to provide real transparency into automotive network diagnostics.
+                </p>
+              </div>
+
+              <div className="pt-2 text-xs font-mono text-gray-500">
+                ASTRATEQ ENGINEERING MANIFESTO • SEPTEMBER 2026
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -725,212 +768,245 @@ export default function VehicleCompatibilityGuide() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 
-        {/* SECTION 4: WHY COMPATIBILITY MATTERS AND DYNAMIC CALCULATOR */}
+        {/* SECTION 2: IS YOUR VEHICLE READY? */}
         <section id="compatibility-calculator" className="mb-24 scroll-mt-24" ref={checklistRef}>
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 04 // VEHICLE ASSESSMENT</div>
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 02 // TECHNICAL READINESS</div>
             <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
-              Why System Compatibility Matters
+              Is Your Vehicle Ready?
             </h2>
             <p className="text-gray-300 text-sm md:text-base">
-              Astrateq Gadgets' software requires precise electrical stability, stable OBD packet broadcasting, and a clear safety camera clear-space windshield scope. Check your vehicle's architectural score below.
+              Most modern vehicles already include the foundational systems required for intelligent diagnostics and safety monitoring.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* Interactive Selector Pane */}
-            <div className="lg:col-span-7 bg-brand-space/20 border border-white/5 rounded-2xl p-6 md:p-8 space-y-6 flex flex-col justify-between">
+            {/* Interactive Requirements Checklist Card Group */}
+            <div className="lg:col-span-7 bg-brand-space/20 border border-white/5 rounded-2xl p-6 md:p-8 space-y-4 flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-display font-medium text-white mb-6 flex items-center gap-2">
-                  <Car className="h-4.5 w-4.5 text-brand-cyan" />
-                  Select Vehicle Diagnostic Layout
-                </h3>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-sm font-mono uppercase tracking-wider text-gray-400">
+                    Interactive Educational Checklist
+                  </h3>
+                  <span className="text-[10px] font-mono text-brand-cyan">CLICK CARDS TO TOGGLE PARAMETERS</span>
+                </div>
                 
-                <div className="space-y-6">
-                  {/* Parameter: Year */}
-                  <div className="space-y-2.5">
-                    <label className="text-xs font-mono uppercase tracking-wider text-gray-400 block">Manufacturing Era Group</label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                      {[
-                        { id: '2019', label: '2019 or Newer', sub: 'Secure Gateway CAN' },
-                        { id: '2008-2018', label: '2008 – 2018 Model', sub: 'High-speed CAN std.' },
-                        { id: '1996-2007', label: '1996 – 2007 Model', sub: 'Legacy OBD networks' },
-                        { id: 'pre-1996', label: 'Pre-1996 Era', sub: 'Analog (Non-OBD)' }
-                      ].map(opt => (
-                        <button
-                          key={opt.id}
-                          onClick={() => setSelectedYear(opt.id)}
-                          className={`p-3 rounded-xl border text-left transition-all ${
-                            selectedYear === opt.id 
-                              ? 'border-brand-cyan bg-brand-cyan/5 text-white' 
-                              : 'border-white/5 bg-brand-midnight/40 text-gray-400 hover:text-white hover:border-white/15'
-                          }`}
-                        >
-                          <div className="text-xs font-medium font-sans">{opt.label}</div>
-                          <div className="text-[9px] font-mono text-gray-500 mt-0.5">{opt.sub}</div>
-                        </button>
-                      ))}
+                <div id="interactive-checklist-grid" className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Card 1: OBD-II */}
+                  <button
+                    id="checkbox-obd"
+                    onClick={() => setCheckedRequirements(prev => ({ ...prev, obd: !prev.obd }))}
+                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                      checkedRequirements.obd 
+                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between w-full gap-2">
+                      <span className="text-xs font-semibold font-display text-white">1. OBD-II Port Present</span>
+                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                        checkedRequirements.obd ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
+                      }`}>
+                        {checkedRequirements.obd && <Check className="h-3.5 w-3.5 stroke-[3]" />}
+                      </div>
                     </div>
-                  </div>
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                      Provides a standard physical access point to read diagnostic signals without vehicle modifications, mandatory for passenger vehicles since 1996 in North America.
+                    </p>
+                  </button>
 
-                  {/* Parameter: Brand Electrical Archetype */}
-                  <div className="space-y-2.5">
-                    <label className="text-xs font-mono uppercase tracking-wider text-gray-400 block">Brand Network Complexity</label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                      {[
-                        { id: 'symmetric', label: 'Standard Symmetric', sub: 'Toyota, Honda, Subaru' },
-                        { id: 'complex-ev', label: 'Electric / Luxury Hub', sub: 'Tesla, Volvo, BMW, EV' },
-                        { id: 'variable-old', label: 'High Load Variable', sub: 'Heavy Duty, Mod Vehicles' }
-                      ].map(opt => (
-                        <button
-                          key={opt.id}
-                          onClick={() => setSelectedBrand(opt.id)}
-                          className={`p-3 rounded-xl border text-left transition-all ${
-                            selectedBrand === opt.id 
-                              ? 'border-brand-cyan bg-brand-cyan/5 text-white' 
-                              : 'border-white/5 bg-brand-midnight/40 text-gray-400 hover:text-white hover:border-white/15'
-                          }`}
-                        >
-                          <div className="text-xs font-semibold font-sans">{opt.label}</div>
-                          <div className="text-[9px] font-mono text-gray-500 mt-0.5">{opt.sub}</div>
-                        </button>
-                      ))}
+                  {/* Card 2: Year */}
+                  <button
+                    id="checkbox-year"
+                    onClick={() => setCheckedRequirements(prev => ({ ...prev, year: !prev.year }))}
+                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                      checkedRequirements.year 
+                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between w-full gap-2">
+                      <span className="text-xs font-semibold font-display text-white">2. Model Year 2008+</span>
+                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                        checkedRequirements.year ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
+                      }`}>
+                        {checkedRequirements.year && <Check className="h-3.5 w-3.5 stroke-[3]" />}
+                      </div>
                     </div>
-                  </div>
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                      Ensures the use of high-speed Controller Area Network (CAN Bus) protocols, which is critical for real-time sensor processing and diagnostic reliability.
+                    </p>
+                  </button>
 
-                  {/* Parameter: Windshield / Camera Mount */}
-                  <div className="space-y-2.5">
-                    <label className="text-xs font-mono uppercase tracking-wider text-gray-400 block">Windshield Mounting Geometry</label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                      {[
-                        { id: 'steep', label: 'Steep SUV / Truck Angle', sub: 'Optimized camera field' },
-                        { id: 'sensor-pod', label: 'Large HUD Pod Cabin', sub: 'Minor offset adjustment' },
-                        { id: 'sleek-sports', label: 'Sleek Coupe Slope', sub: 'Special wedge accessory' }
-                      ].map(opt => (
-                        <button
-                          key={opt.id}
-                          onClick={() => setSelectedWindshield(opt.id)}
-                          className={`p-3 rounded-xl border text-left transition-all ${
-                            selectedWindshield === opt.id 
-                              ? 'border-brand-cyan bg-brand-cyan/5 text-white' 
-                              : 'border-white/5 bg-brand-midnight/40 text-gray-400 hover:text-white hover:border-white/15'
-                          }`}
-                        >
-                          <div className="text-xs font-semibold font-sans">{opt.label}</div>
-                          <div className="text-[9px] font-mono text-gray-500 mt-0.5">{opt.sub}</div>
-                        </button>
-                      ))}
+                  {/* Card 3: Electrical */}
+                  <button
+                    id="checkbox-electrical"
+                    onClick={() => setCheckedRequirements(prev => ({ ...prev, electrical: !prev.electrical }))}
+                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                      checkedRequirements.electrical 
+                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between w-full gap-2">
+                      <span className="text-xs font-semibold font-display text-white">3. Healthy Electrical Loop</span>
+                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                        checkedRequirements.electrical ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
+                      }`}>
+                        {checkedRequirements.electrical && <Check className="h-3.5 w-3.5 stroke-[3]" />}
+                      </div>
                     </div>
-                  </div>
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                      A stable electrical loop prevents low-voltage computer dips during starting, providing a robust power foundation for passive computing overlays.
+                    </p>
+                  </button>
 
-                  {/* Parameter: Power delivery stability */}
-                  <div className="space-y-2.5">
-                    <label className="text-xs font-mono uppercase tracking-wider text-gray-400 block">Alternator / DC-DC Loop Stability</label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                      {[
-                        { id: 'clean-12v', label: 'Continuous Clean 12V', sub: 'Highly Regulated DC' },
-                        { id: 'switched-eco', label: 'Eco Switched Hub', sub: 'Micro Voltage Dips' },
-                        { id: 'manual-var', label: 'Variable Core Sag', sub: 'Older Lead Acid standard' }
-                      ].map(opt => (
-                        <button
-                          key={opt.id}
-                          onClick={() => setSelectedVoltage(opt.id)}
-                          className={`p-3 rounded-xl border text-left transition-all ${
-                            selectedVoltage === opt.id 
-                              ? 'border-brand-cyan bg-brand-cyan/5 text-white' 
-                              : 'border-white/5 bg-brand-midnight/40 text-gray-400 hover:text-white hover:border-white/15'
-                          }`}
-                        >
-                          <div className="text-xs font-semibold font-sans">{opt.label}</div>
-                          <div className="text-[9px] font-mono text-gray-500 mt-0.5">{opt.sub}</div>
-                        </button>
-                      ))}
+                  {/* Card 4: Safety */}
+                  <button
+                    id="checkbox-safety"
+                    onClick={() => setCheckedRequirements(prev => ({ ...prev, safety: !prev.safety }))}
+                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                      checkedRequirements.safety 
+                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between w-full gap-2">
+                      <span className="text-xs font-semibold font-display text-white">4. Windshield Space</span>
+                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                        checkedRequirements.safety ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
+                      }`}>
+                        {checkedRequirements.safety && <Check className="h-3.5 w-3.5 stroke-[3]" />}
+                      </div>
                     </div>
-                  </div>
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                      Standard passive warning elements provide physical space and camera clear-space for overlaying passive feedback and analytics safely.
+                    </p>
+                  </button>
+
+                  {/* Card 5: Battery */}
+                  <button
+                    id="checkbox-battery"
+                    onClick={() => setCheckedRequirements(prev => ({ ...prev, battery: !prev.battery }))}
+                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                      checkedRequirements.battery 
+                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between w-full gap-2">
+                      <span className="text-xs font-semibold font-display text-white">5. Stable Battery Standby</span>
+                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                        checkedRequirements.battery ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
+                      }`}>
+                        {checkedRequirements.battery && <Check className="h-3.5 w-3.5 stroke-[3]" />}
+                      </div>
+                    </div>
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                      Permits intelligent passive standby monitoring during off-cycles with zero danger of drawing down the vehicle's electrical reserve.
+                    </p>
+                  </button>
+
+                  {/* Card 6: History */}
+                  <button
+                    id="checkbox-history"
+                    onClick={() => setCheckedRequirements(prev => ({ ...prev, history: !prev.history }))}
+                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                      checkedRequirements.history 
+                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between w-full gap-2">
+                      <span className="text-xs font-semibold font-display text-white">6. Clean Diagnostic History</span>
+                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                        checkedRequirements.history ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
+                      }`}>
+                        {checkedRequirements.history && <Check className="h-3.5 w-3.5 stroke-[3]" />}
+                      </div>
+                    </div>
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                      Reduces error noise and guarantees that existing electronic control registers are free of historic active fault codes and lingering debug cycles.
+                    </p>
+                  </button>
                 </div>
               </div>
 
-              <div className="bg-brand-midnight/60 rounded-xl p-4 border border-white/5 flex gap-3 items-start mt-6">
+              <div className="bg-brand-midnight/60 rounded-xl p-4 border border-white/5 flex gap-3 items-start mt-6 text-left">
                 <Info className="h-4.5 w-4.5 text-brand-cyan shrink-0 mt-0.5" />
                 <p className="text-[11px] text-gray-400 leading-relaxed">
-                  These choices adapt the edge computing telemetry payload to prevent battery drainage while maintaining high outward camera recognition accuracy under diverse Canadian weather profiles.
+                  Toggle the checklist above to understand the physical and networking conditions that allow edge vehicle intelligence to assess systems safely.
                 </p>
               </div>
             </div>
 
-            {/* Live Scoring Display Card */}
-            <div className="lg:col-span-5 bg-gradient-to-b from-brand-space to-brand-midnight border border-white/10 rounded-2xl p-8 flex flex-col justify-between text-center relative shadow-2xl">
+            {/* Qualitative Assessment Panel Display */}
+            <div className="lg:col-span-5 bg-gradient-to-b from-brand-space to-brand-midnight border border-white/10 rounded-2xl p-8 flex flex-col justify-between text-left relative shadow-2xl">
               <div className="space-y-6">
-                <h3 className="text-base text-gray-400 uppercase tracking-widest font-mono">DETERMINED CALCULATOR RATING</h3>
+                <h3 className="text-xs text-gray-400 uppercase tracking-widest font-mono">EDUCATIONAL ASSESSMENT SUMMARY</h3>
                 
-                {/* Large animated radial score ring */}
-                <div className="relative h-44 w-44 mx-auto flex items-center justify-center">
-                  <div className="absolute inset-0 rounded-full border-[10px] border-white/5" />
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center text-xs font-mono text-gray-400">
+                    <span>EVALUATION COMPLETE:</span>
+                    <span className="text-white font-bold">
+                      {Object.values(checkedRequirements).filter(Boolean).length} / 6 PARAMETERS
+                    </span>
+                  </div>
                   
-                  {/* Dynamic color ring ring */}
-                  <svg className="absolute inset-0 w-full h-full -rotate-90">
-                    <circle 
-                      cx="88" 
-                      cy="88" 
-                      r="78" 
-                      stroke={compatibilityScore >= 80 ? "#00D4FF" : compatibilityScore >= 50 ? "#FBBF24" : "#EF4444"}
-                      strokeWidth="10"
-                      fill="transparent"
-                      strokeDasharray="490"
-                      strokeDashoffset={490 - (490 * compatibilityScore) / 100}
-                      className="transition-all duration-500 ease-out"
+                  {/* Standard horizontal progress metric instead of scary radial percentage score */}
+                  <div className="h-2 w-full bg-brand-midnight rounded-full overflow-hidden border border-white/5">
+                    <div 
+                      className="h-full bg-brand-cyan transition-all duration-500 ease-out"
+                      style={{ width: `${(Object.values(checkedRequirements).filter(Boolean).length / 6) * 100}%` }}
                     />
-                  </svg>
-                  
-                  <div className="space-y-0.5">
-                    <span className="text-5xl font-display font-semibold text-white tracking-tighter block">{compatibilityScore}%</span>
-                    <span className="text-[10px] uppercase font-mono text-gray-400">READINESS INDEX</span>
                   </div>
                 </div>
 
-                {/* Score narrative */}
-                <div className="space-y-3 bg-white/5 p-5 rounded-xl border border-white/5 text-left">
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-gray-400">ARCHITECTURAL QUALITY:</span>
-                    {compatibilityScore >= 90 ? (
-                      <span className="text-emerald-400 font-bold uppercase">Optimal Ready</span>
-                    ) : compatibilityScore >= 75 ? (
-                      <span className="text-brand-cyan font-bold uppercase">Stable Read Only</span>
-                    ) : compatibilityScore >= 40 ? (
-                      <span className="text-amber-400 font-bold uppercase">Conditioned Required</span>
+                <div className="space-y-3 bg-white/5 p-5 rounded-xl border border-white/5">
+                  <div className="flex items-center justify-between text-[11px] font-mono">
+                    <span className="text-gray-400">RESEARCH MODEL:</span>
+                    {Object.values(checkedRequirements).filter(Boolean).length === 6 ? (
+                      <span className="text-brand-cyan font-bold uppercase">Optimal Alignment</span>
+                    ) : Object.values(checkedRequirements).filter(Boolean).length >= 4 ? (
+                      <span className="text-blue-400 font-bold uppercase">Stable Research Support</span>
                     ) : (
-                      <span className="text-red-400 font-bold uppercase">Non-Compatible</span>
+                      <span className="text-amber-500 font-bold uppercase">Special Calibration Study</span>
                     )}
                   </div>
 
                   <p className="text-xs text-gray-300 leading-relaxed font-sans pt-1">
-                    {compatibilityScore >= 90 && "Outstanding compatibility. This vehicle topology features low communication latency, beautiful power regulation stability, and straightforward obd-ii diagnostic location placements."}
-                    {compatibilityScore >= 75 && compatibilityScore < 90 && "Perfect readiness. The vehicle speaks standard diagnostic layers. Requires offset mounting pads or smart standbys to offset low voltage drops."}
-                    {compatibilityScore >= 40 && compatibilityScore < 75 && "Requires legacy OBD protocol bypass or separate 12V auxiliary accessory cabling. High-speed raw logs are accessible with localized calibration."}
-                    {compatibilityScore < 40 && "Analog dashboard systems present. Standard OBDII metrics are unavailable. Reach out for high-voltage offroad modifications bypass advice."}
+                    {Object.values(checkedRequirements).filter(Boolean).length === 6 && (
+                      "Your checked parameters are fully aligned with raw CAN bus analysis. This baseline configuration supports seamless, high-speed telemetry research."
+                    )}
+                    {Object.values(checkedRequirements).filter(Boolean).length >= 4 && Object.values(checkedRequirements).filter(Boolean).length < 6 && (
+                      "Solid diagnostic foundation. Typical vehicles in this envelope offer reliable voltage and OBD channels. Some calibration steps or accessories may be evaluated during research."
+                    )}
+                    {Object.values(checkedRequirements).filter(Boolean).length < 4 && (
+                      "A customized mechanical mounting setup or diagnostic interface cabling is recommended to establish high-speed telemetry channels."
+                    )}
                   </p>
+                </div>
+
+                <div className="text-[10px] text-gray-500 leading-normal font-mono uppercase bg-brand-midnight/40 p-4 border border-white/5 rounded-xl">
+                  ⚠️ NOTICE: These parameters are provided for educational assessment and compatibility research. Final vehicle integration depends on physical configurations, and Astrateq does not provide compatibility guarantees, certifications, or regulatory validations.
                 </div>
               </div>
 
-              {/* Action Conversion in place */}
-              <div className="pt-8 space-y-3">
+              {/* Action Trigger */}
+              <div className="pt-6 space-y-3">
                 <a 
                   id="btn-reserve-lead-scroll"
                   href="#lead-capture-section"
                   onClick={(e) => { e.preventDefault(); scrollToSection(leadSectionRef); }}
-                  className="w-full py-3.5 rounded-xl bg-brand-cyan inline-flex items-center justify-center gap-2 text-brand-midnight font-medium text-sm hover:bg-white hover:shadow-cyan-glow transition-all active:scale-95 cursor-pointer"
+                  className="w-full py-4 rounded-xl bg-brand-cyan inline-flex items-center justify-center gap-2 text-brand-midnight font-bold text-sm hover:bg-white hover:shadow-cyan-glow transition-all active:scale-95 cursor-pointer text-center"
                 >
-                  <span>Reserve Your Priority Spot</span>
+                  <span>Request Full PDF Edition</span>
                   <ArrowRight className="h-4 w-4" />
                 </a>
-                <p className="text-[10px] text-gray-500 font-mono">
-                  PROVISIONAL GRADE SUBJECT TO FINAL LAB CONFIRMATION • EXCLUDES AFTERMARKET ALTERNATORS
-                </p>
               </div>
             </div>
 
@@ -1186,6 +1262,50 @@ export default function VehicleCompatibilityGuide() {
             ))}
           </div>
 
+          {/* REAL-WORLD VEHICLE COMPATIBILITY SAMPLES */}
+          <div className="mb-16 space-y-6">
+            <div className="border-l-2 border-brand-cyan pl-4">
+              <h3 className="text-xl font-display font-medium text-white tracking-tight">
+                Real-World Vehicle Examples
+              </h3>
+              <p className="text-xs text-gray-400">
+                These examples are provided to help drivers understand common vehicle categories. Final compatibility may vary by model year and configuration.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  category: "Family SUVs",
+                  examples: "Toyota RAV4, Honda CR-V, Mazda CX-5, Ford Escape",
+                  notes: "Standardized high-clearance windshield mounts and accessible driver knee-well diagnostic panels."
+                },
+                {
+                  category: "Pickup Trucks",
+                  examples: "Ford F-150, Ram 1500, Chevrolet Silverado, Toyota Tacoma",
+                  notes: "Heavy-duty high-output alternator loops and ample space for localized telemetry edge hardware."
+                },
+                {
+                  category: "Sedans",
+                  examples: "Honda Accord, Toyota Camry, Hyundai Elantra, Mazda3",
+                  notes: "Highly responsive electric power steering feedback systems and standardized passenger cabin routing."
+                }
+              ].map((cat, idx) => (
+                <div key={idx} className="p-5 rounded-xl bg-brand-space/20 border border-white/5 space-y-3 relative overflow-hidden">
+                  <div className="text-[10px] font-mono text-brand-cyan tracking-wider uppercase font-bold text-cyan-400">Category Class 0{idx + 1}</div>
+                  <h4 className="text-white font-medium text-base font-display">{cat.category}</h4>
+                  <div className="text-xs text-gray-300">
+                    <span className="text-gray-500 font-mono text-[9px] uppercase">Representative Models:</span><br/>
+                    <span className="font-sans text-white/95">{cat.examples}</span>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed pt-2 border-t border-white/5">
+                    {cat.notes}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* BRAND EXPLORER COMPONENT */}
           <div className="bg-brand-space/25 border border-white/10 rounded-2xl p-6 md:p-8 relative">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -1222,7 +1342,7 @@ export default function VehicleCompatibilityGuide() {
                     <th className="p-4">OBD Location</th>
                     <th className="p-4">Standard Bus Protocol</th>
                     <th className="p-4">Electrical Delivery</th>
-                    <th className="p-4 text-center">Score Metric</th>
+                    <th className="p-4 text-center">Research Alignment</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
@@ -1242,12 +1362,12 @@ export default function VehicleCompatibilityGuide() {
                           </span>
                         </td>
                         <td className="p-4 text-center">
-                          <span className={`px-2 py-1 rounded text-xs font-bold ${
-                            row.readinessScore >= 92 
-                              ? 'text-emerald-400 font-bold bg-emerald-950/20' 
-                              : 'text-brand-cyan font-bold bg-brand-cyan/5'
+                          <span className={`px-2.5 py-1 rounded text-[10.5px] font-mono tracking-wide ${
+                            row.compatibilityStatus === 'Highly Aligned' 
+                              ? 'text-emerald-400 bg-emerald-950/20 border border-emerald-500/10' 
+                              : 'text-brand-cyan bg-brand-cyan/5 border border-brand-cyan/20'
                           }`}>
-                            {row.readinessScore}%
+                            {row.compatibilityStatus}
                           </span>
                         </td>
                       </tr>

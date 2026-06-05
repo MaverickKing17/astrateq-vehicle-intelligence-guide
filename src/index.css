@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Segoe UI", "Segoe UI Web (West European)", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  --font-display: "Segoe UI Semibold", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-mono: "Consolas", "Courier New", monospace;
   
   --color-brand-midnight: #071120;
   --color-brand-space: #0B1F3A;
@@ -65,7 +64,7 @@ a.text-brand-midnight,
   body {
     background: white !important;
     color: #071120 !important;
-    font-family: 'Inter', sans-serif !important;
+    font-family: 'Segoe UI', Tahoma, sans-serif !important;
   }
   
   header, footer, nav, button, .interactive-only, .simulation-controls, .newsletter-section {
