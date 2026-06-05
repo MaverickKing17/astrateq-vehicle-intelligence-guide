@@ -9,7 +9,27 @@
   --color-brand-midnight: #071120;
   --color-brand-space: #0B1F3A;
   --color-brand-cyan: #00D4FF;
-  --color-brand-silver: #D6DCE5;
+  --color-brand-silver: #FFFFFF;
+}
+
+/* Override body text classes to render in high-contrast bright white */
+.text-brand-silver,
+.text-gray-300,
+.text-gray-400 {
+  color: #FFFFFF !important;
+}
+
+/* Secondary telemetry status keys rendered in beautiful slightly soft white for rhythm */
+.text-gray-500 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Ensure buttons with brand-midnight text retain their contrast ratio */
+.text-brand-midnight, 
+button.text-brand-midnight, 
+a.text-brand-midnight,
+.bg-brand-cyan text-brand-midnight {
+  color: #071120 !important;
 }
 
 @layer utilities {
