@@ -34,7 +34,8 @@ import {
   AlertTriangle,
   Flame,
   MousePointer,
-  ChevronDown
+  ChevronDown,
+  ArrowUp
 } from 'lucide-react';
 import { 
   OBDSensor, 
@@ -405,6 +406,10 @@ export default function VehicleCompatibilityGuide() {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div id="guide-layout" className="relative min-h-screen bg-brand-midnight text-brand-silver font-sans selection:bg-brand-cyan/30 selection:text-white overflow-hidden pb-24">
       {/* Dynamic top reading indicator */}
@@ -611,7 +616,7 @@ export default function VehicleCompatibilityGuide() {
                   return (
                     <div 
                       key={i} 
-                      className="group p-6 rounded-2xl bg-brand-space/40 border border-white/5 hover:border-brand-cyan/20 transition-all duration-300 flex flex-col justify-between space-y-4"
+                      className="group p-6 rounded-2xl bg-brand-space/50 border border-brand-cyan/35 shadow-[0_0_15px_-3px_rgba(0,212,255,0.25)] hover:border-brand-cyan hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] transition-all duration-300 flex flex-col justify-between space-y-4"
                     >
                       <div className="space-y-3">
                         <div className={`p-3 rounded-xl bg-gradient-to-br ${takeaway.color} w-fit group-hover:scale-105 transition-transform duration-300`}>
@@ -651,7 +656,7 @@ export default function VehicleCompatibilityGuide() {
                 return (
                   <div 
                     key={audience.id}
-                    className="p-5 rounded-2xl bg-brand-space/30 border border-white/5 hover:border-brand-cyan/10 transition-all duration-300 flex flex-col justify-between space-y-4 lg:col-span-1"
+                    className="p-5 rounded-2xl bg-brand-space/50 border border-brand-cyan/30 shadow-[0_0_12px_-3px_rgba(0,212,255,0.2)] hover:border-brand-cyan hover:shadow-[0_0_18px_rgba(0,212,255,0.45)] transition-all duration-300 flex flex-col justify-between space-y-4 lg:col-span-1"
                   >
                     <div className="space-y-3">
                       <div className="p-2.5 rounded-lg bg-brand-midnight border border-white/10 w-fit">
@@ -2294,13 +2299,39 @@ export default function VehicleCompatibilityGuide() {
           <div>
             DOCUMENT REGISTRY ID: <span className="text-gray-400">AST-DVC-2026</span> • CANADIAN GENERAL PUBLICATION ASSIGNMENT
           </div>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
+            <button 
+              id="footer-back-to-top"
+              onClick={scrollToTop}
+              className="flex items-center gap-1.5 text-gray-500 hover:text-[#FF6A00] hover:underline transition-colors uppercase tracking-wider font-mono cursor-pointer bg-transparent border-none outline-none"
+            >
+              <ArrowUp className="h-3.5 w-3.5 text-[#FF6A00]" />
+              <span>Back to Top</span>
+            </button>
+            <span>•</span>
             <a href="/privacy" className="hover:text-brand-cyan transition-colors">PROVINCIAL CONTROLS EXEMPTION</a>
             <span>•</span>
             <span>PIPED COMPLIANT</span>
           </div>
         </div>
       </footer>
+
+      {/* Floating Scroll to Top button */}
+      <AnimatePresence>
+        {readingProgress > 10 && (
+          <motion.button
+            id="btn-floating-scroll-top"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            onClick={scrollToTop}
+            title="Scroll to Top"
+            className="fixed bottom-6 right-6 p-3 rounded-full bg-brand-space/90 border border-[#FF6A00]/40 text-[#FF6A00] hover:bg-[#FF6A00] hover:text-brand-midnight shadow-[0_0_15px_-3px_rgba(255,106,0,0.4)] hover:shadow-[0_0_20px_rgba(255,106,0,0.65)] transition-all duration-300 z-50 cursor-pointer shadow-lg hover:scale-105 group"
+          >
+            <ArrowUp className="h-5 w-5 group-hover:-translate-y-0.5 transition-transform" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
