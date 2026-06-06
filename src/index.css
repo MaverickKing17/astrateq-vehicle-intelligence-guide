@@ -43,20 +43,114 @@ a.text-brand-midnight,
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar in Yellow */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
 }
 ::-webkit-scrollbar-track {
   background: #071120;
+  border-left: 1px solid rgba(254, 240, 138, 0.05);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1c2e4a;
-  border-radius: 4px;
+  background: #FACC15; /* Bright yellow */
+  border-radius: 6px;
+  border: 2px solid #071120;
+  box-shadow: inset 0 0 6px rgb(250, 204, 21), 0 0 10px rgba(250, 204, 21, 0.5);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00D4FF;
+  background: #FEF08A; /* Lighter bright yellow */
+  box-shadow: inset 0 0 8px rgb(254, 240, 138), 0 0 15px rgba(254, 240, 138, 0.8);
+}
+
+/* Scrollbar support for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FACC15 #071120;
+}
+
+/* ==========================================
+   GLOBAL GLOWING BORDERS FOR ALL BOXES & CARDS
+   ========================================== */
+
+/* 1. Target standard card containers */
+.rounded-3xl,
+.rounded-2xl,
+.rounded-xl,
+.rounded-\[2rem\] {
+  border-width: 1.5px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. Glowing colors based on standard themes */
+
+/* Cyan glowing boxes */
+.border-brand-cyan,
+.border-brand-cyan\/15,
+.border-brand-cyan\/20,
+.border-brand-cyan\/25,
+.border-brand-cyan\/30,
+.border-brand-cyan\/40 {
+  border-color: #00D4FF !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.35), inset 0 0 6px rgba(0, 212, 255, 0.1) !important;
+}
+.border-brand-cyan:hover,
+.border-brand-cyan\/15:hover,
+.border-brand-cyan\/20:hover,
+.border-brand-cyan\/25:hover,
+.border-brand-cyan\/30:hover,
+.border-brand-cyan\/40:hover {
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.6), inset 0 0 10px rgba(0, 212, 255, 0.2) !important;
+}
+
+/* Orange/Tangerine glowing boxes */
+.border-\[\#FF6A00\],
+.border-\[\#FF6A00\]\/15,
+.border-\[\#FF6A00\]\/20,
+.border-\[\#FF6A00\]\/25,
+.border-\[\#FF6A00\]\/30,
+.border-\[\#FF6A00\]\/40 {
+  border-color: #FF6A00 !important;
+  box-shadow: 0 0 15px rgba(255, 106, 0, 0.35), inset 0 0 6px rgba(255, 106, 0, 0.1) !important;
+}
+.border-\[\#FF6A00\]:hover,
+.border-\[\#FF6A00\]\/15:hover,
+.border-\[\#FF6A00\]\/20:hover,
+.border-\[\#FF6A00\]\/25:hover,
+.border-\[\#FF6A00\]\/30:hover,
+.border-\[\#FF6A00\]\/40:hover {
+  box-shadow: 0 0 25px rgba(255, 106, 0, 0.6), inset 0 0 10px rgba(255, 106, 0, 0.2) !important;
+}
+
+/* 3. Upgrade default subtle borders to glowing cyan/teal sheens */
+.border-white\/5,
+.border-white\/10,
+.border-white\/15,
+.border-white\/20 {
+  border-color: rgba(0, 212, 255, 0.3) !important;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.18), inset 0 0 4px rgba(0, 212, 255, 0.05) !important;
+}
+.border-white\/5:hover,
+.border-white\/10:hover,
+.border-white\/15:hover,
+.border-white\/20:hover {
+  border-color: rgba(0, 212, 255, 0.6) !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.45), inset 0 0 8px rgba(0, 212, 255, 0.15) !important;
+}
+
+/* 4. Glowing borders for inputs */
+input[type="text"],
+input[type="email"],
+#vehicle-search {
+  border: 1.5px solid rgba(0, 212, 255, 0.6) !important;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.3) !important;
+  transition: all 0.3s ease-in-out;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+#vehicle-search:focus {
+  border-color: #FF6A00 !important;
+  box-shadow: 0 0 20px rgba(255, 106, 0, 0.6) !important;
 }
 
 /* Print Stylesheet for PDF rendering */

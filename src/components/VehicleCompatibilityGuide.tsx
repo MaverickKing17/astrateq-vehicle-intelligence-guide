@@ -594,20 +594,32 @@ export default function VehicleCompatibilityGuide() {
 
         {/* KEY TAKEAWAYS (EXECUTIVE SUMMARY) */}
         <section id="executive-summary" className="mb-24">
-          <div className="border border-white/5 bg-brand-space/20 rounded-3xl p-8 md:p-12 relative overflow-hidden backdrop-blur-md">
-            <div className="absolute top-0 right-0 h-40 w-40 bg-brand-cyan/5 rounded-full blur-3xl" />
+          <div className="border border-brand-cyan/35 bg-brand-space/45 rounded-3xl p-8 md:p-12 relative overflow-hidden backdrop-blur-xl shadow-[0_0_30px_rgba(0,212,255,0.15)]">
+            <div className="absolute top-0 right-0 h-64 w-64 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 h-64 w-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+            
             <div className="relative space-y-8">
-              <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider uppercase">
-                  <Info className="h-3 w-3" />
-                  <span>PREMIUM SUMMARY</span>
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="space-y-3">
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-cyan/20 to-brand-cyan/5 border border-brand-cyan/30 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider uppercase">
+                    <Sparkles className="h-3 w-3 animate-pulse" />
+                    <span>PREMIUM ARCHITECTURE BRIEFING</span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
+                    Key Takeaways
+                  </h2>
+                  <p className="text-sm text-gray-400 max-w-2xl leading-relaxed">
+                    A high-level physical summary of diagnostics, signals, processing constraints, and driver autonomy. Handcrafted to meet the aesthetic and engineering standards of elite cockpits.
+                  </p>
                 </div>
-                <h2 className="text-3xl font-display font-medium text-white tracking-tight">
-                  Key Takeaways
-                </h2>
-                <p className="text-sm text-gray-400 max-w-2xl leading-relaxed">
-                  A high-level physical summary of diagnostics, signals, processing constraints, and driver autonomy.
-                </p>
+                
+                {/* Prestige compatibility badge */}
+                <div className="flex flex-col items-start md:items-end gap-1.5 p-4 rounded-xl bg-brand-midnight/60 border border-brand-cyan/30 self-start md:self-center font-mono">
+                  <span className="text-[10px] text-gray-500 uppercase tracking-widest">SYSTEM INSPIRATION &amp; OVERLAY</span>
+                  <div className="flex flex-wrap gap-2 text-[10px] text-brand-cyan font-semibold">
+                    <span>TESLA</span>•<span>APPLE</span>•<span>SAMSUNG</span>•<span>RIVIAN</span>•<span>PORSCHE</span>
+                  </div>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
@@ -616,17 +628,17 @@ export default function VehicleCompatibilityGuide() {
                   return (
                     <div 
                       key={i} 
-                      className="group p-6 rounded-2xl bg-brand-space/50 border border-brand-cyan/35 shadow-[0_0_15px_-3px_rgba(0,212,255,0.25)] hover:border-brand-cyan hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] transition-all duration-300 flex flex-col justify-between space-y-4"
+                      className="group p-6 rounded-2xl bg-brand-space/60 border border-brand-cyan/40 shadow-[0_0_15px_-4px_rgba(0,212,255,0.22)] hover:border-brand-cyan hover:shadow-[0_0_22px_rgba(0,212,255,0.45)] transition-all duration-300 flex flex-col justify-between space-y-4"
                     >
                       <div className="space-y-3">
-                        <div className={`p-3 rounded-xl bg-gradient-to-br ${takeaway.color} w-fit group-hover:scale-105 transition-transform duration-300`}>
+                        <div className={`p-3 rounded-xl bg-gradient-to-br ${takeaway.color} w-fit group-hover:scale-105 transition-transform duration-300 border border-white/5`}>
                           <IconComponent className="h-5 w-5 text-brand-cyan" />
                         </div>
                         <h3 className="text-sm font-medium text-white group-hover:text-brand-cyan transition-colors">
                           {takeaway.title}
                         </h3>
                       </div>
-                      <p className="text-xs text-gray-400 leading-relaxed pt-2">
+                      <p className="text-xs text-gray-400 leading-relaxed pt-2 border-t border-white/5 group-hover:border-brand-cyan/20 transition-colors">
                         {takeaway.desc}
                       </p>
                     </div>
@@ -641,12 +653,12 @@ export default function VehicleCompatibilityGuide() {
         <section id="section-who-it-is-for" className="mb-24">
           <div className="space-y-8">
             <div className="text-center max-w-3xl mx-auto space-y-4">
-              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 1.5 // AUDIENCE CONFIGURATIONS</div>
+              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">SECTION 1.5 // AUDIENCE CONFIGURATIONS</div>
               <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
                 Who This Guide Is For
               </h2>
               <p className="text-sm text-gray-400 leading-relaxed max-w-xl mx-auto">
-                Discover how modern diagnostic telemetry targets your specific driver profile, vehicle class, and personal data rules.
+                Discover how modern diagnostic telemetry targets your specific driver profile, vehicle class, and personal data rules. Inspired by high-fidelity user experiences.
               </p>
             </div>
 
@@ -656,17 +668,17 @@ export default function VehicleCompatibilityGuide() {
                 return (
                   <div 
                     key={audience.id}
-                    className="p-5 rounded-2xl bg-brand-space/50 border border-brand-cyan/30 shadow-[0_0_12px_-3px_rgba(0,212,255,0.2)] hover:border-brand-cyan hover:shadow-[0_0_18px_rgba(0,212,255,0.45)] transition-all duration-300 flex flex-col justify-between space-y-4 lg:col-span-1"
+                    className="p-5 rounded-2xl bg-brand-space/60 border border-brand-cyan/35 shadow-[0_0_12px_-4px_rgba(0,212,255,0.18)] hover:border-brand-cyan hover:shadow-[0_0_20px_rgba(0,212,255,0.45)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4 lg:col-span-1"
                   >
                     <div className="space-y-3">
-                      <div className="p-2.5 rounded-lg bg-brand-midnight border border-white/10 w-fit">
+                      <div className="p-2.5 rounded-lg bg-brand-midnight border border-brand-cyan/20 w-fit">
                         <IconComp className="h-4 w-4 text-brand-cyan" />
                       </div>
                       <h3 className="text-sm font-medium text-white tracking-tight">
                         {audience.title}
                       </h3>
                     </div>
-                    <p className="text-xs text-gray-400 leading-relaxed pt-1">
+                    <p className="text-xs text-gray-400 leading-relaxed pt-1 border-t border-white/5">
                       {audience.desc}
                     </p>
                   </div>
@@ -677,47 +689,55 @@ export default function VehicleCompatibilityGuide() {
         </section>
 
         {/* FOUNDER PHILOSOPHY SECTION */}
-        <section id="section-founder-philosophy" className="mb-24 border-t border-b border-white/5 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <section id="section-founder-philosophy" className="mb-24 border-t border-b border-brand-cyan/15 py-20 relative overflow-hidden">
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 bg-brand-cyan/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
             
             <div className="lg:col-span-4 flex justify-center">
-               {/* Clean elegant portrait placeholder card for future founder imagery */}
-              <div className="w-full max-w-[280px] aspect-[3/4] rounded-2xl bg-brand-space/30 border border-white/10 flex flex-col items-center justify-center p-6 relative overflow-hidden group hover:border-brand-cyan/20 transition-all">
-                <div className="absolute inset-0 bg-gradient-to-b from-brand-cyan/5 to-transparent pointer-events-none" />
-                <div className="h-16 w-16 rounded-full bg-brand-midnight border border-white/10 flex items-center justify-center mb-4 transition-transform group-hover:scale-105 duration-300">
-                  <span className="text-brand-cyan font-mono text-xl">AQ</span>
+               {/* Clean elegant portrait placeholder card with custom design cues inspired by Apple's executive page */}
+              <div className="w-full max-w-[280px] aspect-[3/4] rounded-2xl bg-brand-space border border-brand-cyan/40 shadow-[0_0_20px_rgba(0,212,255,0.2)] flex flex-col items-center justify-center p-6 relative overflow-hidden group hover:border-brand-cyan hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-cyan/10 via-transparent to-brand-cyan/5 pointer-events-none" />
+                
+                {/* Glowing ring */}
+                <div className="h-20 w-20 rounded-full bg-brand-midnight border border-brand-cyan/35 flex items-center justify-center mb-6 transition-transform group-hover:scale-105 duration-350 shadow-[0_0_15px_rgba(0,212,255,0.25)] relative">
+                  <div className="absolute inset-0.5 rounded-full border border-dashed border-brand-cyan/40 animate-[spin_40s_linear_infinite]" />
+                  <span className="text-brand-cyan font-mono text-2xl font-bold tracking-wider relative z-10">AQ</span>
                 </div>
-                <div className="text-center space-y-2">
-                  <h4 className="text-white font-display font-medium text-sm">Founder Portrait</h4>
-                  <p className="text-[11px] text-gray-400 font-mono tracking-wide uppercase leading-normal">Astrateq Gadgets Engineering Core</p>
-                  <p className="text-[10px] text-gray-400 italic px-2 leading-relaxed pt-2">"Pre-launch design and firmware coordination standards."</p>
+                
+                <div className="text-center space-y-2 relative z-10">
+                  <div className="inline-block text-[10px] font-mono text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/20 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">FOUNDER INITIATIVE</div>
+                  <h4 className="text-white font-display font-medium text-sm">Arthur Algonquin</h4>
+                  <p className="text-[10px] text-gray-400 font-mono tracking-wide uppercase leading-normal">Engineering Lead &amp; Principal Architect</p>
+                  <p className="text-[10.5px] text-gray-500 italic px-2 leading-relaxed pt-2 group-hover:text-gray-300 transition-colors">"Sovereignty over the vehicle dashboard is the final frontier of driver autonomy."</p>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-8 space-y-6 text-left">
-              <span className="text-[11px] font-mono text-brand-cyan tracking-widest uppercase block">FOUNDER PHILOSOPHY</span>
-              <h2 className="text-3xl font-display font-medium text-white tracking-tight">
+              <span className="text-[11px] font-mono text-brand-cyan tracking-widest uppercase block bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20 w-fit">FOUNDER PHILOSOPHY</span>
+              <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight leading-tight">
                 Why Astrateq Gadgets Exists
               </h2>
               
               <div className="space-y-4 text-sm text-gray-300 leading-relaxed font-sans max-w-2xl">
                 <p>
-                  Modern vehicles generate more information than ever before.
+                  Modern vehicles generate more information than ever before. Yet drivers have little visibility into how this data is harvested, analyzed, and commercialized.
                 </p>
                 <p>
-                  Many drivers have little visibility into how vehicle data is collected, processed, stored, or shared.
+                  We believe your cockpit should reflect the digital elegance and raw power of elite computer hardware, without the privacy compromises of legacy vehicle telemetry servers.
                 </p>
-                <div className="p-5 bg-brand-space/20 border-l border-brand-cyan rounded-r-xl my-4 text-white font-medium italic">
+                <div className="p-6 bg-brand-space/45 border-l-2 border-brand-cyan rounded-r-xl my-4 text-white font-medium italic shadow-[0_0_15px_rgba(0,212,255,0.1)]">
                   "Drivers should understand their vehicle technology and make informed decisions about privacy, safety, and connectivity."
                 </div>
                 <p>
-                  Astrateq Gadgets was created around this simple belief. This guide is part of that mission, written in a clear, objective manner to provide real transparency into automotive network diagnostics.
+                  Astrateq Gadgets was created to bridge this divide. Designed specifically for the high demands of Canadian travel and winter climate extremes, our products deliver real, offline diagnostic sovereignty.
                 </p>
               </div>
 
-              <div className="pt-2 text-xs font-mono text-gray-500">
-                ASTRATEQ GADGETS ENGINEERING MANIFESTO • SEPTEMBER 2026
+              <div className="pt-2 text-xs font-mono text-gray-500 flex items-center gap-2">
+                <span>ASTRATEQ GADGETS ENGINEERING MANIFESTO</span>
+                <span>•</span>
+                <span className="text-brand-cyan">SEPTEMBER 2026 // EDITION V3</span>
               </div>
             </div>
 
@@ -727,17 +747,17 @@ export default function VehicleCompatibilityGuide() {
         {/* SECTION 2: TODAY'S VEHICLES ARE COMPUTERS */}
         <section id="section-vehicles-evolved" className="mb-24 scroll-mt-24">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 02 // HARDWARE TELEMETRY</div>
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">SECTION 02 // HARDWARE TELEMETRY</div>
             <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
               The Modern Vehicle Has Evolved
             </h2>
-            <p className="text-gray-300 text-sm md:text-base">
-              A contemporary automobile is no longer a purely mechanical assembly. It represents a complex distributed system containing up to a hundred microcontrollers operating in absolute synchronicity.
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+              A contemporary automobile is no longer a purely mechanical assembly. It represents a complex distributed system containing up to a hundred microcontrollers operating in absolute synchronicity. Sourcing signal data directly is how elite automotive software builds real intelligence.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-5 space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
               {[
                 {
                   title: "Electronic Control Units (ECUs)",
@@ -752,13 +772,13 @@ export default function VehicleCompatibilityGuide() {
                   desc: "Standard diagnostics rely on querying these buses. Intelligently listening to these messages safely exposes physical sensor telemetry like brake pressure, battery heat, and vehicle wheel slippage."
                 }
               ].map((item, index) => (
-                <div key={index} className="p-5 rounded-xl bg-brand-space/30 border border-white/5 hover:border-brand-cyan/20 transition-all group">
+                <div key={index} className="p-5 rounded-xl bg-brand-space/50 border border-brand-cyan/30 shadow-[0_0_12px_-4px_rgba(0,212,255,0.15)] hover:border-brand-cyan hover:shadow-[0_0_18px_rgba(0,212,255,0.4)] transition-all duration-300 group">
                   <div className="flex gap-4">
-                    <div className="h-8 w-8 rounded-lg bg-brand-cyan/5 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan shrink-0 group-hover:bg-brand-cyan hover:text-brand-midnight transition-colors">
-                      <span className="font-mono text-xs font-semibold">0{index + 1}</span>
+                    <div className="h-9 w-9 rounded-lg bg-brand-midnight border border-brand-cyan/20 flex items-center justify-center text-brand-cyan shrink-0 group-hover:bg-brand-cyan group-hover:text-brand-midnight transition-all duration-300">
+                      <span className="font-mono text-xs font-bold">0{index + 1}</span>
                     </div>
                     <div className="space-y-1.5">
-                      <h4 className="text-white font-medium font-display text-base tracking-wide">{item.title}</h4>
+                      <h4 className="text-white font-medium font-display text-base tracking-wide group-hover:text-brand-cyan transition-colors">{item.title}</h4>
                       <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
@@ -766,29 +786,34 @@ export default function VehicleCompatibilityGuide() {
               ))}
             </div>
 
-            <div className="lg:col-span-7 bg-brand-space/20 border border-white/5 rounded-2xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md">
-              <div className="absolute top-2 right-2 bg-brand-cyan/15 px-2 py-0.5 rounded text-[8px] font-mono text-brand-cyan uppercase tracking-widest font-bold">
-                SYSTEM SCHEMATIC REVISION V3.1
-              </div>
-              
-              <h3 className="text-lg font-display font-medium text-white mb-2 flex items-center gap-2">
-                <Network className="h-4 w-4 text-brand-cyan" />
-                Automotive Area Network (CAN Map)
-              </h3>
-              
-              <p className="text-xs text-gray-400 mb-6 leading-relaxed">
-                Interconnections mapping out how physical sensor intelligence translates from powertrain modules directly into safety-critical driver displays and outer sensors.
-              </p>
+            <div className="lg:col-span-7 bg-brand-space/45 border border-brand-cyan/25 shadow-[0_0_20px_rgba(0,212,255,0.12)] rounded-3xl p-6 md:p-8 relative overflow-hidden backdrop-blur-xl flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-2">
+                    <Network className="h-4.5 w-4.5 text-brand-cyan" />
+                    <h3 className="text-base font-display font-medium text-white tracking-tight">
+                      Automotive Area Network (CAN Map)
+                    </h3>
+                  </div>
+                  <span className="bg-brand-cyan/15 border border-brand-cyan/30 px-2.5 py-0.5 rounded text-[8px] font-mono text-brand-cyan uppercase tracking-widest font-bold">
+                    SYSTEM SCHEMATIC REVISION V3.1
+                  </span>
+                </div>
+                
+                <p className="text-xs text-gray-400 mb-6 leading-relaxed">
+                  Interconnections mapping out how physical sensor intelligence translates from powertrain modules directly into safety-critical driver displays and outer sensors.
+                </p>
 
-              {/* Integrated Network Flow Diagram */}
-              <div className="mb-6 rounded-xl overflow-hidden border border-white/10 bg-brand-midnight/45 p-4">
-                <img 
-                  id="schematic-network-image"
-                  src="/src/assets/images/vehicle_network_schematic_1780682014029.png" 
-                  alt="High tech CAN Bus vehicle network architecture diagram with glowing nodes" 
-                  className="w-full h-auto aspect-video object-cover rounded-lg"
-                  referrerPolicy="no-referrer"
-                />
+                {/* Integrated Network Flow Diagram */}
+                <div className="mb-6 rounded-xl overflow-hidden border border-brand-cyan/20 bg-brand-midnight/45 p-1 hover:border-brand-cyan transition-all duration-300 shadow-[0_0_15px_-4px_rgba(0,212,255,0.15)]">
+                  <img 
+                    id="schematic-network-image"
+                    src="/src/assets/images/vehicle_network_schematic_1780682014029.png" 
+                    alt="High tech CAN Bus vehicle network architecture diagram with glowing nodes" 
+                    className="w-full h-auto aspect-video object-cover rounded-lg"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
               </div>
 
               {/* Interactive Network Node Explainer */}
@@ -803,9 +828,9 @@ export default function VehicleCompatibilityGuide() {
                     <button
                       key={node.id}
                       onClick={() => setActiveNetworkNode(node.id)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition-all ${
+                      className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition-all cursor-pointer ${
                         activeNetworkNode === node.id 
-                          ? `${node.color} bg-white/5 font-semibold` 
+                          ? `${node.color} bg-brand-cyan/5 font-semibold` 
                           : 'border-white/10 text-gray-400 hover:text-white hover:border-white/25 bg-transparent'
                       }`}
                     >
@@ -884,22 +909,23 @@ export default function VehicleCompatibilityGuide() {
         </section>
 
         {/* SECTION 3: UNDERSTANDING OBD-II */}
-        <section id="section-understanding-obd" className="mb-24 bg-brand-space/10 border border-white/5 rounded-2xl p-8 lg:p-12 relative overflow-hidden">
+        <section id="section-understanding-obd" className="mb-24 bg-brand-space/45 border border-brand-cyan/25 shadow-[0_0_20px_rgba(0,212,255,0.12)] rounded-3xl p-8 lg:p-12 relative overflow-hidden backdrop-blur-xl">
+          <div className="absolute top-0 right-0 h-40 w-40 bg-brand-cyan/5 rounded-full blur-3xl pointer-events-none" />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 03 // VEHICLE PROTOCOLS</div>
+              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">SECTION 03 // VEHICLE PROTOCOLS</div>
               <h2 className="text-3xl font-display font-medium text-white tracking-tight leading-tight">
                 The Language Your Vehicle Already Speaks
               </h2>
               
               <p className="text-gray-300 text-sm leading-relaxed">
-                Mandated in North America since 1996, the <strong>OBD-II (On-Board Diagnostics)</strong> port is far more than a mechanism to clear check engine lights. It is a highly regulated, standardized pipeline providing high-density real-time operating metrics.
+                Mandated in North America since 1996, the <strong>OBD-II (On-Board Diagnostics)</strong> port is far more than a mechanism to clear check engine lights. It is a highly regulated, standardized pipeline providing high-density real-time operating metrics. Tested alongside premium electric workloads.
               </p>
 
               <div className="space-y-4 text-xs text-gray-400">
                 <div className="flex items-start gap-3">
-                  <div className="h-5 w-5 bg-brand-cyan/10 border border-brand-cyan/20 rounded-full flex items-center justify-center text-brand-cyan shrink-0 mt-0.5">
+                  <div className="h-6 w-6 bg-brand-cyan/10 border border-brand-cyan/30 rounded-full flex items-center justify-center text-brand-cyan shrink-0 mt-0.5">
                     <Check className="h-3 w-3" />
                   </div>
                   <p className="leading-relaxed">
@@ -907,7 +933,7 @@ export default function VehicleCompatibilityGuide() {
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="h-5 w-5 bg-brand-cyan/10 border border-brand-cyan/20 rounded-full flex items-center justify-center text-brand-cyan shrink-0 mt-0.5">
+                  <div className="h-6 w-6 bg-brand-cyan/10 border border-brand-cyan/30 rounded-full flex items-center justify-center text-brand-cyan shrink-0 mt-0.5">
                     <Check className="h-3 w-3" />
                   </div>
                   <p className="leading-relaxed">
@@ -915,7 +941,7 @@ export default function VehicleCompatibilityGuide() {
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="h-5 w-5 bg-brand-cyan/10 border border-brand-cyan/20 rounded-full flex items-center justify-center text-brand-cyan shrink-0 mt-0.5">
+                  <div className="h-6 w-6 bg-brand-cyan/10 border border-brand-cyan/30 rounded-full flex items-center justify-center text-brand-cyan shrink-0 mt-0.5">
                     <Check className="h-3 w-3" />
                   </div>
                   <p className="leading-relaxed">
@@ -927,7 +953,7 @@ export default function VehicleCompatibilityGuide() {
 
             {/* INTERACTIVE OBD-II LIVE HEX DECODER PANEL */}
             <div className="lg:col-span-6">
-              <div className="bg-brand-space border border-white/10 rounded-xl p-6 shadow-2xl relative">
+              <div className="bg-brand-space border border-brand-cyan/40 rounded-2xl p-6 shadow-2xl relative shadow-brand-cyan/10">
                 <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
                   <div className="flex items-center gap-2">
                     <Gauge className="h-5 w-5 text-brand-cyan" />
@@ -936,7 +962,7 @@ export default function VehicleCompatibilityGuide() {
                       <p className="text-[10px] text-gray-400 font-mono">LIVE PASSIVE SNIFFER SIMULATION</p>
                     </div>
                   </div>
-                  <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
                 </div>
 
                 <p className="text-xs text-gray-400 mb-4">
@@ -952,34 +978,34 @@ export default function VehicleCompatibilityGuide() {
                         setActiveSensor(sensor);
                         if (sensor.id === 'rpm') setCustomRpm(1850);
                       }}
-                      className={`p-2 rounded-lg text-left border text-xs font-mono transition-all relative ${
+                      className={`p-3 rounded-xl text-left border text-xs font-mono transition-all relative cursor-pointer ${
                         activeSensor.id === sensor.id 
-                          ? 'border-brand-cyan bg-brand-cyan/5 text-white' 
-                          : 'border-white/5 bg-brand-midnight/40 text-gray-400 hover:text-white hover:border-white/15'
+                          ? 'border-brand-cyan bg-brand-cyan/10 text-white shadow-[0_0_12px_rgba(0,212,255,0.15)]' 
+                          : 'border-white/5 bg-brand-midnight/45 text-gray-400 hover:text-white hover:border-white/15'
                       }`}
                     >
                       <div className="text-[10px] text-gray-500 font-sans">PID {sensor.parameterCode}</div>
                       <div className="font-semibold">{sensor.name}</div>
                       {activeSensor.id === sensor.id && (
-                        <div className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-brand-cyan" />
+                        <div className="absolute top-3.5 right-3 h-2 w-2 rounded-full bg-brand-cyan animate-pulse shadow-[0_0_8px_#00d4ff]" />
                       )}
                     </button>
                   ))}
                 </div>
 
                 {/* Visual Dashboard Rendering of Active Metric */}
-                <div className="rounded-lg bg-brand-midnight/80 p-4 border border-white/5 space-y-4">
+                <div className="rounded-xl bg-brand-midnight/80 p-5 border border-brand-cyan/20 space-y-4 shadow-inner">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono text-gray-400 uppercase">TELEMETRY DECODING MATRIX</span>
-                    <span className="text-[10px] font-mono text-brand-cyan bg-brand-cyan/10 px-2 py-0.5 rounded">STANDARD MODE 01</span>
+                    <span className="text-[10px] font-mono text-brand-cyan bg-brand-cyan/10 px-2 py-0.5 border border-brand-cyan/25 rounded">STANDARD MODE 01</span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
                     {/* Gauge Visual */}
                     <div className="md:col-span-5 flex flex-col items-center justify-center py-2">
-                      <div className="relative h-24 w-24 rounded-full border-4 border-dashed border-white/10 flex flex-col items-center justify-center">
-                        <div className="absolute inset-2 rounded-full border border-brand-cyan/20 flex flex-col items-center justify-center">
-                          <span className="text-white font-mono text-lg font-bold tracking-tight">
+                      <div className="relative h-26 w-26 rounded-full border-4 border-dashed border-brand-cyan/30 flex flex-col items-center justify-center shadow-[0_0_15px_rgba(0,212,255,0.1)]">
+                        <div className="absolute inset-2.5 rounded-full border border-brand-cyan/20 flex flex-col items-center justify-center bg-brand-space/75">
+                          <span className="text-white font-mono text-xl font-bold tracking-tight">
                             {activeSensor.id === 'rpm' ? customRpm : activeSensor.currentValue}
                           </span>
                           <span className="text-[9px] font-mono text-brand-cyan uppercase tracking-wider">{activeSensor.unit}</span>
@@ -993,7 +1019,7 @@ export default function VehicleCompatibilityGuide() {
                     <div className="md:col-span-7 space-y-3">
                       <div>
                         <div className="text-[10px] text-gray-500 font-mono">TRANSMITTED FRAME HEXADECIMAL LOG</div>
-                        <div className="font-mono text-brand-cyan font-bold tracking-widest text-base select-all bg-black/30 p-2 rounded border border-white/5 mt-1">
+                        <div className="font-mono text-brand-cyan font-bold tracking-widest text-base select-all bg-black/40 p-2.5 rounded-lg border border-brand-cyan/20 mt-1 shadow-inner">
                           {activeSensor.signalHex}
                         </div>
                       </div>
@@ -1018,7 +1044,7 @@ export default function VehicleCompatibilityGuide() {
                   </div>
 
                   {activeSensor.id === 'rpm' && (
-                    <div className="space-y-1 bg-brand-space/40 p-3 rounded font-mono text-[11px] text-gray-300 border border-brand-cyan/5">
+                    <div className="space-y-1 bg-brand-space/60 p-3.5 rounded-xl font-mono text-[11px] text-gray-300 border border-brand-cyan/15">
                       <div className="flex justify-between text-[10px] text-gray-500 mb-1">
                         <span>DYNAMIC SLIDER OPTION</span>
                         <span>RPM TARGET: {customRpm}</span>
@@ -1031,7 +1057,7 @@ export default function VehicleCompatibilityGuide() {
                         onChange={handleRpmChange}
                         className="w-full accent-brand-cyan bg-brand-midnight h-1.5 rounded cursor-pointer"
                       />
-                      <div className="pt-2 text-[10px] text-gray-400">
+                      <div className="pt-2 text-[10.5px] text-gray-400">
                         <span className="text-brand-cyan">DECODING FORMULA:</span> ((ByteA * 256) + ByteB) / 4 <br />
                         Applying: (({activeSensor.signalHex.split(' ')[2]} * 256) + {activeSensor.signalHex.split(' ')[3]}) / 4 = <strong>{customRpm} RPM</strong>
                       </div>
@@ -1039,7 +1065,7 @@ export default function VehicleCompatibilityGuide() {
                   )}
 
                   {activeSensor.id !== 'rpm' && (
-                    <div className="bg-brand-space/40 p-3 rounded text-[11px] text-gray-300 border border-brand-cyan/5 italic leading-relaxed">
+                    <div className="bg-brand-space/60 p-3.5 rounded-xl text-[11px] text-gray-300 border border-brand-cyan/15 italic leading-relaxed">
                       💡 {activeSensor.educationalInfo}
                     </div>
                   )}
@@ -1052,7 +1078,7 @@ export default function VehicleCompatibilityGuide() {
         {/* SECTION: UNDERSTANDING VEHICLE DATA education */}
         <section id="section-understanding-vehicle-data" className="mb-24 scroll-mt-24">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 03 // EDUCATION & TELEMETRY</div>
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20">SECTION 03 // EDUCATION &amp; TELEMETRY</div>
             <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
               Understanding Vehicle Data
             </h2>
@@ -1061,17 +1087,17 @@ export default function VehicleCompatibilityGuide() {
             </p>
           </div>
 
-          {/* Visual Flow Diagram */}
-          <div className="bg-brand-space/20 border border-white/5 rounded-2xl p-6 md:p-8 mb-12 relative overflow-hidden backdrop-blur-md">
+          {/* Visual Flow Diagram with glowing glassmorphism borders */}
+          <div className="bg-brand-space/45 border border-brand-cyan/25 shadow-[0_0_20px_rgba(0,212,255,0.12)] rounded-3xl p-6 md:p-8 mb-12 relative overflow-hidden backdrop-blur-xl">
             <h3 className="text-sm font-mono uppercase tracking-wider text-gray-400 mb-8 text-center md:text-left">
               Data Processing Pipeline
             </h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-center relative">
               {/* Flow step 1 */}
-              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-white/5 space-y-3 relative z-10">
-                <div className="absolute top-3 right-3 text-[10px] font-mono text-gray-500">01</div>
-                <div className="h-9 w-9 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-brand-cyan/20 shadow-md space-y-3 relative z-10 hover:border-brand-cyan hover:shadow-[0_0_15px_rgba(0,212,255,0.2)] transition-all duration-300">
+                <div className="absolute top-3.5 right-3.5 text-[10px] font-mono text-gray-500">01</div>
+                <div className="h-10 w-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/25 flex items-center justify-center text-brand-cyan">
                   <Car className="h-5 w-5" />
                 </div>
                 <h4 className="text-white font-medium text-sm font-display">Vehicle Sensors</h4>
@@ -1081,9 +1107,9 @@ export default function VehicleCompatibilityGuide() {
               </div>
 
               {/* Flow step 2 */}
-              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-white/5 space-y-3 relative z-10">
-                <div className="absolute top-3 right-3 text-[10px] font-mono text-gray-500">02</div>
-                <div className="h-9 w-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-blue-500/20 shadow-md space-y-3 relative z-10 hover:border-blue-500 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300">
+                <div className="absolute top-3.5 right-3.5 text-[10px] font-mono text-gray-500">02</div>
+                <div className="h-10 w-10 rounded-lg bg-blue-500/10 border border-blue-500/25 flex items-center justify-center text-blue-400">
                   <Network className="h-5 w-5" />
                 </div>
                 <h4 className="text-white font-medium text-sm font-display">Vehicle Network</h4>
@@ -1093,9 +1119,9 @@ export default function VehicleCompatibilityGuide() {
               </div>
 
               {/* Flow step 3 */}
-              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-white/5 space-y-3 relative z-10">
-                <div className="absolute top-3 right-3 text-[10px] font-mono text-gray-500">03</div>
-                <div className="h-9 w-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <div className="p-5 rounded-xl bg-brand-midnight/60 border border-emerald-500/20 shadow-md space-y-3 relative z-10 hover:border-emerald-500 hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-300">
+                <div className="absolute top-3.5 right-3.5 text-[10px] font-mono text-gray-500">03</div>
+                <div className="h-10 w-10 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400">
                   <Cpu className="h-5 w-5" />
                 </div>
                 <h4 className="text-white font-medium text-sm font-display">Diagnostic Systems</h4>
@@ -1105,13 +1131,13 @@ export default function VehicleCompatibilityGuide() {
               </div>
 
               {/* Flow step 4 */}
-              <div className="p-5 rounded-xl bg-brand-space/55 border border-brand-cyan/20 space-y-3 relative z-10 shadow-lg shadow-brand-cyan/5">
-                <div className="absolute top-3 right-3 text-[10px] font-mono text-brand-cyan">04</div>
-                <div className="h-9 w-9 rounded-lg bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan">
+              <div className="p-5 rounded-xl bg-brand-space/65 border border-brand-cyan/40 space-y-3 relative z-10 shadow-xl shadow-brand-cyan/15 hover:border-brand-cyan hover:shadow-[0_0_20px_rgba(0,212,255,0.45)] transition-all duration-300">
+                <div className="absolute top-3.5 right-3.5 text-[10px] font-mono text-brand-cyan font-bold">04</div>
+                <div className="h-10 w-10 rounded-lg bg-brand-cyan/20 border border-brand-cyan/35 flex items-center justify-center text-brand-cyan">
                   <Sparkles className="h-5 w-5 animate-pulse" />
                 </div>
                 <h4 className="text-white font-medium text-sm font-display">Driver Insights</h4>
-                <p className="text-[11px] text-brand-cyan leading-relaxed">
+                <p className="text-[11px] text-brand-cyan leading-relaxed font-semibold">
                   Local, privacy-first edge intelligence translating raw bus signals into immediate safety assistance feedback.
                 </p>
               </div>
@@ -1120,7 +1146,7 @@ export default function VehicleCompatibilityGuide() {
             {/* Connecting arrows designed for large screen layouts of the flow */}
             <div className="hidden lg:block absolute left-[22%] top-[45%] w-[6%] h-0.5 border-t-2 border-dashed border-white/10 z-0" />
             <div className="hidden lg:block absolute left-[47%] top-[45%] w-[6%] h-0.5 border-t-2 border-dashed border-white/10 z-0" />
-            <div className="hidden lg:block absolute left-[72%] top-[45%] w-[6%] h-0.5 border-t-2 border-dashed border-brand-cyan/20 z-0" />
+            <div className="hidden lg:block absolute left-[72%] top-[45%] w-[6%] h-0.5 border-t-2 border-dashed border-brand-cyan/25 z-0" />
           </div>
 
           {/* Deep Educational Content Grid */}
@@ -1150,11 +1176,11 @@ export default function VehicleCompatibilityGuide() {
         {/* SECTION 2: IS YOUR VEHICLE READY? */}
         <section id="compatibility-calculator" className="mb-24 scroll-mt-24" ref={checklistRef}>
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 02 // TECHNICAL READINESS</div>
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/25">SECTION 02 // TECHNICAL READINESS</div>
             <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
               Is Your Vehicle Ready?
             </h2>
-            <p className="text-gray-300 text-sm md:text-base">
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
               Most modern vehicles already include the foundational systems required for intelligent diagnostics and safety monitoring.
             </p>
           </div>
@@ -1162,13 +1188,13 @@ export default function VehicleCompatibilityGuide() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
             {/* Interactive Requirements Checklist Card Group */}
-            <div className="lg:col-span-7 bg-brand-space/20 border border-white/5 rounded-2xl p-6 md:p-8 space-y-4 flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-brand-space/45 border border-brand-cyan/20 shadow-[0_0_15px_rgba(0,212,255,0.08)] rounded-3xl p-6 md:p-8 space-y-4 flex flex-col justify-between backdrop-blur-xl">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-sm font-mono uppercase tracking-wider text-gray-400">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">
                     Interactive Educational Checklist
                   </h3>
-                  <span className="text-[10px] font-mono text-brand-cyan">CLICK CARDS TO TOGGLE PARAMETERS</span>
+                  <span className="text-[10px] font-mono text-brand-cyan bg-brand-cyan/10 px-2 py-0.5 border border-brand-cyan/20 rounded">CLICK CARDS TO TOGGLE PARAMETERS</span>
                 </div>
                 
                 <div id="interactive-checklist-grid" className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1176,21 +1202,21 @@ export default function VehicleCompatibilityGuide() {
                   <button
                     id="checkbox-obd"
                     onClick={() => setCheckedRequirements(prev => ({ ...prev, obd: !prev.obd }))}
-                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[170px] ${
                       checkedRequirements.obd 
-                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
-                        : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
+                        ? 'border-brand-cyan bg-brand-cyan/10 text-white shadow-[0_0_15px_rgba(0,212,255,0.15)]' 
+                        : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/15'
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">1. OBD-II Port Present</span>
-                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                      <span className="text-xs font-bold font-display text-white group-hover:text-brand-cyan">1. OBD-II Port Present</span>
+                      <div className={`h-5 w-5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.obd ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
                         {checkedRequirements.obd && <Check className="h-3.5 w-3.5 stroke-[3]" />}
                       </div>
                     </div>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2 font-sans">
                       Provides a standard physical access point to read diagnostic signals without vehicle modifications, mandatory for passenger vehicles since 1996 in North America.
                     </p>
                   </button>
@@ -1199,21 +1225,21 @@ export default function VehicleCompatibilityGuide() {
                   <button
                     id="checkbox-year"
                     onClick={() => setCheckedRequirements(prev => ({ ...prev, year: !prev.year }))}
-                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[170px] ${
                       checkedRequirements.year 
-                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        ? 'border-brand-cyan bg-brand-cyan/10 text-white shadow-[0_0_15px_rgba(0,212,255,0.15)]' 
                         : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">2. Model Year 2008+</span>
-                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                      <span className="text-xs font-bold font-display text-white">2. Model Year 2008+</span>
+                      <div className={`h-5 w-5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.year ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
                         {checkedRequirements.year && <Check className="h-3.5 w-3.5 stroke-[3]" />}
                       </div>
                     </div>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2 font-sans">
                       Ensures the use of high-speed Controller Area Network (CAN Bus) protocols, which is critical for real-time sensor processing and diagnostic reliability.
                     </p>
                   </button>
@@ -1222,21 +1248,21 @@ export default function VehicleCompatibilityGuide() {
                   <button
                     id="checkbox-electrical"
                     onClick={() => setCheckedRequirements(prev => ({ ...prev, electrical: !prev.electrical }))}
-                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[170px] ${
                       checkedRequirements.electrical 
-                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        ? 'border-brand-cyan bg-brand-cyan/10 text-white shadow-[0_0_15px_rgba(0,212,255,0.15)]' 
                         : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">3. Healthy Electrical System</span>
-                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                      <span className="text-xs font-bold font-display text-white">3. Healthy Electrical System</span>
+                      <div className={`h-5 w-5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.electrical ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
                         {checkedRequirements.electrical && <Check className="h-3.5 w-3.5 stroke-[3]" />}
                       </div>
                     </div>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2 font-sans">
                       A stable electrical environment prevents low-voltage computer dips during starting, providing a robust power foundation for passive computing overlays.
                     </p>
                   </button>
@@ -1245,21 +1271,21 @@ export default function VehicleCompatibilityGuide() {
                   <button
                     id="checkbox-safety"
                     onClick={() => setCheckedRequirements(prev => ({ ...prev, safety: !prev.safety }))}
-                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[170px] ${
                       checkedRequirements.safety 
-                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        ? 'border-brand-cyan bg-brand-cyan/10 text-white shadow-[0_0_15px_rgba(0,212,255,0.15)]' 
                         : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">4. Modern Safety Systems</span>
-                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                      <span className="text-xs font-bold font-display text-white">4. Modern Safety Systems</span>
+                      <div className={`h-5 w-5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.safety ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
                         {checkedRequirements.safety && <Check className="h-3.5 w-3.5 stroke-[3]" />}
                       </div>
                     </div>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2 font-sans">
                       Active sensor layers provide safety integration options for passive real-time vision analytics without altering stock safety operations.
                     </p>
                   </button>
@@ -1268,21 +1294,21 @@ export default function VehicleCompatibilityGuide() {
                   <button
                     id="checkbox-battery"
                     onClick={() => setCheckedRequirements(prev => ({ ...prev, battery: !prev.battery }))}
-                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[170px] ${
                       checkedRequirements.battery 
-                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        ? 'border-brand-cyan bg-brand-cyan/10 text-white shadow-[0_0_15px_rgba(0,212,255,0.15)]' 
                         : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">5. Stable Battery Performance</span>
-                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                      <span className="text-xs font-bold font-display text-white">5. Stable Battery Performance</span>
+                      <div className={`h-5 w-5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.battery ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
                         {checkedRequirements.battery && <Check className="h-3.5 w-3.5 stroke-[3]" />}
                       </div>
                     </div>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2 font-sans">
                       Permits intelligent passive standby monitoring during off-cycles with zero danger of drawing down the vehicle's electrical reserve.
                     </p>
                   </button>
@@ -1291,83 +1317,84 @@ export default function VehicleCompatibilityGuide() {
                   <button
                     id="checkbox-history"
                     onClick={() => setCheckedRequirements(prev => ({ ...prev, history: !prev.history }))}
-                    className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[170px] ${
                       checkedRequirements.history 
-                        ? 'border-brand-cyan/40 bg-brand-cyan/5 text-white' 
+                        ? 'border-brand-cyan bg-brand-cyan/10 text-white shadow-[0_0_15px_rgba(0,212,255,0.15)]' 
                         : 'border-white/5 bg-brand-midnight/40 text-gray-500 hover:border-white/10'
                     }`}
                   >
                     <div className="flex items-start justify-between w-full gap-2">
-                      <span className="text-xs font-semibold font-display text-white">6. Regular Maintenance History</span>
-                      <div className={`h-4.5 w-4.5 rounded border flex items-center justify-center shrink-0 transition-all ${
+                      <span className="text-xs font-bold font-display text-white">6. Maintenance History</span>
+                      <div className={`h-5 w-5 rounded border flex items-center justify-center shrink-0 transition-all ${
                         checkedRequirements.history ? 'bg-brand-cyan border-brand-cyan text-brand-midnight' : 'border-white/20 bg-transparent'
                       }`}>
                         {checkedRequirements.history && <Check className="h-3.5 w-3.5 stroke-[3]" />}
                       </div>
                     </div>
-                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2">
+                    <p className="text-[11px] text-gray-400 leading-relaxed mt-2 font-sans">
                       Ensures that the vehicle ECU registers and diagnostic lines are free of historical faults or pending power blockages.
                     </p>
                   </button>
                 </div>
               </div>
 
-              <div className="bg-brand-midnight/60 rounded-xl p-4 border border-white/5 flex gap-3 items-start mt-6 text-left">
-                <Info className="h-4.5 w-4.5 text-brand-cyan shrink-0 mt-0.5" />
-                <p className="text-[11px] text-gray-400 leading-relaxed">
+              <div className="bg-brand-midnight/80 rounded-2xl p-4.5 border border-brand-cyan/20 flex gap-3.5 items-start mt-6 text-left">
+                <Info className="h-5 w-5 text-brand-cyan shrink-0 mt-0.5" />
+                <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Toggle the checklist above to understand the physical and networking conditions that allow edge vehicle intelligence to assess systems safely.
                 </p>
               </div>
             </div>
 
-            {/* Qualitative Assessment Panel Display */}
-            <div className="lg:col-span-5 bg-gradient-to-b from-brand-space to-brand-midnight border border-white/10 rounded-2xl p-8 flex flex-col justify-between text-left relative shadow-2xl">
+            {/* Qualitative Assessment Panel Display with custom Orange Tangerine parameters */}
+            <div className="lg:col-span-5 bg-gradient-to-b from-brand-space to-brand-midnight border border-[#FF6A00]/25 rounded-3xl p-8 flex flex-col justify-between text-left relative shadow-2xl shadow-[#FF6A00]/5 overflow-hidden">
+              <div className="absolute top-0 right-0 h-40 w-40 bg-[#FF6A00]/5 rounded-full blur-3xl pointer-events-none" />
               <div className="space-y-6">
-                <h3 className="text-xs text-gray-400 uppercase tracking-widest font-mono">EDUCATIONAL ASSESSMENT SUMMARY</h3>
+                <h3 className="text-xs text-[#FF6A00] uppercase tracking-widest font-mono bg-[#FF6A00]/10 border border-[#FF6A00]/20 px-3 py-1 rounded-full w-fit">TECHNICAL ALIGNMENT SUMMARY</h3>
                 
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-xs font-mono text-gray-400">
-                    <span>EVALUATION COMPLETE:</span>
-                    <span className="text-white font-bold">
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center text-xs font-mono text-gray-300">
+                    <span>EVALUATION METRIC:</span>
+                    <span className="text-white font-bold text-sm">
                       {Object.values(checkedRequirements).filter(Boolean).length} / 6 PARAMETERS
                     </span>
                   </div>
                   
-                  {/* Standard horizontal progress metric instead of scary radial percentage score */}
-                  <div className="h-2 w-full bg-brand-midnight rounded-full overflow-hidden border border-white/5">
+                  {/* Tangerine active progress bar */}
+                  <div className="h-2.5 w-full bg-brand-midnight rounded-full overflow-hidden border border-white/5 p-[1px]">
                     <div 
-                      className="h-full bg-brand-cyan transition-all duration-500 ease-out"
+                      className="h-full bg-gradient-to-r from-[#FF6A00] to-amber-500 rounded-full transition-all duration-700 ease-out shadow-[0_0_8px_#FF6A00]"
                       style={{ width: `${(Object.values(checkedRequirements).filter(Boolean).length / 6) * 100}%` }}
                     />
                   </div>
                 </div>
 
-                <div className="space-y-3 bg-white/5 p-5 rounded-xl border border-white/5">
-                  <div className="flex items-center justify-between text-[11px] font-mono">
-                    <span className="text-gray-400">RESEARCH MODEL:</span>
+                <div className="space-y-4 bg-brand-midnight/50 p-5 rounded-2xl border border-brand-cyan/15 backdrop-blur-md">
+                  <div className="flex items-center justify-between text-[11px] font-mono border-b border-white/5 pb-2">
+                    <span className="text-gray-400">RESEARCH ALIGNMENT:</span>
                     {Object.values(checkedRequirements).filter(Boolean).length === 6 ? (
-                      <span className="text-brand-cyan font-bold uppercase">Optimal Alignment</span>
+                      <span className="text-brand-cyan font-bold uppercase tracking-wider">Optimal Alignment</span>
                     ) : Object.values(checkedRequirements).filter(Boolean).length >= 4 ? (
-                      <span className="text-blue-400 font-bold uppercase">Stable Research Support</span>
+                      <span className="text-blue-400 font-bold uppercase tracking-wider">Stable Research</span>
                     ) : (
-                      <span className="text-amber-500 font-bold uppercase">Special Calibration Study</span>
+                      <span className="text-[#FF6A00] font-bold uppercase tracking-wider">Custom Calibration</span>
                     )}
                   </div>
 
-                  <p className="text-xs text-gray-300 leading-relaxed font-sans pt-1">
+                  <p className="text-xs text-gray-250 leading-relaxed font-sans">
                     {Object.values(checkedRequirements).filter(Boolean).length === 6 && (
-                      "Your checked parameters are fully aligned with raw CAN bus analysis. This baseline configuration supports seamless, high-speed telemetry research."
+                      "Your checked parameters are fully aligned with raw CAN bus analysis. This baseline configuration supports seamless, high-speed telemetry research. Highly approved for pre-launch development pools."
                     )}
                     {Object.values(checkedRequirements).filter(Boolean).length >= 4 && Object.values(checkedRequirements).filter(Boolean).length < 6 && (
-                      "Solid diagnostic foundation. Typical vehicles in this envelope offer reliable voltage and OBD channels. Some calibration steps or accessories may be evaluated during research."
+                      "Diagnostic environment is stable. Standard vehicles within this perimeter offer highly reliable electrical flow and CAN query responses. Some calibration guides will assist your setup."
                     )}
                     {Object.values(checkedRequirements).filter(Boolean).length < 4 && (
-                      "A customized mechanical mounting setup or diagnostic interface cabling is recommended to establish high-speed telemetry channels."
+                      "A customized mechanical mounting setup or updated interface cabling will clear systemic blocks to establish secure diagnostic links."
                     )}
                   </p>
                 </div>
 
-                <div className="text-[10px] text-gray-500 leading-normal font-mono uppercase bg-brand-midnight/40 p-4 border border-white/5 rounded-xl">
+                <div className="text-[10px] text-gray-400 leading-normal font-mono uppercase bg-brand-midnight/40 p-4 border border-white/5 rounded-xl">
                   ⚠️ NOTICE: These parameters are provided for educational assessment and compatibility research. Final vehicle integration depends on physical configurations, and Astrateq Gadgets does not provide compatibility guarantees, pre-approvals, or regulatory credentials.
                 </div>
               </div>
@@ -1378,7 +1405,7 @@ export default function VehicleCompatibilityGuide() {
                   id="btn-reserve-lead-scroll"
                   href="#lead-capture-section"
                   onClick={(e) => { e.preventDefault(); scrollToSection(leadSectionRef); }}
-                  className="w-full py-4 rounded-xl bg-brand-cyan inline-flex items-center justify-center gap-2 text-brand-midnight font-bold text-sm hover:bg-white hover:shadow-cyan-glow transition-all active:scale-95 cursor-pointer text-center"
+                  className="w-full py-4.5 rounded-xl bg-gradient-to-r from-[#FF6A00] to-amber-500 inline-flex items-center justify-center gap-2.5 text-white font-bold text-sm tracking-wide hover:shadow-[0_0_20px_rgba(255,106,0,0.5)] transition-all duration-300 active:scale-95 cursor-pointer text-center hover:brightness-110"
                 >
                   <span>Request Full PDF Edition</span>
                   <ArrowRight className="h-4 w-4" />
@@ -1390,15 +1417,16 @@ export default function VehicleCompatibilityGuide() {
         </section>
 
         {/* SECTION 5: CANADIAN DRIVING CHALLENGES */}
-        <section id="section-canadiandriving" className="mb-24 py-12 px-8 bg-brand-space/20 border border-white/5 rounded-2xl relative">
+        <section id="section-canadiandriving" className="mb-24 py-16 px-8 bg-brand-space/45 border border-brand-cyan/25 shadow-[0_0_20px_rgba(0,212,255,0.12)] rounded-3xl relative overflow-hidden backdrop-blur-xl">
+          <div className="absolute top-0 right-0 h-40 w-40 bg-brand-cyan/5 rounded-full blur-3xl pointer-events-none" />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-12 text-center max-w-3xl mx-auto space-y-4">
-              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 05 // CANADIAN WEATHER SYSTEMS</div>
+              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/25">SECTION 05 // CANADIAN WEATHER SYSTEMS</div>
               <h2 className="text-3xl font-display font-medium text-white tracking-tight">
                 Built For Canadian Roads
               </h2>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
                 Driving across Canada introduces unprecedented environmental loads that traditional tech companies based in moderate climates fail to anticipate.
               </p>
             </div>
@@ -1446,38 +1474,38 @@ export default function VehicleCompatibilityGuide() {
         </section>
 
         {/* SECTION 6: DATA OWNERSHIP AND PRIVACY */}
-        <section id="section-data-privacy" className="mb-24">
+        <section id="section-data-privacy" className="mb-24 scroll-mt-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-5 relative">
-              <div className="border border-white/10 rounded-2xl bg-brand-space/30 p-6 md:p-8 space-y-6 relative overflow-hidden backdrop-blur-md">
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-red-500/5 rounded-full blur-2xl" />
+              <div className="border border-brand-cyan/25 rounded-3xl bg-brand-space/50 p-6 md:p-8 space-y-6 relative overflow-hidden backdrop-blur-xl shadow-[0_0_20px_rgba(0,212,255,0.08)]">
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-red-500/10 rounded-full blur-2xl pointer-events-none" />
                 
-                <h4 className="text-xs font-mono text-brand-cyan uppercase tracking-widest">TELEMETRY COMPARISON BRIEF</h4>
+                <h4 className="text-xs font-mono text-brand-cyan uppercase tracking-widest bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20 w-fit">TELEMETRY COMPARISON BRIEF</h4>
                 
-                <div className="space-y-4 text-xs font-mono">
-                  <div className="p-3 bg-white/5 rounded border-l-2 border-amber-400">
-                    <span className="text-amber-400 font-bold block mb-1">DATA DISCLOSURE INSIGHT</span>
-                    <span>Recent research indicates multiple vehicle manufacturers transmit driving records, coordinates, and general speed indicators to external agencies under various circumstances.</span>
+                <div className="space-y-4 text-xs font-mono pt-3">
+                  <div className="p-4 bg-red-950/20 rounded-2xl border border-red-500/25 shadow-[0_0_10px_rgba(239,68,68,0.1)]">
+                    <span className="text-red-400 font-bold block mb-1">DATA DISCLOSURE INSIGHT</span>
+                    <span className="text-gray-300">Recent research indicates multiple vehicle manufacturers transmit driving records, coordinates, and general speed indicators to external agencies under various circumstances.</span>
                   </div>
                   
-                  <div className="p-3 bg-white/5 rounded border-l-2 border-brand-cyan">
+                  <div className="p-4 bg-brand-cyan/5 rounded-2xl border border-brand-cyan/30 shadow-[0_0_10px_rgba(0,212,255,0.15)]">
                     <span className="text-brand-cyan font-bold block mb-1">ASTRATEQ GADGETS DESIGN APPROACH</span>
-                    <span>Astrateq Gadgets' software components compile and process diagnostics locally inside the vehicle. This approach is intended to support total driver isolation.</span>
+                    <span className="text-gray-300">Astrateq Gadgets' software components compile and process diagnostics locally inside the vehicle. This approach is intended to support total driver isolation.</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 06 // DATA PRIVACY PHILOSOPHY</div>
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/25">SECTION 06 // DATA PRIVACY PHILOSOPHY</div>
               
               <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight leading-tight">
                 Who Owns Your Vehicle Data? <br />
                 <span className="bg-gradient-to-r from-brand-cyan to-blue-200 bg-clip-text text-transparent">Connected Vehicles and Security</span>
               </h2>
 
-              <p className="text-gray-300 text-sm leading-relaxed">
+              <p className="text-gray-350 text-sm leading-relaxed">
                 As modern vehicle telematics grow, manufacturers commoditize continuous driving metrics. Insurance syndicates, credit agencies, and municipal servers routinely purchase live acceleration habits directly from cellular-connected auto frameworks.
               </p>
 
@@ -1486,13 +1514,13 @@ export default function VehicleCompatibilityGuide() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                <div className="p-4 rounded-xl bg-brand-space/10 border border-white/5 space-y-1">
+                <div className="p-5 rounded-2xl bg-brand-space/25 border border-brand-cyan/20 space-y-1.5 shadow-[0_0_15px_rgba(0,212,255,0.05)]">
                   <span className="text-white font-medium text-sm font-display block">Zero Cloud Dependencies</span>
-                  <span className="text-xs text-gray-500">Telemetry computations happen locally inside the vehicle cab.</span>
+                  <span className="text-xs text-gray-400">Telemetry computations happen locally inside the vehicle cab.</span>
                 </div>
-                <div className="p-4 rounded-xl bg-brand-space/10 border border-white/5 space-y-1">
+                <div className="p-5 rounded-2xl bg-brand-space/25 border border-brand-cyan/20 space-y-1.5 shadow-[0_0_15px_rgba(0,212,255,0.05)]">
                   <span className="text-white font-medium text-sm font-display block">Anonymized Local Loops</span>
-                  <span className="text-xs text-gray-500">Your trip sequences are never compiled into centralized profiles.</span>
+                  <span className="text-xs text-gray-400">Your trip sequences are never compiled into centralized profiles.</span>
                 </div>
               </div>
             </div>
@@ -1503,7 +1531,7 @@ export default function VehicleCompatibilityGuide() {
         {/* SECTION 6: QUESTIONS EVERY DRIVER SHOULD ASK BEFORE BUYING */}
         <section id="section-driver-questions" className="mb-24 scroll-mt-24">
           <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 06 // BUYER AWARENESS</div>
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/25">SECTION 06 // BUYER AWARENESS</div>
             <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
               Questions Every Driver Should Ask
             </h2>
@@ -1541,18 +1569,18 @@ export default function VehicleCompatibilityGuide() {
             ].map((item, idx) => (
               <div 
                 key={idx} 
-                className="p-6 rounded-2xl bg-gradient-to-b from-brand-space/40 to-brand-midnight border border-white/5 shadow-xl hover:border-brand-cyan/20 transition-all text-left flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-gradient-to-b from-brand-space/30 to-brand-midnight border border-brand-cyan/20 shadow-xl hover:border-[#FF6A00]/40 hover:shadow-[0_0_15px_rgba(255,106,0,0.15)] transition-all duration-300 text-left flex flex-col justify-between"
               >
                 <div className="space-y-4">
-                  <div className="h-2 w-10 bg-brand-cyan/30 rounded" />
-                  <h4 className="text-white font-display font-semibold text-base leading-snug tracking-tight">
+                  <div className="h-2 w-10 bg-[#FF6A00]/30 rounded-full" />
+                  <h4 className="text-white font-display font-semibold text-sm leading-snug tracking-tight">
                     {item.q}
                   </h4>
-                  <p className="text-gray-400 text-xs leading-relaxed font-sans">
+                  <p className="text-gray-400 text-[11px] leading-relaxed font-sans">
                     {item.a}
                   </p>
                 </div>
-                <div className="text-[9px] font-mono text-gray-500 uppercase tracking-widest mt-6">
+                <div className="text-[9px] font-mono text-gray-500 uppercase tracking-widest mt-6 pt-4 border-t border-white/5">
                   QUESTION CODE: {101 + idx} // EDU
                 </div>
               </div>
@@ -1563,21 +1591,22 @@ export default function VehicleCompatibilityGuide() {
         {/* SECTION 7: COMPARISON TABLE */}
         <section id="section-cloud-vs-edge" className="mb-24">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 07 // SYSTEMS COMPARISON</div>
+            <div className="inline-block text-[11px] font-mono text-[#FF6A00] tracking-widest uppercase bg-[#FF6A00]/10 px-3 py-1 rounded-full border border-[#FF6A00]/25">SECTION 07 // SYSTEMS COMPARISON</div>
             <h2 className="text-3xl font-display font-medium text-white tracking-tight">
               Questions Every Driver Should Consider
             </h2>
-            <p className="text-gray-300 text-sm">
+            <p className="text-[#FF6A00] text-xs font-mono uppercase">Compare how cloud-mandatory telemetry stack compares against Astrateq Gadgets edge loops</p>
+            <p className="text-gray-300 text-sm leading-relaxed">
               An educational, objective breakdown detailing product architecture considerations. Make an informed choice for your cockpit.
             </p>
           </div>
 
-          <div id="comparison-table-wrapper" className="overflow-x-auto rounded-2xl border border-white/10 bg-brand-space/10 backdrop-blur-md">
+          <div id="comparison-table-wrapper" className="overflow-x-auto rounded-3xl border border-brand-cyan/25 bg-brand-space/30 shadow-[0_0_20px_rgba(0,212,255,0.06)] backdrop-blur-xl">
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
-                <tr className="border-b border-white/15 bg-brand-space/35">
-                  <th className="p-5 font-mono text-xs uppercase tracking-wider text-gray-300">Topic</th>
-                  <th className="p-5 font-mono text-xs uppercase tracking-wider text-gray-400">What To Consider</th>
+                <tr className="border-b border-brand-cyan/15 bg-brand-space/55">
+                  <th className="p-6 font-mono text-xs uppercase tracking-wider text-brand-cyan font-bold">Topic</th>
+                  <th className="p-6 font-mono text-xs uppercase tracking-wider text-gray-300">What To Consider</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5 font-sans text-xs">
@@ -1603,9 +1632,9 @@ export default function VehicleCompatibilityGuide() {
                     desc: "Driver Control. Drivers should own the hardware and keep physical master keys. Software terms that utilize remote cloud servers permit companies to dynamically alter licensing or revoke features."
                   }
                 ].map((row, idx) => (
-                  <tr key={idx} className="hover:bg-white/5 transition-colors">
-                    <td className="p-5 font-medium text-white font-display text-sm whitespace-nowrap">{row.topic}</td>
-                    <td className="p-5 text-gray-300 leading-relaxed max-w-xl font-sans">{row.desc}</td>
+                  <tr key={idx} className="hover:bg-brand-cyan/5 transition-all duration-250">
+                    <td className="p-6 font-bold text-white font-display text-sm whitespace-nowrap border-r border-white/5">{row.topic}</td>
+                    <td className="p-6 text-gray-350 leading-relaxed max-w-xl font-sans">{row.desc}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1614,13 +1643,13 @@ export default function VehicleCompatibilityGuide() {
         </section>
 
         {/* SECTION 8: WHAT MAKES A VEHICLE ASTRATEQ GADGETS READY & BRAND EXPLORER */}
-        <section id="section-astrateq-ready" className="mb-24">
+        <section id="section-astrateq-ready" className="mb-24 scroll-mt-24">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 08 // TECHNICAL METRICS</div>
+            <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/25">SECTION 08 // TECHNICAL METRICS</div>
             <h2 className="text-3xl font-display font-medium text-white tracking-tight">
               What Makes a Vehicle Astrateq Gadgets Ready?
             </h2>
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-300 text-sm leading-relaxed">
               An transparent architectural overview of hardware expectations. No marketing fluff—just direct engineering guidelines.
             </p>
           </div>
@@ -1658,18 +1687,18 @@ export default function VehicleCompatibilityGuide() {
                 status: "Adaptive"
               }
             ].map((item, index) => (
-              <div key={index} className="p-6 rounded-xl bg-brand-space/30 border border-white/5 hover:border-brand-cyan/20 transition-all flex flex-col justify-between">
+              <div key={index} className="p-6 rounded-2xl bg-brand-space/45 border border-brand-cyan/20 hover:border-[#FF6A00]/40 hover:shadow-[0_0_15px_rgba(255,106,0,0.1)] transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <h4 className="text-white font-medium font-display tracking-tight text-base">{item.title}</h4>
-                    <span className="font-mono text-[9px] px-2.5 py-1 rounded bg-white/5 border border-white/10 text-brand-cyan uppercase tracking-wider font-bold">
+                    <h4 className="text-white font-bold font-display tracking-tight text-sm">{item.title}</h4>
+                    <span className="font-mono text-[9px] px-2.5 py-1 rounded bg-[#FF6A00]/10 border border-[#FF6A00]/25 text-[#FF6A00] uppercase tracking-wider font-bold">
                       {item.status}
                     </span>
                   </div>
-                  <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+                  <p className="text-gray-400 text-xs leading-relaxed font-sans">{item.desc}</p>
                 </div>
                 <div className="flex items-center gap-1.5 text-brand-cyan font-mono text-[10px] uppercase mt-6 pt-4 border-t border-white/5">
-                  <Check className="h-3 w-3" />
+                  <Check className="h-3.5 w-3.5 stroke-[2.5]" />
                   <span>Validation Passed Standard</span>
                 </div>
               </div>
@@ -1678,16 +1707,16 @@ export default function VehicleCompatibilityGuide() {
 
           {/* REAL-WORLD VEHICLE COMPATIBILITY SAMPLES */}
           <div className="mb-16 space-y-6">
-            <div className="border-l-2 border-brand-cyan pl-4">
+            <div className="border-l-2 border-brand-cyan pl-4 text-left">
               <h3 className="text-xl font-display font-medium text-white tracking-tight">
                 Common Vehicle Categories
               </h3>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-gray-400 font-sans">
                 These examples are provided for educational context only. Final compatibility may vary by model year, trim, electrical architecture, and installation configuration.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               {[
                 {
                   category: "Family SUVs",
@@ -1705,14 +1734,14 @@ export default function VehicleCompatibilityGuide() {
                   notes: "Highly responsive electric power steering feedback systems and standardized passenger cabin routing."
                 }
               ].map((cat, idx) => (
-                <div key={idx} className="p-5 rounded-xl bg-brand-space/20 border border-white/5 space-y-3 relative overflow-hidden">
-                  <div className="text-[10px] font-mono text-brand-cyan tracking-wider uppercase font-bold text-cyan-400">Category Class 0{idx + 1}</div>
-                  <h4 className="text-white font-medium text-base font-display">{cat.category}</h4>
-                  <div className="text-xs text-gray-300">
-                    <span className="text-gray-500 font-mono text-[9px] uppercase">Representative Models:</span><br/>
-                    <span className="font-sans text-white/95">{cat.examples}</span>
+                <div key={idx} className="p-6 rounded-2xl bg-brand-space/30 border border-brand-cyan/20 space-y-3 relative overflow-hidden hover:border-[#FF6A00]/30 transition-all duration-300">
+                  <div className="text-[10px] font-mono text-brand-cyan tracking-wider uppercase font-bold">Category Class 0{idx + 1}</div>
+                  <h4 className="text-white font-bold text-base font-display">{cat.category}</h4>
+                  <div className="text-xs text-gray-300 pt-1">
+                    <span className="text-gray-500 font-mono text-[9px] uppercase block mb-1">Representative Models:</span>
+                    <span className="font-sans text-white font-medium">{cat.examples}</span>
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed pt-2 border-t border-white/5">
+                  <p className="text-xs text-gray-400 leading-relaxed pt-3 border-t border-white/5">
                     {cat.notes}
                   </p>
                 </div>
@@ -1721,37 +1750,37 @@ export default function VehicleCompatibilityGuide() {
           </div>
 
           {/* BRAND EXPLORER COMPONENT */}
-          <div className="bg-brand-space/25 border border-white/10 rounded-2xl p-6 md:p-8 relative">
+          <div className="bg-brand-space/45 border border-brand-cyan/25 shadow-[0_0_20px_rgba(0,212,255,0.08)] rounded-3xl p-6 md:p-8 relative text-left">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
               <div>
                 <h3 className="text-lg font-display font-medium text-white flex items-center gap-2">
-                  <Cpu className="h-4.5 w-4.5 text-brand-cyan" />
+                  <Cpu className="h-5 w-5 text-brand-cyan" />
                   Canadian Vehicle Architecture Registry
                 </h3>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-gray-450 font-sans mt-1">
                   Search standard Canadian imports to access standard diagnostic layouts and estimated hardware compatibility.
                 </p>
               </div>
               
               {/* Search Box */}
               <div className="relative w-full md:w-80">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#FF6A00]" />
                 <input
                   id="vehicle-search"
                   type="text"
                   placeholder="Filter brands (e.g., Volvo, Toyota)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-brand-midnight/80 border border-white/10 rounded-xl py-2 pl-10 pr-4 text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan/20"
+                  className="w-full bg-brand-midnight border border-brand-cyan/25 rounded-xl py-2.5 pl-10 pr-4 text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00]/20 transition-all"
                 />
               </div>
             </div>
 
             {/* Simulated Data Grid */}
-            <div className="overflow-x-auto rounded-xl border border-white/5">
+            <div className="overflow-x-auto rounded-2xl border border-white/5">
               <table className="w-full text-left font-mono text-xs text-gray-400">
                 <thead>
-                  <tr className="bg-brand-midnight/90 text-gray-300 border-b border-white/10">
+                  <tr className="bg-brand-midnight text-gray-300 border-b border-brand-cyan/20">
                     <th className="p-4">Brand / Model Variant</th>
                     <th className="p-4">OBD Location</th>
                     <th className="p-4">Standard Bus Protocol</th>
@@ -1762,15 +1791,15 @@ export default function VehicleCompatibilityGuide() {
                 <tbody className="divide-y divide-white/5">
                   {filteredVehicles.length > 0 ? (
                     filteredVehicles.map((row, idx) => (
-                      <tr key={idx} className="hover:bg-white/5 transition-colors">
+                       <tr key={idx} className="hover:bg-brand-cyan/5 transition-colors">
                         <td className="p-4 font-sans font-medium text-white text-sm">{row.name}</td>
                         <td className="p-4 text-[11px] font-mono leading-relaxed">{row.obdLocation}</td>
                         <td className="p-4 text-[11px] text-brand-cyan">{row.protocol}</td>
-                        <td className="p-4 text-xs">
-                          <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${
+                        <td className="p-4 text-xs font-sans">
+                          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold ${
                             row.voltageStability === 'Ultra-Stable' 
-                              ? 'bg-purple-950 text-purple-300' 
-                              : 'bg-indigo-950 text-indigo-300'
+                              ? 'bg-purple-950/40 text-purple-300 border border-purple-500/10' 
+                              : 'bg-indigo-950/40 text-indigo-300 border border-indigo-500/10'
                           }`}>
                             {row.voltageStability}
                           </span>
@@ -1778,8 +1807,8 @@ export default function VehicleCompatibilityGuide() {
                         <td className="p-4 text-center">
                           <span className={`px-2.5 py-1 rounded text-[10.5px] font-mono tracking-wide ${
                             row.compatibilityStatus === 'Highly Aligned' 
-                              ? 'text-emerald-400 bg-emerald-950/20 border border-emerald-500/10' 
-                              : 'text-brand-cyan bg-brand-cyan/5 border border-brand-cyan/20'
+                              ? 'text-emerald-450 bg-emerald-950/45 border border-emerald-500/20' 
+                              : 'text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/25'
                           }`}>
                             {row.compatibilityStatus}
                           </span>
@@ -1804,36 +1833,36 @@ export default function VehicleCompatibilityGuide() {
         </section>
 
         {/* SECTION 9: THE FUTURE OF VEHICLE INTELLIGENCE */}
-        <section id="section-future-intelligence" className="mb-24 py-16 px-8 rounded-2xl bg-gradient-to-tr from-brand-midnight via-brand-space/30 to-brand-midnight border border-white/5 text-center relative overflow-hidden">
+        <section id="section-future-intelligence" className="mb-24 py-20 px-8 rounded-3xl bg-gradient-to-tr from-brand-midnight via-brand-space/45 to-brand-midnight border border-[#FF6A00]/25 shadow-[0_0_25px_rgba(255,106,0,0.06)] text-center relative overflow-hidden backdrop-blur-xl">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none" />
           
-          <div className="max-w-2xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider">
+          <div className="max-w-3xl mx-auto space-y-6 relative">
+            <div className="inline-flex items-center gap-2 bg-[#FF6A00]/10 border border-[#FF6A00]/25 px-4 py-1.5 rounded-full text-[#FF6A00] text-xs font-mono tracking-wider">
               <Sparkles className="h-3.5 w-3.5" />
               <span>THE HORIZON OF INTELLIGENT TRAVEL</span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-display font-medium text-white tracking-tight leading-tight">
               The Future of Vehicle Intelligence
             </h2>
             
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-sans">
               We envision a future where driver assistance systems aren't reliant on corporate service subscription pricing or commercial telemetry leaks. Sourcing local diagnostic speeds, high-temp vision parameters, and offline road databases can keep drivers completely secure.
             </p>
 
-            <p className="text-gray-400 text-xs leading-relaxed max-w-xl mx-auto">
+            <p className="text-gray-400 text-xs md:text-sm leading-relaxed max-w-xl mx-auto font-sans">
               Through local machine learning model configurations, Astrateq Gadgets is designing high-precision driver safety environments, passive vibration detection indices, and early thermographic brake feedback entirely within localized system architectures.
             </p>
 
-            <div className="flex justify-center gap-12 pt-8">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-12 pt-8">
               {[
                 { label: 'Local-First AI loops', val: '100% Offline' },
                 { label: 'Telemetry Protection', val: 'Absolute' },
                 { label: 'Canadian Designed', val: 'Arctic Grade' }
               ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-lg font-display font-medium text-white">{item.val}</div>
-                  <div className="text-[10px] text-gray-500 font-mono uppercase tracking-wider">{item.label}</div>
+                <div key={index} className="text-center bg-brand-midnight/60 px-6 py-4 rounded-2xl border border-white/5 min-w-[150px]">
+                  <div className="text-lg md:text-xl font-display font-bold text-white">{item.val}</div>
+                  <div className="text-[10px] text-gray-500 font-mono uppercase tracking-wider mt-1">{item.label}</div>
                 </div>
               ))}
             </div>
@@ -1842,19 +1871,19 @@ export default function VehicleCompatibilityGuide() {
 
         {/* WHERE ASTRATEQ GADGETS FITS SECTION */}
         <section id="where-astrateq-fits" className="mb-24">
-          <div className="border border-brand-cyan/20 bg-brand-space/35 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-            <div className="absolute -top-12 -right-12 h-44 w-44 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="border border-brand-cyan/25 bg-brand-space/35 rounded-[2rem] p-8 md:p-12 relative overflow-hidden backdrop-blur-xl shadow-[0_0_30px_rgba(0,212,255,0.1)]">
+            <div className="absolute -top-12 -right-12 h-64 w-64 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none" />
             
             <div className="space-y-8 relative">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider uppercase">
+              <div className="space-y-4 text-left">
+                <div className="inline-flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/25 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider uppercase">
                   <Layers className="h-3.5 w-3.5" />
                   <span>ARCHITECTURE REALITY CHECK</span>
                 </div>
-                <h2 className="text-3xl font-display font-medium text-white tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight leading-tight">
                   Where Astrateq Fits
                 </h2>
-                <p className="text-gray-300 text-sm leading-relaxed max-w-3xl">
+                <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-4xl">
                   Modern vehicles already contain advanced diagnostic and safety systems. Astrateq Gadgets is being designed around three core principles: privacy-first intelligence, local processing, and driver ownership.
                 </p>
                 <p className="text-gray-500 text-xs italic">
@@ -1862,7 +1891,7 @@ export default function VehicleCompatibilityGuide() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {
                     title: "Privacy First",
@@ -1880,63 +1909,64 @@ export default function VehicleCompatibilityGuide() {
                     icon: FileText
                   },
                   {
-                    title: "No Mandatory Cloud Dependency",
+                    title: "No Cloud Dependency",
                     desc: "Engine and cabin telemetry functions compile entirely offline. Perfect for expansive, remote high-latitude drives.",
                     icon: Server
                   }
                 ].map((principle, index) => {
                   const IconComponent = principle.icon;
                   return (
-                    <div key={index} className="p-6 rounded-2xl bg-brand-midnight/60 border border-white/5 space-y-4">
-                      <div className="p-3 bg-brand-cyan/5 rounded-xl border border-brand-cyan/20 w-fit">
-                        <IconComponent className="h-5 w-5 text-brand-cyan" />
+                    <div key={index} className="p-6 rounded-2xl bg-brand-midnight/60 border border-brand-cyan/20 hover:border-[#FF6A00]/40 hover:shadow-[0_0_15px_rgba(255,106,0,0.1)] transition-all duration-300 space-y-4 text-left flex flex-col justify-between">
+                      <div className="space-y-4">
+                        <div className="p-3 bg-[#FF6A00]/5 rounded-xl border border-[#FF6A00]/20 w-fit">
+                          <IconComponent className="h-5 w-5 text-[#FF6A00]" />
+                        </div>
+                        <h3 className="text-base font-display font-bold text-white">{principle.title}</h3>
+                        <p className="text-xs text-gray-405 leading-relaxed">{principle.desc}</p>
                       </div>
-                      <h3 className="text-base font-display font-medium text-white">{principle.title}</h3>
-                      <p className="text-xs text-slate-400 leading-relaxed">{principle.desc}</p>
                     </div>
                   );
                 })}
               </div>
 
-              <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
+              <div className="pt-4 flex flex-col sm:flex-row items-center gap-6">
                 <a
                   id="btn-where-astrateq-cta"
                   href="https://astrateqgadgets.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => logAnalyticsEvent('reserve_spot_clicked', { origin: 'where_astrateq_fits' })}
-                  className="px-6 py-3.5 rounded-xl bg-white hover:bg-brand-cyan text-brand-midnight font-medium flex items-center gap-2.5 transition-all shadow-xl active:scale-95 cursor-pointer text-sm"
+                  className="px-8 py-4 rounded-xl bg-white hover:bg-[#FF6A00] hover:text-white text-brand-midnight font-bold flex items-center gap-2.5 transition-all duration-300 shadow-2xl active:scale-95 cursor-pointer text-sm tracking-wide shadow-black hover:shadow-[0_0_20px_rgba(255,106,0,0.4)]"
                 >
                   <span>Explore Astrateq Priority Access</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4.5 w-4.5" />
                 </a>
-                <span className="text-xs text-gray-400 font-mono">
+                <span className="text-xs text-gray-400 font-mono text-left">
                   Designed for Canadian driving sovereignty and PIPEDA privacy alignment.
                 </span>
               </div>
             </div>
           </div>
         </section>
-
         {/* SECTION 8: LEAD CAPTURE SECTION */}
         <section id="lead-capture-section" className="mb-12 scroll-mt-24" ref={leadSectionRef}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
             {/* Lead capture form */}
-            <div className="lg:col-span-7 bg-brand-space border border-white/10 rounded-2xl p-8 shadow-2xl relative flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-brand-space/55 border border-brand-cyan/25 shadow-[0_0_25px_rgba(0,212,255,0.08)] rounded-[2rem] p-8 relative flex flex-col justify-between backdrop-blur-xl">
               <div className="space-y-6">
                 <div>
-                  <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase mb-2">LIMITED PRE-LAUNCH PROGRAM</div>
-                  <h3 className="text-2xl font-display font-medium text-white tracking-tight">
+                  <div className="inline-block text-[11px] font-mono text-[#FF6A00] tracking-widest uppercase mb-2 bg-[#FF6A00]/10 px-3 py-1 rounded-full border border-[#FF6A00]/25">LIMITED PRE-LAUNCH PROGRAM</div>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-white tracking-tight">
                     Download the Complete Canadian Vehicle Intelligence Toolkit
                   </h3>
-                  <p className="text-gray-300 text-xs leading-relaxed mt-2 font-sans">
+                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed mt-2 font-sans">
                     Get the complete guide, privacy checklist, vehicle readiness worksheet, and future Astrateq compatibility updates.
                   </p>
                 </div>
 
                 {/* PDF REQUIRED BENEFITS LIST */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 border-t border-b border-white/5 py-4 my-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 border-t border-b border-brand-cyan/15 py-5 my-2">
                   {[
                     "Digital Vehicle Compatibility & Safety Guide",
                     "Vehicle Privacy Checklist",
@@ -1945,7 +1975,7 @@ export default function VehicleCompatibilityGuide() {
                     "Early Access Notifications"
                   ].map((benefit, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-xs text-white font-sans">
-                      <Check className="h-4 w-4 text-brand-cyan shrink-0 font-bold" />
+                      <Check className="h-4.5 w-4.5 text-[#FF6A00] shrink-0 font-bold" />
                       <span>{benefit}</span>
                     </div>
                   ))}
@@ -1954,7 +1984,7 @@ export default function VehicleCompatibilityGuide() {
                 {!isSubmitted ? (
                   <form onSubmit={handleLeadSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-1">
+                      <div className="space-y-1 text-left">
                         <label className="text-[10.5px] font-mono uppercase tracking-wider text-gray-400">First Name</label>
                         <input
                           id="lead-name"
@@ -1963,10 +1993,10 @@ export default function VehicleCompatibilityGuide() {
                           placeholder="Arthur"
                           value={leadName}
                           onChange={(e) => setLeadName(e.target.value)}
-                          className="w-full bg-brand-midnight/90 border border-white/10 rounded-xl px-4 py-3 text-xs font-sans text-white placeholder-gray-600 focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan/20"
+                          className="w-full bg-brand-midnight/90 border border-brand-cyan/25 rounded-xl px-4 py-3 text-xs font-sans text-white placeholder-gray-600 focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00]/20 transition-all font-medium"
                         />
                       </div>
-                      <div className="space-y-1">
+                      <div className="space-y-1 text-left">
                         <label className="text-[10.5px] font-mono uppercase tracking-wider text-gray-400">Email Address</label>
                         <input
                           id="lead-email"
@@ -1975,7 +2005,7 @@ export default function VehicleCompatibilityGuide() {
                           placeholder="arthur@algonquin.ca"
                           value={leadEmail}
                           onChange={(e) => setLeadEmail(e.target.value)}
-                          className="w-full bg-brand-midnight/90 border border-white/10 rounded-xl px-4 py-3 text-xs font-sans text-white placeholder-gray-600 focus:outline-none focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan/20"
+                          className="w-full bg-brand-midnight/90 border border-brand-cyan/25 rounded-xl px-4 py-3 text-xs font-sans text-white placeholder-gray-600 focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00]/20 transition-all font-medium"
                         />
                       </div>
                     </div>
@@ -1985,7 +2015,7 @@ export default function VehicleCompatibilityGuide() {
                         id="btn-submit-lead"
                         type="submit"
                         disabled={isSubmitting}
-                        className={`w-full py-4 rounded-xl bg-brand-cyan text-brand-midnight font-bold text-sm tracking-wider hover:bg-white hover:shadow-cyan-glow transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2 ${
+                        className={`w-full py-4 rounded-xl bg-brand-cyan text-brand-midnight font-bold text-sm tracking-wider hover:bg-[#FF6A00] hover:text-white hover:shadow-[0_0_20px_rgba(255,106,0,0.45)] transition-all duration-300 active:scale-95 cursor-pointer flex items-center justify-center gap-2 ${
                           isSubmitting ? 'opacity-80 cursor-wait' : ''
                         }`}
                       >
@@ -1996,14 +2026,14 @@ export default function VehicleCompatibilityGuide() {
                           </>
                         ) : (
                           <>
-                            <Mail className="h-4.5 w-4.5 text-brand-midnight" />
+                            <Mail className="h-4.5 w-4.5" />
                             <span>Send Me The Toolkit</span>
                           </>
                         )}
                       </button>
                     </div>
 
-                    <div className="text-[10px] text-gray-500 font-mono leading-relaxed pt-2">
+                    <div className="text-[10px] text-gray-500 font-mono leading-relaxed pt-2 text-left">
                       🔒 PRIVACY REASSURANCE: No spam. No resale of your information. You can unsubscribe anytime. Astrateq Gadgets operates on strict GDPR &amp; PIPEDA data compliance security protocols.
                     </div>
                   </form>
@@ -2052,46 +2082,46 @@ export default function VehicleCompatibilityGuide() {
             </div>
 
             {/* Direct Reservation Conversion Callout */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-brand-space/50 via-brand-midnight to-brand-space/30 border border-white/10 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden text-left shadow-2xl">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-cyan/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="lg:col-span-5 bg-gradient-to-br from-brand-space/50 via-brand-midnight to-brand-space/30 border border-[#FF6A00]/25 shadow-[0_0_25px_rgba(255,106,0,0.08)] rounded-[2rem] p-8 flex flex-col justify-between relative overflow-hidden text-left backdrop-blur-xl">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF6A00]/5 rounded-full blur-3xl pointer-events-none" />
               
               <div className="space-y-6">
-                <div className="h-10 w-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
-                  <Car className="h-5 w-5" />
+                <div className="h-12 w-12 rounded-2xl bg-[#FF6A00]/10 border border-[#FF6A00]/25 flex items-center justify-center text-[#FF6A00] shadow-[0_0_15px_rgba(255,106,0,0.15)]">
+                  <Car className="h-6 w-6" />
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-xl font-display font-medium text-white tracking-tight">
+                  <h3 className="text-2xl font-display font-medium text-white tracking-tight">
                     Secure Your Priority Access
                   </h3>
-                  <p className="text-gray-300 text-xs leading-relaxed">
+                  <p className="text-gray-300 text-xs leading-relaxed font-sans">
                     Astrateq Gadgets' initial hardware batches are strictly limited due to precision arctic calibration standards. Reserving your spot registers your priority sequence.
                   </p>
                 </div>
 
-                <ul className="text-xs space-y-2.5 text-gray-400 font-sans">
-                  <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-brand-cyan shrink-0" />
+                <ul className="text-xs space-y-3 text-gray-400 font-sans">
+                  <li className="flex items-center gap-2.5">
+                    <Check className="h-4.5 w-4.5 text-[#FF6A00] shrink-0 font-bold" />
                     <span>Priority hardware batch sequencing allocation</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-brand-cyan shrink-0" />
+                  <li className="flex items-center gap-2.5">
+                    <Check className="h-4.5 w-4.5 text-[#FF6A00] shrink-0 font-bold" />
                     <span>Access to Canadian closed beta vision algorithms</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-brand-cyan shrink-0" />
+                  <li className="flex items-center gap-2.5">
+                    <Check className="h-4.5 w-4.5 text-[#FF6A00] shrink-0 font-bold" />
                     <span>Inviolable pricing priority protection</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="pt-8 space-y-3">
+              <div className="pt-8 space-y-4">
                 <a
                   id="btn-claim-reservation"
                   href="https://astrateqgadgets.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 rounded-xl bg-white text-brand-midnight font-bold text-center text-sm hover:bg-brand-cyan hover:shadow-cyan-glow transition-all duration-300 active:scale-95 block"
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[#FF6A00] to-amber-500 text-white font-bold text-center text-sm shadow-[0_0_20px_rgba(255,106,0,0.3)] hover:shadow-[0_0_30px_rgba(255,106,0,0.5)] transition-all duration-300 active:scale-98 block cursor-pointer"
                 >
                   Reserve Your Spot Now
                 </a>
@@ -2112,9 +2142,9 @@ export default function VehicleCompatibilityGuide() {
         </section>
 
         {/* AST-CONCEPT ART DIRECTION DECK */}
-        <section id="section-art-direction" className="mb-24 border-t border-white/5 pt-16">
+        <section id="section-art-direction" className="mb-24 border-t border-brand-cyan/25 pt-16">
           <div className="space-y-8">
-            <div className="space-y-3">
+            <div className="space-y-3 text-left">
               <div className="inline-flex items-center gap-2 bg-brand-cyan/10 border border-brand-cyan/20 px-3 py-1 rounded-full text-brand-cyan text-xs font-mono tracking-wider uppercase">
                 <Sparkles className="h-3 w-3" />
                 <span>EDITORIAL IMAGE SYSTEM</span>
@@ -2139,28 +2169,28 @@ export default function VehicleCompatibilityGuide() {
                         setSelectedArtDirectionIndex(index);
                         logAnalyticsEvent('art_direction_concept_selected', { concept: concept.title });
                       }}
-                      className={`w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center justify-between text-xs font-sans focus:outline-none cursor-pointer ${
+                      className={`w-full text-left p-4.5 rounded-2xl border transition-all duration-300 flex items-center justify-between text-xs font-sans font-semibold focus:outline-none cursor-pointer ${
                         isSelected 
-                          ? 'bg-brand-space/40 border-brand-cyan text-white shadow-lg shadow-brand-cyan/5' 
-                          : 'bg-brand-midnight/40 border-white/5 text-gray-400 hover:border-white/10 hover:text-white'
+                          ? 'bg-brand-space/55 border-[#FF6A00] text-white shadow-lg shadow-[#FF6A00]/10' 
+                          : 'bg-brand-midnight/40 border-brand-cyan/20 text-gray-400 hover:border-[#FF6A00]/50 hover:text-white'
                       }`}
                     >
                       <span>{concept.title}</span>
-                      <ChevronRight className={`h-4 w-4 text-gray-500 transition-transform ${isSelected ? 'translate-x-1 text-brand-cyan' : ''}`} />
+                      <ChevronRight className={`h-4.5 w-4.5 text-gray-550 transition-all ${isSelected ? 'translate-x-1.5 text-[#FF6A00]' : ''}`} />
                     </button>
                   );
                 })}
               </div>
 
               {/* Specification layout output */}
-              <div className="lg:col-span-7 p-6 rounded-2xl bg-brand-space border border-white/10 space-y-4 relative min-h-[280px] flex flex-col justify-between">
+              <div className="lg:col-span-7 p-6 rounded-2xl bg-brand-space/55 border border-brand-cyan/25 shadow-[0_0_20px_rgba(0,212,255,0.08)] space-y-4 relative min-h-[280px] flex flex-col justify-between backdrop-blur-xl">
                 <div className="space-y-4 text-left">
-                  <div className="flex items-center justify-between border-b border-white/5 pb-3">
-                    <span className="text-[10px] font-mono text-brand-cyan uppercase tracking-widest">ART DIRECTOR BRIEF // CONCEPT 0{selectedArtDirectionIndex + 1}</span>
-                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/30 px-2 py-0.5 rounded border border-emerald-500/10 uppercase">Verified Spec</span>
+                  <div className="flex items-center justify-between border-b border-brand-cyan/15 pb-4">
+                    <span className="text-[10px] font-mono text-brand-cyan uppercase tracking-widest bg-brand-cyan/10 px-2.5 py-0.5 rounded-full border border-brand-cyan/20">ART DIRECTOR BRIEF // CONCEPT 0{selectedArtDirectionIndex + 1}</span>
+                    <span className="text-[10px] font-mono text-emerald-450 bg-emerald-950/30 px-3 py-0.5 rounded-full border border-emerald-500/20 uppercase tracking-wide">Verified Spec</span>
                   </div>
                   
-                  <h3 className="text-lg font-display font-medium text-white">
+                  <h3 className="text-xl font-display font-bold text-white">
                     {IMAGES_ART_DIRECTION[selectedArtDirectionIndex].title}
                   </h3>
                   
@@ -2170,13 +2200,13 @@ export default function VehicleCompatibilityGuide() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/5 text-xs font-mono text-left">
-                  <div className="p-3 bg-brand-midnight/40 rounded border border-white/5">
+                  <div className="p-3 bg-brand-midnight/80 rounded-xl border border-brand-cyan/20">
                     <span className="text-gray-500 block text-[9px] uppercase">Camera Lens Rig Cap:</span>
                     <span className="text-white font-medium">{IMAGES_ART_DIRECTION[selectedArtDirectionIndex].focusLength}</span>
                   </div>
-                  <div className="p-3 bg-brand-midnight/40 rounded border border-white/5">
+                  <div className="p-3 bg-brand-midnight/80 rounded-xl border border-[#FF6A00]/20">
                     <span className="text-gray-500 block text-[9px] uppercase">Color Temperature:</span>
-                    <span className="text-brand-cyan font-medium">{IMAGES_ART_DIRECTION[selectedArtDirectionIndex].aspect}</span>
+                    <span className="text-[#FF6A00] font-medium">{IMAGES_ART_DIRECTION[selectedArtDirectionIndex].aspect}</span>
                   </div>
                 </div>
               </div>
@@ -2188,15 +2218,15 @@ export default function VehicleCompatibilityGuide() {
         <section id="section-faq" className="mb-24 scroll-mt-24">
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="text-center space-y-4">
-              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase">SECTION 09 // COMMON DRIVER INQUIRIES</div>
-              <h2 className="text-3xl font-display font-medium text-white tracking-tight">
+              <div className="inline-block text-[11px] font-mono text-brand-cyan tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/25">SECTION 09 // COMMON DRIVER INQUIRIES</div>
+              <h2 className="text-3xl md:text-4xl font-display font-medium text-white tracking-tight">
                 Frequently Asked Questions
               </h2>
               
               {/* Premium Warning Callout banner */}
-              <div className="p-4 rounded-xl bg-brand-space/30 border border-brand-cyan/20 text-xs text-brand-cyan font-sans max-w-2xl mx-auto flex items-center gap-3">
-                <Info className="h-5 w-5 shrink-0 text-brand-cyan" />
-                <span className="text-left">
+              <div className="p-4 rounded-xl bg-brand-space/35 border border-brand-cyan/25 shadow-[0_0_15px_rgba(0,212,255,0.05)] text-xs text-brand-cyan font-sans max-w-2xl mx-auto flex items-center gap-3">
+                <Info className="h-5.5 w-5.5 shrink-0 text-brand-cyan" />
+                <span className="text-left leading-relaxed">
                   <strong>Notice:</strong> This compatibility guide is provided exclusively for educational research. It does not provide product guarantees or certifiable physical pre-approvals.
                 </span>
               </div>
@@ -2208,25 +2238,25 @@ export default function VehicleCompatibilityGuide() {
                 return (
                   <div 
                     key={index} 
-                    className="rounded-2xl border border-white/5 bg-brand-space/20 hover:border-brand-cyan/10 transition-all overflow-hidden"
+                    className="rounded-2xl border border-brand-cyan/20 bg-brand-space/35 hover:border-[#FF6A00]/40 transition-all duration-300 overflow-hidden"
                   >
                     <button
                       id={`faq-btn-${index}`}
                       onClick={() => handleFaqToggle(index)}
-                      className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-1 focus:ring-brand-cyan/30 cursor-pointer"
+                      className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                     >
-                      <span className="text-sm font-medium text-white hover:text-brand-cyan transition-colors">
+                      <span className="text-sm font-bold text-white hover:text-[#FF6A00] transition-colors font-sans">
                         {faq.q}
                       </span>
                       <ChevronDown 
-                        className={`h-4.5 w-4.5 text-gray-500 transition-transform duration-300 ${
-                          isOpen ? 'rotate-180 text-brand-cyan' : ''
+                        className={`h-4.5 w-4.5 text-gray-500 transition-transform duration-350 ${
+                          isOpen ? 'rotate-180 text-[#FF6A00]' : ''
                         }`} 
                       />
                     </button>
                     
                     {isOpen && (
-                      <div className="px-6 pb-6 pt-2 border-t border-white/5 bg-brand-midnight/40 text-xs text-gray-350 leading-relaxed font-sans text-left">
+                      <div className="px-6 pb-6 pt-2 border-t border-brand-cyan/25 bg-brand-midnight/40 text-xs text-gray-355 leading-relaxed font-sans text-left">
                         <p>{faq.a}</p>
                       </div>
                     )}
@@ -2240,78 +2270,78 @@ export default function VehicleCompatibilityGuide() {
       </main>
 
       {/* DETAILED PREMIUM TECHNICAL FOOTER */}
-      <footer id="guide-footer" className="max-w-7xl mx-auto px-6 mt-24 pt-12 border-t border-white/5">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <footer id="guide-footer" className="max-w-7xl mx-auto px-6 mt-24 pt-16 border-t border-brand-cyan/20 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           
-          <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="h-7 w-7 rounded bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center">
-                <span className="text-brand-cyan font-display font-medium text-sm tracking-widest">A</span>
+          <div className="md:col-span-2 space-y-5 text-left">
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-8 rounded-xl bg-brand-cyan/10 border border-brand-cyan/25 flex items-center justify-center shadow-[0_0_10px_rgba(0,212,255,0.15)]">
+                <span className="text-brand-cyan font-display font-black text-sm tracking-widest">A</span>
               </div>
-              <span className="text-white font-display font-medium tracking-wide">Astrateq Gadgets</span>
+              <span className="text-white font-display font-bold tracking-wider text-base">Astrateq Gadgets</span>
             </div>
             
-            <p className="text-xs text-gray-500 max-w-sm leading-relaxed font-sans">
+            <p className="text-xs text-gray-400 max-w-sm leading-relaxed font-sans">
               Producers of privacy-first edge intelligence hardware, diagnostic software modules, and cold-weather computer interfaces designed specifically for Canadian drivers.
             </p>
             
-            <span className="text-[10px] text-gray-600 block font-mono">
+            <span className="text-[10px] text-gray-500 block font-mono">
               © 2026 Astrateq Gadgets. Built For Canadian Roads. All rights reserved.
             </span>
           </div>
 
-          <div className="space-y-3">
-            <h5 className="text-xs uppercase font-mono text-gray-300 tracking-wider">Educational Guides</h5>
-            <ul className="text-xs space-y-2 text-gray-500 font-sans">
+          <div className="space-y-4 text-left">
+            <h5 className="text-xs uppercase font-mono text-brand-cyan tracking-wider font-bold">Educational Guides</h5>
+            <ul className="text-xs space-y-3 text-gray-450 font-sans">
               <li>
-                <a href="#compatibility-calculator" className="hover:text-brand-cyan transition-colors">Digital Vehicle Compatibility Guide</a>
+                <a href="#compatibility-calculator" className="hover:text-[#FF6A00] transition-colors duration-200">Digital Vehicle Compatibility Guide</a>
               </li>
               <li>
-                <a href="#compatibility-calculator" className="hover:text-brand-cyan transition-colors">Diagnostic Compatibility Report</a>
+                <a href="#compatibility-calculator" className="hover:text-[#FF6A00] transition-colors duration-200">Diagnostic Compatibility Report</a>
               </li>
               <li>
-                <a href="#section-driver-questions" className="hover:text-brand-cyan transition-colors">Founding Member Guide</a>
+                <a href="#section-driver-questions" className="hover:text-[#FF6A00] transition-colors duration-200">Founding Member Guide</a>
               </li>
               <li>
-                <a href="#section-data-privacy" className="hover:text-brand-cyan transition-colors">Zero-Cloud Privacy Manifesto</a>
+                <a href="#section-data-privacy" className="hover:text-[#FF6A00] transition-colors duration-200">Zero-Cloud Privacy Manifesto</a>
               </li>
             </ul>
           </div>
 
-          <div className="space-y-3">
-            <h5 className="text-xs uppercase font-mono text-gray-300 tracking-wider">Astrateq ecosystem</h5>
-            <ul className="text-xs space-y-2 text-gray-500 font-sans">
+          <div className="space-y-4 text-left">
+            <h5 className="text-xs uppercase font-mono text-brand-cyan tracking-wider font-bold">Astrateq Ecosystem</h5>
+            <ul className="text-xs space-y-3 text-gray-450 font-sans">
               <li>
-                <a href="#lead-capture-section" className="hover:text-brand-cyan transition-colors">Astrateq Gadgets Pre-Launch Program</a>
+                <a href="#lead-capture-section" className="hover:text-[#FF6A00] transition-colors duration-200">Astrateq Gadgets Pre-Launch Program</a>
               </li>
               <li>
-                <a href="/privacy" className="hover:text-brand-cyan transition-colors">Privacy Policy</a>
+                <a href="/privacy" className="hover:text-[#FF6A00] transition-colors duration-200">Privacy Policy</a>
               </li>
               <li>
-                <a href="#lead-capture-section" className="hover:text-brand-cyan transition-colors">Contact</a>
+                <a href="#lead-capture-section" className="hover:text-[#FF6A00] transition-colors duration-200">Contact Us</a>
               </li>
             </ul>
           </div>
 
         </div>
 
-        <div className="py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-gray-600">
+        <div className="py-6 border-t border-brand-cyan/15 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-gray-500">
           <div>
-            DOCUMENT REGISTRY ID: <span className="text-gray-400">AST-DVC-2026</span> • CANADIAN GENERAL PUBLICATION ASSIGNMENT
+            DOCUMENT REGISTRY ID: <span className="text-gray-300">AST-DVC-2026</span> • CANADIAN GENERAL PUBLICATION ASSIGNMENT
           </div>
           <div className="flex items-center gap-4">
             <button 
               id="footer-back-to-top"
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-gray-500 hover:text-[#FF6A00] hover:underline transition-colors uppercase tracking-wider font-mono cursor-pointer bg-transparent border-none outline-none"
+              className="flex items-center gap-1.5 text-[#FF6A00] hover:text-[#FF8C33] hover:underline transition-all uppercase tracking-wider font-mono cursor-pointer bg-transparent border-none outline-none font-bold"
             >
-              <ArrowUp className="h-3.5 w-3.5 text-[#FF6A00]" />
+              <ArrowUp className="h-4 w-4 text-[#FF6A00] filter drop-shadow-[0_0_6px_rgba(255,106,0,0.8)] animate-pulse" />
               <span>Back to Top</span>
             </button>
             <span>•</span>
             <a href="/privacy" className="hover:text-brand-cyan transition-colors">PROVINCIAL CONTROLS EXEMPTION</a>
             <span>•</span>
-            <span>PIPED COMPLIANT</span>
+            <span>PIPEDA COMPLIANT</span>
           </div>
         </div>
       </footer>
@@ -2326,9 +2356,9 @@ export default function VehicleCompatibilityGuide() {
             exit={{ opacity: 0, y: 15 }}
             onClick={scrollToTop}
             title="Scroll to Top"
-            className="fixed bottom-6 right-6 p-3 rounded-full bg-brand-space/90 border border-[#FF6A00]/40 text-[#FF6A00] hover:bg-[#FF6A00] hover:text-brand-midnight shadow-[0_0_15px_-3px_rgba(255,106,0,0.4)] hover:shadow-[0_0_20px_rgba(255,106,0,0.65)] transition-all duration-300 z-50 cursor-pointer shadow-lg hover:scale-105 group"
+            className="fixed bottom-6 right-6 p-4 rounded-full bg-[#071120] border-2 border-[#FF6A00] text-[#FF6A00] hover:bg-[#FF6A00] hover:text-[#071120] shadow-[0_0_20px_rgba(255,106,0,0.7)] hover:shadow-[0_0_30px_rgba(255,106,0,0.9)] transition-all duration-300 z-50 cursor-pointer hover:scale-110 group"
           >
-            <ArrowUp className="h-5 w-5 group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUp className="h-6 w-6 group-hover:-translate-y-1 transition-transform filter drop-shadow-[0_0_6px_#FF6A00]" />
           </motion.button>
         )}
       </AnimatePresence>
