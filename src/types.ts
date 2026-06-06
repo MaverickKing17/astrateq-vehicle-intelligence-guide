@@ -42,6 +42,10 @@ export interface VehicleBrandMetrics {
   voltageStability: 'Robust' | 'Variable' | 'Ultra-Stable';
   compatibilityStatus: string; // e.g. 'Highly Aligned', 'Evaluation Recommended'
   notes: string;
+  year?: string;
+  make?: string;
+  model?: string;
+  powertrain?: string;
 }
 
 export interface AssessmentFactor {
