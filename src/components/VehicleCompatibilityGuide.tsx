@@ -493,9 +493,9 @@ export default function VehicleCompatibilityGuide() {
           <div className="flex items-center gap-3">
             <img 
               id="astrateq-brand-logo-img"
-              src="https://i.imgur.com/jBfhJCL.png" 
+              src="https://i.ibb.co/Z6hnHx3y/Gemini-Generated-Image-pta8i9pta8i9pta8.png" 
               alt="Astrateq Gadgets Logo" 
-              className="h-9 w-auto object-contain select-none transition-transform hover:scale-105 duration-200"
+              className="h-9 w-9 object-contain select-none transition-transform hover:scale-105 duration-200 rounded-lg filter drop-shadow-[0_0_8px_rgba(20,215,255,0.45)]"
               referrerPolicy="no-referrer"
             />
             <div className="flex flex-col">
@@ -2603,9 +2603,13 @@ export default function VehicleCompatibilityGuide() {
           
           <div className="md:col-span-2 space-y-5 text-left">
             <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded-xl bg-brand-cyan/10 border border-brand-cyan/25 flex items-center justify-center shadow-[0_0_10px_rgba(0,212,255,0.15)]">
-                <span className="text-brand-cyan font-display font-black text-sm tracking-widest">A</span>
-              </div>
+              <img 
+                id="footer-brand-logo"
+                src="https://i.ibb.co/Z6hnHx3y/Gemini-Generated-Image-pta8i9pta8i9pta8.png"
+                alt="Astrateq Gadgets Logo"
+                className="h-8 w-8 object-contain rounded-lg filter drop-shadow-[0_0_8px_rgba(20,215,255,0.4)]"
+                referrerPolicy="no-referrer"
+              />
               <span className="text-white font-display font-bold tracking-wider text-base">Astrateq Gadgets</span>
             </div>
             
